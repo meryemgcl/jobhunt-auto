@@ -5,8 +5,9 @@ class JobHuntTasks:
         return Task(
             description=(
                 "İnternette (varsayılan: LinkedIn/Web) Meryem'in profiline (AI Engineer, Frontend, Python) uygun olan "
-                "güncel ilanları ara. Aramalarında özellikle şu konumlara öncelik ver: Erzurum, Sivas, Kayseri ve UZAKTAN (Remote) çalışma imkanı sunan işler. "
-                "Minimum 3 potansiyel ilan bul ve bunların açıklamalarını çıkar."
+                "güncel ilanları, staj haberlerini, yetenek programlarını ve Zoom üzerinden yapılan teknik/kariyer etkinliklerini ara. "
+                "Aramalarında özellikle şu konumlara öncelik ver: Erzurum, Sivas, Kayseri ve UZAKTAN (Remote) çalışma imkanı sunan işler/stajlar. "
+                "Minimum 3 potansiyel fırsat bul ve bunların açıklamalarını çıkar."
             ),
             expected_output='Ham iş ilanları listesi (Firma, Başlık, Açıklama, Link).',
             agent=agent

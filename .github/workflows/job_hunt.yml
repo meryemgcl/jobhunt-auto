@@ -1,9 +1,9 @@
 name: Weekly AI Job Hunt
 
 on:
-  # Her Pazartesi saat 06:00 UTC'de (Türkiye Saati ile 09:00) çalışır
+  # Her gün saat 06:00 UTC'de (Türkiye Saati ile 09:00) çalışır
   schedule:
-    - cron: '0 6 * * 1'
+    - cron: '0 6 * * *'
   
   # GitHub üzerinden butona basarak manuel çalıştırmak için
   workflow_dispatch:
