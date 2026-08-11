@@ -1,3 +1,8 @@
+import sys
+import io
+# Windows terminalleri için emoji destekli UTF-8 çıktısını zorla
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+
 from crewai import Crew, Process
 from agents import JobHuntAgents
 from tasks import JobHuntTasks
