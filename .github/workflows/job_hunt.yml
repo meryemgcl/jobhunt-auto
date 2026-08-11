@@ -1,0 +1,38 @@
+name: Weekly AI Job Hunt
+
+on:
+  # Her Pazartesi saat 06:00 UTC'de (Türkiye Saati ile 09:00) çalışır
+  schedule:
+    - cron: '0 6 * * 1'
+  
+  # GitHub üzerinden butona basarak manuel çalıştırmak için
+  workflow_dispatch:
+
+jobs:
+  run-job-hunt-crew:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Kodu Klonla
+        uses: actions/checkout@v4
+        
+      - name: Python Kurulumu
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          
+      - name: Kütüphaneleri Kur
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          
+      - name: Ajanları Çalıştır ve E-Posta Gönder
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          USER_EMAIL_TO: ${{ secrets.USER_EMAIL_TO }}
+        run: |
+          python main.py
