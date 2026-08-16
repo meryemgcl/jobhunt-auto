@@ -44,8 +44,28 @@ def main():
     
     print("Konsey işbaşı yaptı! Ajanlar kendi aralarında anlaşıp raporu hazırlıyor...\n")
     
-    # Görevi Başlat (Burası normalde LLM API key ister)
-    result = job_hunt_crew.kickoff()
+    import time
+    max_retries = 3
+    result = None
+    for attempt in range(max_retries):
+        try:
+            print(f"Görevi Başlatılıyor... (Deneme {attempt + 1}/{max_retries})")
+            result = job_hunt_crew.kickoff()
+            break
+        except Exception as e:
+            error_str = str(e)
+            print(f"HATA: API İsteği başarısız oldu: {error_str}")
+            if "503" in error_str or "UNAVAILABLE" in error_str:
+                if attempt < max_retries - 1:
+                    print("Google Gemini API şu an aşırı yoğun (503). 30 saniye bekleniyor...")
+                    time.sleep(30)
+                else:
+                    print("Maksimum deneme sayısına ulaşıldı. Lütfen daha sonra tekrar deneyin.")
+                    sys.exit(1)
+            else:
+                # Beklenmeyen başka bir hataysa direkt çık
+                raise e
+                
     print("\n--- CREWAI FINAL RAPORU ---")
     print(result)
     
