@@ -8,7 +8,7 @@ class JobHuntAgents:
         
         # CrewAI'nin kendi LLM sarmalayıcısını kullanarak Gemini'yi tanımlıyoruz
         self.llm = LLM(
-            model="gemini/gemini-1.5-flash",
+            model="gemini/gemini-1.5-flash-8b",
             api_key=os.getenv("GEMINI_API_KEY")
         )
 
