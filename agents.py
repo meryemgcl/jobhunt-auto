@@ -1,15 +1,18 @@
 import os
-from crewai import Agent, LLM
+from crewai import Agent
+from langchain_google_genai import ChatGoogleGenerativeAI
 
 class JobHuntAgents:
     def __init__(self):
         # Ajanların sonsuz döngüye girmemesi için maksimum limit
         self.max_iter = 5
         
-        # CrewAI'nin kendi LLM sarmalayıcısını kullanarak Gemini'yi tanımlıyoruz
-        self.llm = LLM(
-            model="gemini/gemini-2.5-flash",
-            api_key=os.getenv("GEMINI_API_KEY")
+        # Langchain sarmalayıcısı ile Gemini'yi tanımlıyoruz (404 ve 503 hatalarını çözmek için)
+        self.llm = ChatGoogleGenerativeAI(
+            model="gemini-1.5-flash",
+            google_api_key=os.getenv("GEMINI_API_KEY"),
+            max_retries=10, # 503/429 hatalarında otomatik olarak bekleyip tekrar dener
+            timeout=120
         )
 
     def scout_agent(self):
