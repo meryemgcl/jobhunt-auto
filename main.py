@@ -55,7 +55,7 @@ def main():
     # Görevi Başlat (Retry mekanizması ile - 503 hatalarını önlemek için)
     import time
     import sys
-    max_retries = 3
+    max_retries = 5
     result = None
     for attempt in range(max_retries):
         try:
@@ -67,8 +67,8 @@ def main():
             print(f"HATA: API İsteği başarısız oldu: {error_str}")
             if "503" in error_str or "UNAVAILABLE" in error_str or "429" in error_str:
                 if attempt < max_retries - 1:
-                    print("Google Gemini API şu an aşırı yoğun veya geçici olarak ulaşılamıyor. 30 saniye bekleniyor...")
-                    time.sleep(30)
+                    print("Google Gemini API şu an aşırı yoğun veya geçici olarak ulaşılamıyor. 60 saniye bekleniyor...")
+                    time.sleep(60)
                 else:
                     print("Maksimum deneme sayısına ulaşıldı. Lütfen daha sonra tekrar deneyin.")
                     sys.exit(1)
