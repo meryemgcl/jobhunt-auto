@@ -29,9 +29,15 @@ def main():
     # Meta ajan şimdilik döngü dışı (gözlemci)
     # meta_boss = agents.meta_boss_agent() 
 
+    # 3. Hafızayı (Memory) Yükle
+    from services.memory import load_seen_jobs
+    seen_jobs = load_seen_jobs()
+    # Hafızanın şişmesini engellemek için son 30 linki ajana gönderelim
+    seen_jobs_str = ", ".join(seen_jobs[-30:]) if seen_jobs else "Yok"
+
     # Görevleri Ajanlara Ata
     search_task = tasks.search_jobs_task(scout)
-    eval_task = tasks.evaluate_jobs_task(critic, profile)
+    eval_task = tasks.evaluate_jobs_task(critic, profile, seen_jobs_str)
     hackathon_task = tasks.hackathon_search_task(scout)
     opensource_task = tasks.opensource_search_task(scout)
     freelance_task = tasks.freelance_search_task(scout)
@@ -89,6 +95,13 @@ def main():
     
     # Raporu n8n Webhook'una gönder (n8n Entegrasyonu)
     send_to_n8n(report_str)
+    
+    # Hafızayı Güncelle (Yeni bulunan linkleri kaydet)
+    import re
+    from services.memory import add_seen_jobs
+    found_urls = re.findall(r'(https?://\S+)', report_str)
+    if found_urls:
+        add_seen_jobs(found_urls)
     
     print("\n[MOCK] Ajanlar aralarında konuştu, ilanları filtreledi ve mail metnini hazırladı.")
     print("Tüm süreç CrewAI mimarisiyle otonom olarak (AutoGPT mantığı) kurgulandı ve rapor yollandı.")
