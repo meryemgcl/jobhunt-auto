@@ -32,19 +32,29 @@ def main():
     # Görevleri Ajanlara Ata
     search_task = tasks.search_jobs_task(scout)
     eval_task = tasks.evaluate_jobs_task(critic, profile)
+    hackathon_task = tasks.hackathon_search_task(scout)
+    opensource_task = tasks.opensource_search_task(scout)
+    freelance_task = tasks.freelance_search_task(scout)
+    news_task = tasks.tech_news_task(scout)
     email_task = tasks.draft_email_task(colleague)
     
     # 3. Konseyi (Crew) Kur
     job_hunt_crew = Crew(
         agents=[scout, critic, colleague],
-        tasks=[search_task, eval_task, email_task],
-        process=Process.sequential,  # Scout -> Critic -> Colleague sırasıyla çalışır
+        tasks=[
+            search_task, eval_task, 
+            hackathon_task, opensource_task, freelance_task, news_task, 
+            email_task
+        ],
+        process=Process.sequential,  # Sırasıyla çalışır
         verbose=True
     )
     
     print("Konsey işbaşı yaptı! Ajanlar kendi aralarında anlaşıp raporu hazırlıyor...\n")
     
+    # Görevi Başlat (Retry mekanizması ile - 503 hatalarını önlemek için)
     import time
+    import sys
     max_retries = 3
     result = None
     for attempt in range(max_retries):
@@ -55,9 +65,9 @@ def main():
         except Exception as e:
             error_str = str(e)
             print(f"HATA: API İsteği başarısız oldu: {error_str}")
-            if "503" in error_str or "UNAVAILABLE" in error_str:
+            if "503" in error_str or "UNAVAILABLE" in error_str or "429" in error_str:
                 if attempt < max_retries - 1:
-                    print("Google Gemini API şu an aşırı yoğun (503). 30 saniye bekleniyor...")
+                    print("Google Gemini API şu an aşırı yoğun veya geçici olarak ulaşılamıyor. 30 saniye bekleniyor...")
                     time.sleep(30)
                 else:
                     print("Maksimum deneme sayısına ulaşıldı. Lütfen daha sonra tekrar deneyin.")
@@ -65,15 +75,20 @@ def main():
             else:
                 # Beklenmeyen başka bir hataysa direkt çık
                 raise e
-                
+
     print("\n--- CREWAI FINAL RAPORU ---")
     print(result)
     
     # Raporu E-Posta olarak gönder
     from services.notification_and_meta.notifier import send_email_report
+    from services.n8n_client import send_to_n8n
     
     # result objesi CrewOutput türündedir, string formatına çevirip yolluyoruz
-    send_email_report(str(result))
+    report_str = str(result)
+    send_email_report(report_str)
+    
+    # Raporu n8n Webhook'una gönder (n8n Entegrasyonu)
+    send_to_n8n(report_str)
     
     print("\n[MOCK] Ajanlar aralarında konuştu, ilanları filtreledi ve mail metnini hazırladı.")
     print("Tüm süreç CrewAI mimarisiyle otonom olarak (AutoGPT mantığı) kurgulandı ve rapor yollandı.")
