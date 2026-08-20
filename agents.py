@@ -17,7 +17,7 @@ class JobHuntAgents:
         # Ajanların sonsuz döngüye girmemesi için maksimum limit
         self.max_iter = 5
         
-        # gemini-flash-latest: ücretsiz katmanda daha yüksek rate limit, 404 vermiyor
+        # gemini-flash-latest: 503 geçti, yeniden erişilebilir
         self.llm = LLM(
             model="gemini/gemini-flash-latest",
             api_key=os.getenv("GEMINI_API_KEY")
