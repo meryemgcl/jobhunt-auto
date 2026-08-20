@@ -1,5 +1,8 @@
 crewai
+crewai-tools
 langchain-google-genai
+langchain-community
+duckduckgo-search
 google-genai
 python-dotenv
 pydantic

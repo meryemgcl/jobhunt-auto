@@ -22,16 +22,32 @@ def send_email_report(content):
 
     print(f"📧 Rapor {user_email_to} adresine gönderiliyor...")
 
-    msg = MIMEMultipart()
-    msg['From'] = smtp_user
+    msg = MIMEMultipart('alternative')
+    msg['From'] = f"JobHunt-Auto 🤖 <{smtp_user}>"
     msg['To'] = user_email_to
-    msg['Subject'] = "JobHunt-Auto: Haftalık İş İlanı Raporun Hazır!"
+    msg['Subject'] = "🚀 JobHunt-Auto | Günlük Kariyer Bültenin Hazır!"
 
-    # E-posta gövdesini oluştur
-    body = f"Selam Meryem,\n\nSistemin arkasındaki iş arkadaşından (AI) yeni bir raporun var.\n\n{content}\n\nSevgiler,\nOtonom İş Arama Asistanın"
+    # Düz metin (fallback) ve HTML gövdelerini hazırla
+    plain_body = f"JobHunt-Auto Günlük Bülten\n\n{content}\n\nSevgilerle,\nJobHunt-Auto Asistanın 🤖"
     
-    # E-posta içeriği UTF-8 formatında eklenmeli
-    msg.attach(MIMEText(body, 'plain', 'utf-8'))
+    html_body = f"""
+    <html><body style="font-family: Arial, sans-serif; max-width: 700px; margin: auto; color: #333;">
+      <div style="background:#1a1a2e;padding:20px;border-radius:8px 8px 0 0;text-align:center;">
+        <h1 style="color:#e94560;margin:0;">🚀 JobHunt-Auto</h1>
+        <p style="color:#aaa;margin:5px 0;">Yapay Zeka Destekli Kariyer Asistanın</p>
+      </div>
+      <div style="background:#f9f9f9;padding:25px;border-radius:0 0 8px 8px;border:1px solid #eee;">
+        <pre style="white-space:pre-wrap;font-family:Arial,sans-serif;font-size:14px;line-height:1.6;">{content}</pre>
+      </div>
+      <p style="text-align:center;color:#aaa;font-size:12px;margin-top:10px;">
+        Bu e-posta <b>JobHunt-Auto</b> tarafından otomatik olarak gönderilmiştir.
+      </p>
+    </body></html>
+    """
+
+    # Hem düz metin hem HTML ekle (istemci HTML desteklemiyorsa düz metni gösterir)
+    msg.attach(MIMEText(plain_body, 'plain', 'utf-8'))
+    msg.attach(MIMEText(html_body, 'html', 'utf-8'))
 
     try:
         # TLS bağlantısı kur

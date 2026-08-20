@@ -1,5 +1,17 @@
 import os
 from crewai import Agent, LLM
+from crewai_tools import tool
+from langchain_community.tools import DuckDuckGoSearchRun
+
+# Gerçek internet araması yapan araç (404 halüsinasyonunu önler)
+_ddg_search = DuckDuckGoSearchRun()
+
+@tool("Gerçek Web Araması")
+def web_search_tool(query: str) -> str:
+    """DuckDuckGo üzerinden gerçek web araması yapar ve gerçek sonuçlar döndürür. 
+    Kullan: iş ilanı, staj, hackathon, freelance fırsat veya haber ararken.
+    UYARI: Sadece bu araçtan gelen URL'leri kullan, asla URL uydurma!"""
+    return _ddg_search.run(query)
 
 class JobHuntAgents:
     def __init__(self):
@@ -8,7 +20,7 @@ class JobHuntAgents:
         
         # CrewAI'nin kendi LLM sarmalayıcısını kullanarak Gemini'yi tanımlıyoruz
         self.llm = LLM(
-            model="gemini/gemini-1.5-flash",
+            model="gemini/gemini-3.6-flash",
             api_key=os.getenv("GEMINI_API_KEY")
         )
 
@@ -16,7 +28,14 @@ class JobHuntAgents:
         return Agent(
             role='Kıdemli İlan Araştırmacısı (Scout)',
             goal='İnternette (LinkedIn, Startup vb.) Meryem Güçlü için en uygun ve en taze iş/staj ilanlarını bulmak.',
-            backstory="Sen interneti çok iyi kullanabilen bir kariyer avcısısın. Sürekli yeni fırsatlar arar ve bulduğun ham ilanları eleştirmenine (Critic) sunarsın.",
+            backstory=(
+                "Sen interneti çok iyi kullanabilen bir kariyer avcısısın. "
+                "Elinde gerçek bir arama motoru aracı var ve bunu kullanarak GERÇEK ilanları bulursun. "
+                "ASLA link uydurmazsın. Sadece 'Gerçek Web Araması' aracından gelen, "
+                "gerçek ve tıklanabilir URL'leri rapora eklersin. "
+                "Bulduğun ham ilanları eleştirmenine (Critic) sunarsın."
+            ),
+            tools=[web_search_tool],
             verbose=True,
             allow_delegation=False,
             max_iter=self.max_iter,
