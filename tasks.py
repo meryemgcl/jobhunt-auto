@@ -4,13 +4,17 @@ class JobHuntTasks:
     def search_jobs_task(self, agent):
         return Task(
             description=(
-                "İnternette (özellikle LinkedIn, GitHub, Kariyer.net vb. platformlarda) yazılım odaklı, "
-                "bilgisayar programcılığı, yazılım geliştirme (Frontend/Backend/AI) üzerine güncel iş ilanlarını ara. "
-                "Buna ek olarak, Türkiye genelindeki uzaktan (online) teknoloji eğitim programlarını, bootcamp'leri "
-                "ve yazılım odaklı staj başvurularını (Remote veya hibrit) tespit et. "
-                "Minimum 5 potansiyel fırsat bul ve bunların açıklamalarını, başvuru linkleriyle birlikte detaylıca listele."
+                "Arama aracını (Gerçek Web Araması) kullanarak aşağıdaki 4 kategoride gerçek fırsatlar bul. "
+                "Her kategoride en az 2-3 sonuç getir. ASLA link uydurma, sadece araçtan gelen gerçek URL'leri kullan.\n\n"
+                "1. İŞ/STAJ: LinkedIn, Kariyer.net, Youthall veya Techcareer'de yazılım (Python/AI/Backend) iş ve staj ilanları.\n"
+                "2. HACKATHON/ETKİNLİK: Devpost, Teknofest veya Mlh'de aktif yazılım yarışmaları veya hackathonlar.\n"
+                "3. FREELANCE: Bionluk veya Upwork'te Python, web scraping veya AI otomasyonu içeren 1-3 günlük mikro işler.\n"
+                "4. HABER: Teknoloji dünyasından bu hafta öne çıkan 2 güncel gelişme (AI, Python, yazılım sektörü).\n\n"
+                "Her sonuç için: Başlık, kısa açıklama ve GERÇEK link yaz."
             ),
-            expected_output='Yazılım iş ilanları, eğitim programları ve staj fırsatlarından oluşan detaylı liste (Firma/Kurum, Başlık, Link).',
+            expected_output=(
+                'Dört kategoride (İş/Staj, Hackathon, Freelance, Haber) gerçek URL içeren detaylı fırsat listesi.'
+            ),
             agent=agent
         )
 

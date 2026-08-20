@@ -35,21 +35,16 @@ def main():
     # Hafızanın şişmesini engellemek için son 30 linki ajana gönderelim
     seen_jobs_str = ", ".join(seen_jobs[-30:]) if seen_jobs else "Yok"
 
-    # Görevleri Ajanlara Ata
+    # Görevleri Ajanlara Ata (Rate Limit önlemek için tek kapsamlı arama görevi)
     search_task = tasks.search_jobs_task(scout)
     eval_task = tasks.evaluate_jobs_task(critic, profile, seen_jobs_str)
-    hackathon_task = tasks.hackathon_search_task(scout)
-    opensource_task = tasks.opensource_search_task(scout)
-    freelance_task = tasks.freelance_search_task(scout)
-    news_task = tasks.tech_news_task(scout)
     email_task = tasks.draft_email_task(colleague)
     
     # 3. Konseyi (Crew) Kur
     job_hunt_crew = Crew(
         agents=[scout, critic, colleague],
         tasks=[
-            search_task, eval_task, 
-            hackathon_task, opensource_task, freelance_task, news_task, 
+            search_task, eval_task,
             email_task
         ],
         process=Process.sequential,  # Sırasıyla çalışır

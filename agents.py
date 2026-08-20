@@ -1,26 +1,25 @@
 import os
 from crewai import Agent, LLM
-from crewai_tools import tool
+from crewai.tools import tool
 from langchain_community.tools import DuckDuckGoSearchRun
 
 # Gerçek internet araması yapan araç (404 halüsinasyonunu önler)
-_ddg_search = DuckDuckGoSearchRun()
+_ddg = DuckDuckGoSearchRun()
 
 @tool("Gerçek Web Araması")
 def web_search_tool(query: str) -> str:
-    """DuckDuckGo üzerinden gerçek web araması yapar ve gerçek sonuçlar döndürür. 
-    Kullan: iş ilanı, staj, hackathon, freelance fırsat veya haber ararken.
-    UYARI: Sadece bu araçtan gelen URL'leri kullan, asla URL uydurma!"""
-    return _ddg_search.run(query)
+    """DuckDuckGo ile canlı arama yapar. İş ilanı, staj, hackathon, freelance veya haber ararken kullan.
+    KURAL: Sadece bu araçtan dönen gerçek URL'leri rapora ekle. Asla URL uydurma!"""
+    return _ddg.run(query)
 
 class JobHuntAgents:
     def __init__(self):
         # Ajanların sonsuz döngüye girmemesi için maksimum limit
         self.max_iter = 5
         
-        # CrewAI'nin kendi LLM sarmalayıcısını kullanarak Gemini'yi tanımlıyoruz
+        # gemini-flash-latest: ücretsiz katmanda daha yüksek rate limit, 404 vermiyor
         self.llm = LLM(
-            model="gemini/gemini-3.6-flash",
+            model="gemini/gemini-flash-latest",
             api_key=os.getenv("GEMINI_API_KEY")
         )
 
