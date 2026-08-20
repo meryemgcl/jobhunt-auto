@@ -14,14 +14,16 @@ class JobHuntTasks:
             agent=agent
         )
 
-    def evaluate_jobs_task(self, agent, cv_profile_json):
+    def evaluate_jobs_task(self, agent, cv_profile_json, seen_jobs_str="Yok"):
         return Task(
             description=(
                 f"Scout tarafından getirilen iş, staj ve eğitim fırsatlarını şu profil ile karşılaştır: {cv_profile_json}\n"
                 "Her fırsat için 100 üzerinden bir Eşleşme Skoru (Match Score) belirle. Skoru 60'ın "
-                "altında olanları ele. Kalanlar için 'Neden Uygun?' gerekçesini yaz."
+                "altında olanları ele. Kalanlar için 'Neden Uygun?' gerekçesini yaz.\n\n"
+                f"ÖNEMLİ KURAL: Şu fırsatlar kullanıcıya daha önce e-posta olarak gönderildi: {seen_jobs_str}\n"
+                "Lütfen yukarıdaki listede bulunan fırsatları/firmaları kesinlikle tekrar önerme ve elenenler listesine ekle."
             ),
-            expected_output='Onaylanan fırsatlar ve her biri için detaylı gerekçe raporu.',
+            expected_output='Onaylanan (yeni) fırsatlar ve her biri için detaylı gerekçe raporu.',
             agent=agent
         )
 
