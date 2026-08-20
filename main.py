@@ -48,6 +48,7 @@ def main():
             email_task
         ],
         process=Process.sequential,  # Sırasıyla çalışır
+        task_callback=lambda output: __import__('time').sleep(20),  # Ajanlar arası 20sn bekleme (503 önlemi)
         verbose=True
     )
     
