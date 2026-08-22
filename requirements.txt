@@ -3,6 +3,7 @@ crewai-tools
 langchain-google-genai
 langchain-community
 duckduckgo-search
+ddgs
 google-genai
 python-dotenv
 pydantic
