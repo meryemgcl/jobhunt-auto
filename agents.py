@@ -1,4 +1,5 @@
 import os
+import requests
 from crewai import Agent, LLM
 from crewai.tools import tool
 from langchain_community.tools import DuckDuckGoSearchRun
@@ -12,13 +13,37 @@ def web_search_tool(query: str) -> str:
     KURAL: Sadece bu araçtan dönen gerçek URL'leri rapora ekle. Asla URL uydurma!"""
     return _ddg.run(query)
 
+# Fallback zincirinde denenecek modeller (en iyiden yedeğe)
+_MODELS = [
+    "gemini/gemini-flash-latest",
+    "gemini/gemini-3.6-flash",
+    "gemini/gemini-1.5-flash",
+    "gemini/gemini-1.5-pro",
+]
+
+def get_working_llm():
+    """Sırayla Gemini modellerini test eder, çalışan ilk modeli döndürür (503/429 bypass)."""
+    key = os.getenv("GEMINI_API_KEY")
+    if not key:
+        return LLM(model="gemini/gemini-3.6-flash")
+    for model in _MODELS:
+        model_id = model.replace("gemini/", "")
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_id}:generateContent?key={key}"
+        try:
+            r = requests.post(url, json={"contents": [{"parts": [{"text": "Hi"}]}]}, timeout=10)
+            if r.status_code == 200:
+                print(f"[LLM] Aktif model: {model}")
+                return LLM(model=model, api_key=key)
+            print(f"[LLM] {model} -> {r.status_code}, bir sonrakine geciliyor...")
+        except Exception as e:
+            print(f"[LLM] {model} -> hata: {str(e)[:40]}, bir sonrakine geciliyor...")
+    print("[LLM] Tum modeller mesgul, varsayilan kullaniliyor.")
+    return LLM(model="gemini/gemini-3.6-flash", api_key=key)
+
 class JobHuntAgents:
     def __init__(self):
-        # gemini-3.6-flash: test edildi, su an calisyor
-        self.llm = LLM(
-            model="gemini/gemini-3.6-flash",
-            api_key=os.getenv("GEMINI_API_KEY")
-        )
+        # Statik model yerine fallback destekli dinamik model secici
+        self.llm = get_working_llm()
 
     def scout_agent(self):
         return Agent(
