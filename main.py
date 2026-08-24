@@ -1,5 +1,6 @@
 import sys
 import io
+import time
 # Windows terminalleri için emoji destekli UTF-8 çıktısını zorla
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
@@ -11,6 +12,12 @@ from dotenv import load_dotenv
 
 # .env dosyasını yükle
 load_dotenv()
+
+def task_cooldown(output):
+    """Ajanlar arası bekleme (503/rate limit önlemi) - modül seviyesi fonksiyon."""
+    print("⏳ Sonraki ajan için 25 saniye bekleniyor (API rate limit önlemi)...")
+    time.sleep(25)
+
 
 def main():
     print("🤖 AutoGPT (CrewAI) Tabanlı JobHunt-Auto Başlatılıyor...\n")
@@ -48,7 +55,7 @@ def main():
             email_task
         ],
         process=Process.sequential,  # Sırasıyla çalışır
-        task_callback=lambda output: __import__('time').sleep(20),  # Ajanlar arası 20sn bekleme (503 önlemi)
+        task_callback=task_cooldown,  # Ajanlar arası 25sn bekleme (modül seviyesi fonksiyon)
         verbose=True
     )
     
