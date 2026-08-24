@@ -9,5 +9,8 @@ python-dotenv
 markdown
 pydantic
 requests
+beautifulsoup4
+scikit-learn
+numpy
 fastapi
 uvicorn

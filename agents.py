@@ -1,7 +1,12 @@
 import os
+import requests
+import json
 from crewai import Agent, LLM
 from crewai.tools import tool
 from langchain_community.tools import DuckDuckGoSearchRun
+from services.scraper import scrape_url_text
+from services.cv_matcher import get_cv_similarity_score
+from services.profile_analyzer.analyzer import get_mock_profile
 
 # Gerçek internet araması yapan araç (404 halüsinasyonunu önler)
 _ddg = DuckDuckGoSearchRun()
@@ -12,7 +17,18 @@ def web_search_tool(query: str) -> str:
     KURAL: Sadece bu araçtan dönen gerçek URL'leri rapora ekle. Asla URL uydurma!"""
     return _ddg.run(query)
 
-import requests
+@tool("İlan Sayfasını Oku")
+def scrape_page_tool(url: str) -> str:
+    """Bir ilanın tam metnini okumak için bu aracı kullan. URL vermelisin."""
+    return scrape_url_text(url)
+
+@tool("Lokal NLP CV Eşleştirme")
+def cv_similarity_tool(job_description: str) -> str:
+    """İlan metni ile CV'yi yerel olarak kıyaslayıp benzerlik puanı (%0-100) döndürür. Kotadan tasarruf sağlar."""
+    profile = get_mock_profile()
+    cv_text = json.dumps(profile, ensure_ascii=False)
+    score = get_cv_similarity_score(job_description, cv_text)
+    return f"Benzerlik Skoru: {score}%"
 
 # Fallback zincirinde denenecek modeller (En iyiden yedeğe doğru)
 MODELS_TO_TRY = [
@@ -55,12 +71,14 @@ class JobHuntAgents:
             goal='İnternette (LinkedIn, Startup vb.) Meryem Güçlü için en uygun ve en taze iş/staj ilanlarını bulmak.',
             backstory=(
                 "Sen interneti çok iyi kullanabilen bir kariyer avcısısın. "
-                "Elinde gerçek bir arama motoru aracı var ve bunu kullanarak GERÇEK ilanları bulursun. "
-                "ASLA link uydurmazsın. Sadece 'Gerçek Web Araması' aracından gelen, "
-                "gerçek ve tıklanabilir URL'leri rapora eklersin. "
-                "Bulduğun ham ilanları eleştirmenine (Critic) sunarsın."
+                "Elinde 3 tane süper güç (araç) var:\n"
+                "1. 'Gerçek Web Araması' ile ilan URL'lerini bulursun.\n"
+                "2. 'İlan Sayfasını Oku' aracı ile o URL'ye gidip ilanın tam metnini okursun.\n"
+                "3. 'Lokal NLP CV Eşleştirme' aracı ile ilanın adaya % kaç uygun olduğuna bakarsın.\n"
+                "KURAL: Yalnızca benzerlik skoru %5'in (0.05) üzerinde olan ilanları Manager'a ve Critic'e sun! "
+                "İlanı bul -> Oku -> Eşleştir -> Uygunsa Listeye Ekle."
             ),
-            tools=[web_search_tool],
+            tools=[web_search_tool, scrape_page_tool, cv_similarity_tool],
             verbose=True,
             allow_delegation=False,
             max_iter=15,  # 4 kategori × birden fazla arama adımı için yeterli
