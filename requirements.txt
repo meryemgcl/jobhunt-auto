@@ -6,6 +6,7 @@ duckduckgo-search
 ddgs
 google-genai
 python-dotenv
+markdown
 pydantic
 requests
 fastapi
