@@ -12,13 +12,42 @@ def web_search_tool(query: str) -> str:
     KURAL: Sadece bu araçtan dönen gerçek URL'leri rapora ekle. Asla URL uydurma!"""
     return _ddg.run(query)
 
+import requests
+
+# Fallback zincirinde denenecek modeller (En iyiden yedeğe doğru)
+MODELS_TO_TRY = [
+    "gemini/gemini-flash-latest",
+    "gemini/gemini-3.6-flash",
+    "gemini/gemini-1.5-flash",
+    "gemini/gemini-1.5-pro"
+]
+
+def get_working_llm():
+    """Çalışan ilk müsait modeli bulur ve döndürür (503/429 bypass)"""
+    key = os.getenv("GEMINI_API_KEY")
+    if not key:
+        return LLM(model="gemini/gemini-3.6-flash") # Fallback
+        
+    for model in MODELS_TO_TRY:
+        model_id = model.replace("gemini/", "")
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_id}:generateContent?key={key}"
+        try:
+            r = requests.post(url, json={"contents":[{"parts":[{"text":"Hi"}]}]}, timeout=10)
+            if r.status_code == 200:
+                print(f"[LLM] ✅ Aktif ve çalışan model seçildi: {model}")
+                return LLM(model=model, api_key=key)
+            else:
+                print(f"[LLM] ⚠️ {model} reddetti (Kod: {r.status_code}). Bir sonrakine geçiliyor...")
+        except Exception as e:
+            print(f"[LLM] ❌ {model} test edilirken hata: {str(e)[:50]}. Bir sonrakine geçiliyor...")
+            
+    print("[LLM] 🛑 Bütün modeller meşgul veya kotalı! Varsayılan model deneniyor.")
+    return LLM(model="gemini/gemini-3.6-flash", api_key=key)
+
 class JobHuntAgents:
     def __init__(self):
-        # gemini-3.6-flash: test edildi, su an calisyor
-        self.llm = LLM(
-            model="gemini/gemini-3.6-flash",
-            api_key=os.getenv("GEMINI_API_KEY")
-        )
+        # Statik model yerine fallback destekli dinamik model seçici
+        self.llm = get_working_llm()
 
     def scout_agent(self):
         return Agent(
