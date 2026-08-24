@@ -47,15 +47,19 @@ def main():
     eval_task = tasks.evaluate_jobs_task(critic, profile, seen_jobs_str)
     email_task = tasks.draft_email_task(colleague)
     
-    # 3. Konseyi (Crew) Kur
+    # 3. Konseyi (Crew) Kur — Hiyerarşik (Hierarchical) Süreç
+    # Manager LLM, Scout / Critic / Colleague'e kendi kararıyla görev dağıtır.
+    # Yanlış ilan gelirse Manager Scout'u tekrar aramaya gönderebilir.
+    from agents import get_working_llm
     job_hunt_crew = Crew(
         agents=[scout, critic, colleague],
         tasks=[
             search_task, eval_task,
             email_task
         ],
-        process=Process.sequential,  # Sırasıyla çalışır
-        task_callback=task_cooldown,  # Ajanlar arası 25sn bekleme (modül seviyesi fonksiyon)
+        process=Process.hierarchical,   # CrewAI-Examples hiyerarşik mimari
+        manager_llm=get_working_llm(),  # Fallback zinciri Manager için de geçerli
+        task_callback=task_cooldown,    # Ajanlar arası 25sn bekleme
         verbose=True
     )
     
