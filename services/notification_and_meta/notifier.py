@@ -27,17 +27,21 @@ def send_email_report(content):
     msg['To'] = user_email_to
     msg['Subject'] = "🚀 JobHunt-Auto | Günlük Kariyer Bültenin Hazır!"
 
-    # Düz metin (fallback) ve HTML gövdelerini hazırla
+    import markdown
+
     plain_body = f"JobHunt-Auto Günlük Bülten\n\n{content}\n\nSevgilerle,\nJobHunt-Auto Asistanın 🤖"
-    
+
+    # Ajanlardan gelen Markdown metnini temiz HTML'e dönüştür
+    html_rendered = markdown.markdown(content, extensions=['extra', 'nl2br'])
+
     html_body = f"""
     <html><body style="font-family: Arial, sans-serif; max-width: 700px; margin: auto; color: #333;">
       <div style="background:#1a1a2e;padding:20px;border-radius:8px 8px 0 0;text-align:center;">
         <h1 style="color:#e94560;margin:0;">🚀 JobHunt-Auto</h1>
         <p style="color:#aaa;margin:5px 0;">Yapay Zeka Destekli Kariyer Asistanın</p>
       </div>
-      <div style="background:#f9f9f9;padding:25px;border-radius:0 0 8px 8px;border:1px solid #eee;">
-        <pre style="white-space:pre-wrap;font-family:Arial,sans-serif;font-size:14px;line-height:1.6;">{content}</pre>
+      <div style="background:#f9f9f9;padding:25px;border-radius:0 0 8px 8px;border:1px solid #eee;line-height:1.7;">
+        {html_rendered}
       </div>
       <p style="text-align:center;color:#aaa;font-size:12px;margin-top:10px;">
         Bu e-posta <b>JobHunt-Auto</b> tarafından otomatik olarak gönderilmiştir.
