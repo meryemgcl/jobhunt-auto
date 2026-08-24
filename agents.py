@@ -14,9 +14,6 @@ def web_search_tool(query: str) -> str:
 
 class JobHuntAgents:
     def __init__(self):
-        # Ajanların sonsuz döngüye girmemesi için maksimum limit
-        self.max_iter = 5
-        
         # gemini-3.6-flash: test edildi, su an calisyor
         self.llm = LLM(
             model="gemini/gemini-3.6-flash",
@@ -37,7 +34,7 @@ class JobHuntAgents:
             tools=[web_search_tool],
             verbose=True,
             allow_delegation=False,
-            max_iter=self.max_iter,
+            max_iter=15,  # 4 kategori × birden fazla arama adımı için yeterli
             llm=self.llm
         )
 
@@ -48,7 +45,7 @@ class JobHuntAgents:
             backstory="Sen çok titiz bir İnsan Kaynakları ve Teknik Yöneticisin. Meryem'in Python, AI ve C# yeteneklerini bilirsin. Sadece en uyumlu ilanların geçmesine izin verirsin.",
             verbose=True,
             allow_delegation=True,
-            max_iter=self.max_iter,
+            max_iter=10,
             llm=self.llm
         )
 
@@ -59,7 +56,7 @@ class JobHuntAgents:
             backstory="Sen robotik bir asistan değilsin. Sen Meryem'in takım arkadaşısın. Fikir tartışır, tavsiyeler verir ve yetenekleri överek 'insani bir dokunuş' sağlarsın.",
             verbose=True,
             allow_delegation=False,
-            max_iter=self.max_iter,
+            max_iter=10,
             llm=self.llm
         )
 
