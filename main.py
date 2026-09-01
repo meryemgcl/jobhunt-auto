@@ -1,22 +1,19 @@
+import os
 import sys
 import io
 import time
+import re
+
 # Windows terminalleri için emoji destekli UTF-8 çıktısını zorla
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 from crewai import Crew, Process
-from agents import JobHuntAgents
+from agents import JobHuntAgents, get_working_llm
 from tasks import JobHuntTasks
 from services.profile_analyzer.analyzer import get_mock_profile
 from dotenv import load_dotenv
 
-# .env dosyasını yükle
 load_dotenv()
-
-def task_cooldown(output):
-    """Ajanlar arası bekleme (503/rate limit önlemi) - modül seviyesi fonksiyon."""
-    print("⏳ Sonraki ajan için 25 saniye bekleniyor (API rate limit önlemi)...")
-    time.sleep(25)
 
 
 def main():
@@ -47,71 +44,60 @@ def main():
     eval_task = tasks.evaluate_jobs_task(critic, profile, seen_jobs_str)
     email_task = tasks.draft_email_task(colleague)
     
-    # 3. Konseyi (Crew) Kur — Hiyerarşik (Hierarchical) Süreç
-    # Manager LLM, Scout / Critic / Colleague'e kendi kararıyla görev dağıtır.
-    # Yanlış ilan gelirse Manager Scout'u tekrar aramaya gönderebilir.
-    from agents import get_working_llm
+    # 3. Konseyi (Crew) Kur — Hiyerarşik Süreç
+    # Manager LLM görev dağıtımını otonom yönetir;
+    # Scout kötü ilan getirirse Manager onu tekrar arama yapması için yönlendirebilir.
     job_hunt_crew = Crew(
         agents=[scout, critic, colleague],
-        tasks=[
-            search_task, eval_task,
-            email_task
-        ],
-        process=Process.hierarchical,   # CrewAI-Examples hiyerarşik mimari
-        manager_llm=get_working_llm(),  # Fallback zinciri Manager için de geçerli
-        task_callback=task_cooldown,    # Ajanlar arası 25sn bekleme
+        tasks=[search_task, eval_task, email_task],
+        process=Process.hierarchical,
+        manager_llm=get_working_llm(),
         verbose=True
     )
-    
+
     print("Konsey işbaşı yaptı! Ajanlar kendi aralarında anlaşıp raporu hazırlıyor...\n")
-    
-    # Görevi Başlat (Retry mekanizması ile - 503 hatalarını önlemek için)
-    import time
-    import sys
+
+    # Görevi Başlat — 503/429 için exponential-backoff retry mekanizması
     max_retries = 5
     result = None
     for attempt in range(max_retries):
         try:
             print(f"Görevi Başlatılıyor... (Deneme {attempt + 1}/{max_retries})")
             result = job_hunt_crew.kickoff()
+            print(f"✅ {attempt + 1}. denemede başarılı.")
             break
         except Exception as e:
             error_str = str(e)
             print(f"HATA: API İsteği başarısız oldu: {error_str}")
             if "503" in error_str or "UNAVAILABLE" in error_str or "429" in error_str:
                 if attempt < max_retries - 1:
-                    print("Google Gemini API şu an aşırı yoğun veya geçici olarak ulaşılamıyor. 60 saniye bekleniyor...")
-                    time.sleep(60)
+                    wait = 60 * (attempt + 1)
+                    print(f"Google Gemini API şu an aşırı yoğun. {wait} saniye bekleniyor...")
+                    time.sleep(wait)
                 else:
-                    print("Maksimum deneme sayısına ulaşıldı. Lütfen daha sonra tekrar deneyin.")
+                    print("Maksimum deneme sayısına ulaşıldı.")
                     sys.exit(1)
             else:
-                # Beklenmeyen başka bir hataysa direkt çık
-                raise e
+                raise
 
     print("\n--- CREWAI FINAL RAPORU ---")
     print(result)
-    
+
     # Raporu E-Posta olarak gönder
     from services.notification_and_meta.notifier import send_email_report
     from services.n8n_client import send_to_n8n
-    
-    # result objesi CrewOutput türündedir, string formatına çevirip yolluyoruz
+
     report_str = str(result)
     send_email_report(report_str)
-    
-    # Raporu n8n Webhook'una gönder (n8n Entegrasyonu)
     send_to_n8n(report_str)
-    
-    # Hafızayı Güncelle (Yeni bulunan linkleri kaydet)
-    import re
+
+    # Hafızayı Güncelle — rapora düşen URL'leri kaydet
     from services.memory import add_seen_jobs
     found_urls = re.findall(r'(https?://\S+)', report_str)
     if found_urls:
         add_seen_jobs(found_urls)
-    
-    print("\n[MOCK] Ajanlar aralarında konuştu, ilanları filtreledi ve mail metnini hazırladı.")
-    print("Tüm süreç CrewAI mimarisiyle otonom olarak (AutoGPT mantığı) kurgulandı ve rapor yollandı.")
+
+    print("\nTüm süreç CrewAI mimarisiyle otonom olarak tamamlandı ve rapor yollandı.")
 
 if __name__ == "__main__":
     main()
