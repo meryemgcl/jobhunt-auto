@@ -114,6 +114,6 @@ class JobHuntAgents:
             backstory="Sen arka planda çalışan bileşik faizsin. Sürekli sistemi daha verimli hale getirmek için Scout ve Critic'e yeni komutlar verirsin.",
             verbose=True,
             allow_delegation=True,
-            max_iter=self.max_iter,
+            max_iter=10,
             llm=self.llm
         )
