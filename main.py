@@ -44,14 +44,12 @@ def main():
     eval_task = tasks.evaluate_jobs_task(critic, profile, seen_jobs_str)
     email_task = tasks.draft_email_task(colleague)
     
-    # 3. Konseyi (Crew) Kur — Hiyerarşik Süreç
-    # Manager LLM görev dağıtımını otonom yönetir;
-    # Scout kötü ilan getirirse Manager onu tekrar arama yapması için yönlendirebilir.
+    # 3. Konseyi (Crew) Kur — Sıralı (Sequential) Süreç
+    # Scout arar, Critic eler ve puanlar, Colleague bülteni derler.
     job_hunt_crew = Crew(
         agents=[scout, critic, colleague],
         tasks=[search_task, eval_task, email_task],
-        process=Process.hierarchical,
-        manager_llm=get_working_llm(),
+        process=Process.sequential,
         verbose=True
     )
 
