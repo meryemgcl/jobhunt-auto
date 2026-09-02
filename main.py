@@ -1,101 +1,74 @@
-import os
-import sys
+﻿import sys
 import io
-import time
-import re
+import datetime
 
-# Windows terminalleri için emoji destekli UTF-8 çıktısını zorla
+# Windows terminalleri icin UTF-8 destegi
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
-from crewai import Crew, Process
-from agents import JobHuntAgents, get_working_llm
-from tasks import JobHuntTasks
-from services.profile_analyzer.analyzer import get_mock_profile
 from dotenv import load_dotenv
-
 load_dotenv()
 
+from services.profile_analyzer.analyzer import get_mock_profile
+from services.memory import load_seen_jobs, add_seen_jobs
+from services.job_collector import fetch_jobs, fetch_tech_news, fetch_hackathons
+from services.matcher import score_job_suitability
+from services.notification_and_meta.notifier import build_html_newsletter, send_email_newsletter
 
 def main():
-    print("🤖 AutoGPT (CrewAI) Tabanlı JobHunt-Auto Başlatılıyor...\n")
-    
-    # 1. Meryem'in Profilini Al (Gerçekte PDF'ten okunacak)
+    print("🚀 Deterministik JobHunt-Auto Baslatiliyor... (Sifir AI Bagimliligi, %100 Kararli)\n")
+
+    # 1. Profil ve Hafizayi Yukle
     profile = get_mock_profile()
-    
-    # 2. Ajanları ve Görevleri Başlat
-    agents = JobHuntAgents()
-    tasks = JobHuntTasks()
-    
-    scout = agents.scout_agent()
-    critic = agents.critic_agent()
-    colleague = agents.colleague_agent()
-    
-    # Meta ajan şimdilik döngü dışı (gözlemci)
-    # meta_boss = agents.meta_boss_agent() 
+    seen_jobs = set(load_seen_jobs())
+    print(f"[Memory] Toplam {len(seen_jobs)} daha once gorulmus ilan hafizada.")
 
-    # 3. Hafızayı (Memory) Yükle
-    from services.memory import load_seen_jobs
-    seen_jobs = load_seen_jobs()
-    # Hafızanın şişmesini engellemek için son 30 linki ajana gönderelim
-    seen_jobs_str = ", ".join(seen_jobs[-30:]) if seen_jobs else "Yok"
+    # 2. Canli Verileri Topla (Yontem A, B, C)
+    print("\n🔍 1/3: Guncel is/staj ilanlari toplaniyor (Remotive, Arbeitnow, Web)...")
+    raw_jobs = fetch_jobs()
+    print(f"-> Toplam {len(raw_jobs)} ham ilan bulundu.")
 
-    # Görevleri Ajanlara Ata (Rate Limit önlemek için tek kapsamlı arama görevi)
-    search_task = tasks.search_jobs_task(scout)
-    eval_task = tasks.evaluate_jobs_task(critic, profile, seen_jobs_str)
-    email_task = tasks.draft_email_task(colleague)
-    
-    # 3. Konseyi (Crew) Kur — Sıralı (Sequential) Süreç
-    # Scout arar, Critic eler ve puanlar, Colleague bülteni derler.
-    job_hunt_crew = Crew(
-        agents=[scout, critic, colleague],
-        tasks=[search_task, eval_task, email_task],
-        process=Process.sequential,
-        verbose=True
-    )
+    print("🔍 2/3: Trend teknoloji haberleri toplaniyor (HackerNews, Dev.to)...")
+    news = fetch_tech_news()
+    print(f"-> {len(news)} haber derlendi.")
 
-    print("Konsey işbaşı yaptı! Ajanlar kendi aralarında anlaşıp raporu hazırlıyor...\n")
+    print("🔍 3/3: Aktif hackathon ve yarismalar toplaniyor...")
+    hackathons = fetch_hackathons()
+    print(f"-> {len(hackathons)} yarisma platformu hazirlandi.")
 
-    # Görevi Başlat — 503/429 için exponential-backoff retry mekanizması
-    max_retries = 5
-    result = None
-    for attempt in range(max_retries):
-        try:
-            print(f"Görevi Başlatılıyor... (Deneme {attempt + 1}/{max_retries})")
-            result = job_hunt_crew.kickoff()
-            print(f"✅ {attempt + 1}. denemede başarılı.")
-            break
-        except Exception as e:
-            error_str = str(e)
-            print(f"HATA: API İsteği başarısız oldu: {error_str}")
-            if "503" in error_str or "UNAVAILABLE" in error_str or "429" in error_str:
-                if attempt < max_retries - 1:
-                    wait = 60 * (attempt + 1)
-                    print(f"Google Gemini API şu an aşırı yoğun. {wait} saniye bekleniyor...")
-                    time.sleep(wait)
-                else:
-                    print("Maksimum deneme sayısına ulaşıldı.")
-                    sys.exit(1)
-            else:
-                raise
+    # 3. Filtreleme ve Uyum Puanlamasi
+    matched_jobs = []
+    new_urls = []
 
-    print("\n--- CREWAI FINAL RAPORU ---")
-    print(result)
+    for job in raw_jobs:
+        url = job.get("url", "").strip()
+        if not url or url in seen_jobs:
+            continue
 
-    # Raporu E-Posta olarak gönder
-    from services.notification_and_meta.notifier import send_email_report
-    from services.n8n_client import send_to_n8n
+        score, reason = score_job_suitability(job, profile)
+        job["score"] = score
+        job["match_reason"] = reason
 
-    report_str = str(result)
-    send_email_report(report_str)
-    send_to_n8n(report_str)
+        # %50 ve uzeri uygunluktaki ilanlari al
+        if score >= 50:
+            matched_jobs.append(job)
+            new_urls.append(url)
 
-    # Hafızayı Güncelle — rapora düşen URL'leri kaydet
-    from services.memory import add_seen_jobs
-    found_urls = re.findall(r'(https?://\S+)', report_str)
-    if found_urls:
-        add_seen_jobs(found_urls)
+    # Puana gore en iyiden en aza sirala
+    matched_jobs.sort(key=lambda x: x["score"], reverse=True)
+    print(f"\n🎯 Profiline Uyumlu {len(matched_jobs)} Yeni Fırsat Seçildi!")
 
-    print("\nTüm süreç CrewAI mimarisiyle otonom olarak tamamlandı ve rapor yollandı.")
+    # 4. HTML E-posta Bultenini Olustur
+    html_report = build_html_newsletter(matched_jobs, hackathons, news, profile)
+
+    # 5. E-Postayi Gonder
+    sent = send_email_newsletter(html_report, len(matched_jobs))
+
+    # 6. Hafizayi Guncelle
+    if sent and new_urls:
+        add_seen_jobs(new_urls)
+        print(f"[Memory] {len(new_urls)} yeni ilan linki seen_jobs.json dosyasina kaydedildi.")
+
+    print("\n🎉 Gunluk bulten hazirlama ve gonderim islemi basariyla tamamlandi!")
 
 if __name__ == "__main__":
     main()
