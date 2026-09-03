@@ -6,97 +6,161 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-def build_html_newsletter(matched_jobs, hackathons, news, profile):
-    """Modern, sik ve kurumsal bir HTML bulteni olusturur."""
+def build_html_newsletter(matched_jobs, camps, rd_projects, podcasts, hackathons, news, profile):
+    """Kapsamli, kategorize edilmis ve sik bir HTML bulteni olusturur."""
     
-    # 1. Is Kartlari HTML'i
+    # 1. Is & Staj Kartlari HTML
     jobs_html = ""
-    for j in matched_jobs[:8]: # En iyi 8 ilan
+    for j in matched_jobs[:8]:
         score_badge = f"<span style='background:#10b981;color:#fff;padding:3px 8px;border-radius:12px;font-size:12px;font-weight:bold;'>⭐ %{j['score']} Uyumlu</span>"
         jobs_html += f"""
-        <div style="background:#ffffff;border:1px solid #e5e7eb;border-radius:8px;padding:16px;margin-bottom:14px;box-shadow:0 1px 3px rgba(0,0,0,0.05);">
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
-                <h3 style="margin:0;color:#1e293b;font-size:16px;">{j['title']}</h3>
-                {score_badge}
+        <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:8px;padding:15px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,0.03);">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
+                <h3 style="margin:0;color:#0f172a;font-size:15px;line-height:1.3;">{j['title']}</h3>
+                <div style="margin-left:8px;white-space:nowrap;">{score_badge}</div>
             </div>
-            <p style="margin:4px 0;color:#64748b;font-size:13px;">
-                🏢 <b>{j['company']}</b> | 📍 {j['location']} | 📅 {j['published_at']} | 🏷️ Kaynak: {j['source']}
+            <p style="margin:4px 0;color:#64748b;font-size:12px;">
+                🏢 <b>{j['company']}</b> | 📍 {j['location']} | 📅 {j['published_at']} | 🏷️ {j['source']}
             </p>
-            <p style="margin:8px 0;color:#334155;font-size:13px;background:#f8fafc;padding:8px;border-left:3px solid #3b82f6;border-radius:2px;">
+            <p style="margin:6px 0;color:#334155;font-size:13px;background:#f8fafc;padding:8px;border-left:3px solid #3b82f6;border-radius:2px;">
                 🎯 <b>Neden Sana Uygun?</b> {j['match_reason']}
             </p>
-            <div style="margin-top:10px;">
-                <a href="{j['url']}" style="background:#2563eb;color:#ffffff;text-decoration:none;padding:6px 14px;border-radius:6px;font-size:13px;font-weight:bold;display:inline-block;">İlana Git & Başvur ➔</a>
+            <div style="margin-top:8px;">
+                <a href="{j['url']}" style="background:#2563eb;color:#ffffff;text-decoration:none;padding:5px 12px;border-radius:6px;font-size:12px;font-weight:bold;display:inline-block;">İlana Git & Başvur ➔</a>
             </div>
         </div>
         """
 
-    # 2. Hackathon HTML'i
+    # 2. Bootcampler & Egitim Kamplari
+    camps_html = ""
+    for c in camps:
+        camps_html += f"""
+        <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:6px;padding:10px 14px;margin-bottom:8px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+                <span style="color:#166534;font-weight:bold;font-size:13px;">🎓 {c['title']}</span>
+                <span style="color:#15803d;font-size:11px;background:#dcfce7;padding:2px 6px;border-radius:4px;">{c['status']}</span>
+            </div>
+            <div style="margin-top:4px;font-size:12px;">
+                <span style="color:#64748b;">Kurum: {c['platform']}</span> - 
+                <a href="{c['url']}" style="color:#16a34a;font-weight:bold;text-decoration:none;">Programa İncele & Katıl ➔</a>
+            </div>
+        </div>
+        """
+
+    # 3. AR-GE & TUBITAK Projeleri
+    rd_html = ""
+    for r in rd_projects:
+        rd_html += f"""
+        <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:6px;padding:10px 14px;margin-bottom:8px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+                <span style="color:#1e40af;font-weight:bold;font-size:13px;">🔬 {r['title']}</span>
+                <span style="color:#1d4ed8;font-size:11px;background:#dbeafe;padding:2px 6px;border-radius:4px;">{r['organization']}</span>
+            </div>
+            <p style="margin:4px 0 0 0;font-size:12px;color:#475569;">
+                {r['type']} - <a href="{r['url']}" style="color:#2563eb;font-weight:bold;text-decoration:none;">Başvuru & Detaylar ➔</a>
+            </p>
+        </div>
+        """
+
+    # 4. Podcastler
+    podcasts_html = ""
+    for p in podcasts:
+        podcasts_html += f"""
+        <div style="background:#faf5ff;border:1px solid #e9d5ff;border-radius:6px;padding:10px 14px;margin-bottom:8px;">
+            <div style="color:#6b21a8;font-weight:bold;font-size:13px;">🎧 {p['title']}</div>
+            <div style="color:#7e22ce;font-size:12px;margin:2px 0;">{p['topic']}</div>
+            <div style="font-size:11px;margin-top:4px;">
+                <a href="{p['url']}" style="color:#9333ea;font-weight:bold;text-decoration:none;">Spotify / Podcast'te Dinle ➔</a>
+            </div>
+        </div>
+        """
+
+    # 5. Hackathonlar
     hackathons_html = ""
     for h in hackathons:
         hackathons_html += f"""
-        <li style="margin-bottom:8px;font-size:13px;color:#334155;">
+        <li style="margin-bottom:6px;font-size:13px;color:#334155;">
             🏆 <b>{h['title']}</b> ({h['platform']}) - <span style="color:#059669;">{h['status']}</span> 
-            <a href="{h['url']}" style="color:#2563eb;margin-left:6px;text-decoration:none;font-weight:bold;">Katıl ➔</a>
+            <a href="{h['url']}" style="color:#2563eb;margin-left:4px;text-decoration:none;font-weight:bold;">Katıl ➔</a>
         </li>
         """
 
-    # 3. Haberler HTML'i
+    # 6. Haberler
     news_html = ""
     for n in news:
         news_html += f"""
-        <li style="margin-bottom:8px;font-size:13px;color:#334155;">
-            📰 <b>{n['title']}</b> - <span style="color:#64748b;">({n['source']})</span>
-            <a href="{n['url']}" style="color:#2563eb;margin-left:6px;text-decoration:none;">Haberi Oku ➔</a>
+        <li style="margin-bottom:6px;font-size:13px;color:#334155;">
+            📰 <b>{n['title']}</b> <span style="color:#64748b;font-size:11px;">({n['source']})</span>
+            <a href="{n['url']}" style="color:#2563eb;margin-left:4px;text-decoration:none;">Oku ➔</a>
         </li>
         """
 
-    # Ana E-posta Sablonu
+    # Ana E-Posta Gövdesi
     html = f"""
     <!DOCTYPE html>
     <html>
     <head><meta charset="utf-8"></head>
-    <body style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;background-color:#f1f5f9;margin:0;padding:20px;">
-        <div style="max-width:680px;margin:0 auto;background:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 4px 6px rgba(0,0,0,0.05);">
+    <body style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;background-color:#f8fafc;margin:0;padding:20px;">
+        <div style="max-width:700px;margin:0 auto;background:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.06);border:1px solid #e2e8f0;">
             
             <!-- Header -->
-            <div style="background:linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);color:#ffffff;padding:25px;text-align:center;">
-                <h1 style="margin:0;font-size:22px;">🚀 JobHunt-Auto | Günlük Kariyer Bülteni</h1>
-                <p style="margin:6px 0 0 0;font-size:14px;color:#c7d2fe;">Meryem Güçlü için Özel Olarak Filtrelendi</p>
+            <div style="background:linear-gradient(135deg, #0f172a 0%, #1e293b 100%);color:#ffffff;padding:24px;text-align:center;">
+                <h1 style="margin:0;font-size:22px;letter-spacing:-0.5px;">🚀 JobHunt-Auto | Kişiselleştirilmiş Kariyer Bülteni</h1>
+                <p style="margin:6px 0 0 0;font-size:13px;color:#94a3b8;">Meryem Güçlü • Türkiye & Uzaktan / Sivas & Erzurum & Global Fırsatlar</p>
             </div>
 
-            <!-- Profil Ozeti -->
-            <div style="background:#e0e7ff;padding:12px 20px;border-bottom:1px solid #c7d2fe;font-size:13px;color:#3730a3;">
-                💡 <b>Odak Alanların:</b> Python, AI / Makine Öğrenimi, Backend, C#, Staj & Junior Pozisyonlar
+            <!-- Bilgilendirme Rozeti -->
+            <div style="background:#f1f5f9;padding:12px 20px;border-bottom:1px solid #e2e8f0;font-size:12px;color:#475569;line-height:1.5;">
+                📍 <b>Hedef Konumlar:</b> Sivas, Erzurum, Türkiye Geneli Uzaktan (Remote) & Hibrit<br>
+                💡 <b>Odak Alanlar:</b> Python, AI / Makine Öğrenimi, Backend, C#, Staj, Bootcampler ve AR-GE
             </div>
 
             <div style="padding:20px;">
-                <!-- Is Ilanlari -->
-                <h2 style="color:#1e293b;font-size:17px;border-bottom:2px solid #e2e8f0;padding-bottom:6px;margin-top:0;">
-                    💼 Senin İçin Seçilen En Taze İlanlar ({len(matched_jobs)} Fırsat)
+                
+                <!-- 1. Is & Staj Firsatlari -->
+                <h2 style="color:#0f172a;font-size:16px;border-bottom:2px solid #e2e8f0;padding-bottom:6px;margin-top:0;">
+                    💼 Seçilen İş ve Staj Fırsatları ({len(matched_jobs)} İlan)
                 </h2>
-                {jobs_html if jobs_html else "<p style='color:#64748b;'>Bugün için yeni bir ilan bulunamadı.</p>"}
+                {jobs_html if jobs_html else "<p style='color:#64748b;'>Yeni ilan bulunamadı.</p>"}
 
-                <!-- Hackathonlar -->
-                <h2 style="color:#1e293b;font-size:17px;border-bottom:2px solid #e2e8f0;padding-bottom:6px;margin-top:25px;">
-                    🏆 Aktif Hackathon & Yarışmalar
+                <!-- 2. Bootcampler & Egitim Kamplari -->
+                <h2 style="color:#0f172a;font-size:16px;border-bottom:2px solid #e2e8f0;padding-bottom:6px;margin-top:25px;">
+                    🎓 Ücretsiz Eğitim Kampları & Bootcampler
                 </h2>
-                <ul style="padding-left:18px;margin:10px 0;">
+                {camps_html}
+
+                <!-- 3. AR-GE & TUBITAK Projeleri -->
+                <h2 style="color:#0f172a;font-size:16px;border-bottom:2px solid #e2e8f0;padding-bottom:6px;margin-top:25px;">
+                    🔬 AR-GE Projeleri & TÜBİTAK 2209 Öğrenci Destekleri
+                </h2>
+                {rd_html}
+
+                <!-- 4. Podcast Onerileri -->
+                <h2 style="color:#0f172a;font-size:16px;border-bottom:2px solid #e2e8f0;padding-bottom:6px;margin-top:25px;">
+                    🎧 Haftalık Geliştirici & Teknoloji Podcast'leri
+                </h2>
+                {podcasts_html}
+
+                <!-- 5. Hackathonlar -->
+                <h2 style="color:#0f172a;font-size:16px;border-bottom:2px solid #e2e8f0;padding-bottom:6px;margin-top:25px;">
+                    🏆 Aktif Yarışma & Hackathon Platformları
+                </h2>
+                <ul style="padding-left:18px;margin:8px 0;">
                     {hackathons_html}
                 </ul>
 
-                <!-- Teknoloji Gelismeleri -->
-                <h2 style="color:#1e293b;font-size:17px;border-bottom:2px solid #e2e8f0;padding-bottom:6px;margin-top:25px;">
-                    🔥 Günün Öne Çıkan Teknoloji Haberleri
+                <!-- 6. Teknoloji Haberleri -->
+                <h2 style="color:#0f172a;font-size:16px;border-bottom:2px solid #e2e8f0;padding-bottom:6px;margin-top:25px;">
+                    📰 Günün Trend Teknoloji Haberleri
                 </h2>
-                <ul style="padding-left:18px;margin:10px 0;">
+                <ul style="padding-left:18px;margin:8px 0;">
                     {news_html}
                 </ul>
             </div>
 
             <!-- Footer -->
-            <div style="background:#f8fafc;padding:15px;text-align:center;border-top:1px solid #e2e8f0;font-size:12px;color:#94a3b8;">
-                Bu bülten <b>JobHunt-Auto</b> deterministik veri motoru tarafından otomatik olarak derlenmiştir.
+            <div style="background:#f8fafc;padding:15px;text-align:center;border-top:1px solid #e2e8f0;font-size:11px;color:#94a3b8;">
+                Bu bülten <b>JobHunt-Auto Deterministik Motoru</b> tarafından otomatik olarak derlenmiştir.
             </div>
         </div>
     </body>
@@ -105,7 +169,7 @@ def build_html_newsletter(matched_jobs, hackathons, news, profile):
     return html
 
 def send_email_newsletter(html_content, total_jobs_count):
-    """SMTP uzerinden kullaniciya guvenli e-posta gonderir."""
+    """SMTP uzerinden guvenli e-posta gonderir."""
     smtp_host = os.getenv("SMTP_HOST", "smtp.gmail.com")
     smtp_port = int(os.getenv("SMTP_PORT", 587))
     smtp_user = os.getenv("SMTP_USER")
@@ -121,7 +185,7 @@ def send_email_newsletter(html_content, total_jobs_count):
     msg = MIMEMultipart("alternative")
     msg["From"] = f"JobHunt-Auto 🤖 <{smtp_user}>"
     msg["To"] = user_email_to
-    msg["Subject"] = f"🚀 JobHunt-Auto | {total_jobs_count} Yeni Fırsat & Günlük Kariyer Bültenin!"
+    msg["Subject"] = f"🚀 JobHunt-Auto | {total_jobs_count} İş/Staj + Bootcampler, AR-GE ve Podcast Bültenin!"
 
     msg.attach(MIMEText("Lütfen HTML destekleyen bir e-posta istemcisi kullanın.", "plain", "utf-8"))
     msg.attach(MIMEText(html_content, "html", "utf-8"))
