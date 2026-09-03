@@ -1,16 +1,5 @@
-crewai
-crewai-tools
-langchain-google-genai
-langchain-community
-duckduckgo-search
-ddgs
-google-genai
-python-dotenv
-markdown
-pydantic
-requests
-beautifulsoup4
-scikit-learn
-numpy
-fastapi
-uvicorn
+﻿# JobHunt-Auto Core Dependencies
+requests>=2.31.0
+python-dotenv>=1.0.1
+beautifulsoup4>=4.12.3
+ddgs>=1.0.0
