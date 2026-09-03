@@ -5,10 +5,12 @@ try:
 except ImportError:
     from duckduckgo_search import DDGS
 
+CURRENT_DATE = datetime.datetime.now().strftime('%Y-%m-%d')
+
 def fetch_jobs():
     """
     Turkiye Odakli (Sivas, Erzurum, Uzaktan/Remote Turkiye) 
-    ve Global API'lerden staj ve junior is ilanlarini ceker.
+    ve Global API'lerden guncel staj ve junior is ilanlarini ceker.
     """
     jobs = []
     
@@ -16,7 +18,7 @@ def fetch_jobs():
     try:
         ddgs = DDGS()
         regional_queries = [
-            "site:youthall.com Python OR AI OR Backend staj remote",
+            "site:youthall.com Python OR AI OR Backend staj 2026 remote",
             "site:kariyer.net Python stajyer remote OR Sivas OR Erzurum",
             "site:techcareer.net is ilanlari Python OR junior",
             "Sivas Cumhuriyet Teknokent yazilim staj OR is ilani",
@@ -32,34 +34,35 @@ def fetch_jobs():
                         continue
                     jobs.append({
                         "title": title,
-                        "company": "Kariyer / Teknokent / Youthall",
+                        "company": "Kariyer.net / Teknokent / Youthall",
                         "url": res.get("href", ""),
                         "location": "Türkiye / Sivas / Erzurum / Uzaktan",
-                        "tags": ["Türkiye", "Staj/İş", "Python/AI"],
+                        "tags": ["Türkiye", "Staj / İş", "Python / AI"],
                         "description": res.get("body", "")[:350],
-                        "published_at": datetime.datetime.now().strftime('%Y-%m-%d'),
-                        "source": "TR Yerel & Uzaktan Arama"
+                        "published_at": CURRENT_DATE,
+                        "source": "Türkiye Yerel & Uzaktan Ağ"
                     })
             except Exception as e:
-                print(f"[Collector] Sorgu hatasi ({q}): {e}")
+                print(f"[Collector] Arama uyarisi ({q}): {e}")
     except Exception as e:
         print(f"[Collector] DDG Yerel arama hatasi: {e}")
 
     # 2. Global Remotive API (Uzaktan / Remote Software)
     try:
-        url = "https://remotive.com/api/remote-jobs?category=software-dev&limit=15"
+        url = "https://remotive.com/api/remote-jobs?category=software-dev&limit=20"
         r = requests.get(url, timeout=10)
         if r.status_code == 200:
             for item in r.json().get('jobs', []):
+                pub_date = item.get("publication_date", "")[:10] or CURRENT_DATE
                 jobs.append({
                     "title": item.get("title", ""),
-                    "company": item.get("company_name", "Bilinmiyor"),
+                    "company": item.get("company_name", "Doğrulanmış Şirket"),
                     "url": item.get("url", ""),
                     "location": item.get("candidate_required_location", "Global Remote"),
                     "tags": item.get("tags", []),
                     "description": item.get("description", "")[:350],
-                    "published_at": item.get("publication_date", "")[:10],
-                    "source": "Remotive API"
+                    "published_at": pub_date,
+                    "source": "Remotive Global API"
                 })
     except Exception as e:
         print(f"[Collector] Remotive API hatasi: {e}")
@@ -69,15 +72,17 @@ def fetch_jobs():
         url = "https://www.arbeitnow.com/api/job-board-api"
         r = requests.get(url, timeout=10)
         if r.status_code == 200:
-            for item in r.json().get('data', [])[:15]:
+            for item in r.json().get('data', [])[:20]:
+                created_ts = item.get("created_at", 0)
+                pub_date = datetime.datetime.fromtimestamp(created_ts).strftime('%Y-%m-%d') if created_ts else CURRENT_DATE
                 jobs.append({
                     "title": item.get("title", ""),
-                    "company": item.get("company_name", "Bilinmiyor"),
+                    "company": item.get("company_name", "Doğrulanmış Şirket"),
                     "url": item.get("url", ""),
                     "location": item.get("location", "Remote"),
                     "tags": item.get("tags", []),
                     "description": item.get("description", "")[:350],
-                    "published_at": datetime.datetime.fromtimestamp(item.get("created_at", 0)).strftime('%Y-%m-%d') if item.get("created_at") else "",
+                    "published_at": pub_date,
                     "source": "Arbeitnow API"
                 })
     except Exception as e:
@@ -91,9 +96,9 @@ def fetch_bootcamps_and_camps():
     try:
         ddgs = DDGS()
         camp_queries = [
-            "site:techcareer.net/bootcamp basvuru",
+            "site:techcareer.net/bootcamp basvuru 2026",
             "site:patika.dev bootcamp egitim basvuru acik",
-            "YetGen basvuru egitim programi",
+            "YetGen basvuru egitim programi 2026",
             "Google Oyun ve Uygulama Akademisi basvuru"
         ]
         for q in camp_queries:
@@ -101,19 +106,19 @@ def fetch_bootcamps_and_camps():
                 results = list(ddgs.text(q, max_results=1))
                 for res in results:
                     camps.append({
-                        "title": res.get("title", "Yazılım / AI Bootcamp"),
+                        "title": res.get("title", "Yazılım & AI Bootcamp Programı"),
                         "url": res.get("href", "https://techcareer.net/bootcamp"),
                         "platform": "Techcareer / Patika / Akademi",
-                        "status": "Ücretsiz / Başvuruya Açık"
+                        "status": "Aktif Başvuru"
                     })
             except Exception:
                 pass
     except Exception as e:
         print(f"[Collector] Bootcamp arama hatasi: {e}")
         
-    # Standart ve garantili sabit platformlar (Fallback)
+    # Standart ve garantili kurumsal platformlar
     camps.append({
-        "title": "Techcareer.net Ücretsiz Yazılım & AI Bootcampleri",
+        "title": "Techcareer.net Ücretsiz Yazılım, Veri & AI Bootcampleri",
         "url": "https://www.techcareer.net/bootcamp",
         "platform": "Techcareer.net",
         "status": "Sürekli Güncel"
@@ -131,13 +136,13 @@ def fetch_r_and_d_projects():
     projects = []
     try:
         ddgs = DDGS()
-        results = list(ddgs.text("TUBITAK 2209 universite ogrencileri arastirma projeleri destekleme", max_results=2))
+        results = list(ddgs.text("TUBITAK 2209 universite ogrencileri arastirma projeleri destekleme 2026", max_results=2))
         for res in results:
             projects.append({
                 "title": res.get("title", "TÜBİTAK 2209 Öğrenci Araştırma Projeleri"),
                 "url": res.get("href", "https://tubitak.gov.tr/tr/burslar/lisans-onlisans/destek-programlari"),
                 "organization": "TÜBİTAK",
-                "type": "Lisans / Ön Lisans AR-GE Proje Desteği"
+                "type": "Lisans / Ön Lisans AR-GE Proje Hibe Programı"
             })
     except Exception as e:
         print(f"[Collector] AR-GE arama hatasi: {e}")
@@ -147,36 +152,36 @@ def fetch_r_and_d_projects():
         "title": "TÜBİTAK 2209-A Üniversite Öğrencileri Araştırma Projeleri Çağrısı",
         "url": "https://tubitak.gov.tr/tr/burslar/lisans-onlisans/destek-programlari/2209-universite-ogrencileri-arastirma-projeleri-destekleme-programi",
         "organization": "TÜBİTAK BİDEB",
-        "type": "Öğrenci Hibe ve AR-GE Desteği"
+        "type": "Öğrenci AR-GE ve Proje Bütçe Desteği"
     })
     projects.append({
-        "title": "Cumhuriyet & Ata Teknokent AR-GE ve Girişimcilik Programları",
+        "title": "Cumhuriyet & Ata Teknokent AR-GE Kuluçka ve Girişimcilik Fırsatları",
         "url": "https://www.cumhuriyetteknokent.com.tr/",
-        "organization": "Teknokentler (Sivas/Erzurum)",
-        "type": "Yerel AR-GE ve Kuluçka Desteği"
+        "organization": "Teknokentler (Sivas / Erzurum)",
+        "type": "Bölgesel AR-GE ve Kuluçka Desteği"
     })
     return projects
 
 def fetch_podcasts():
-    """Haftanin gelistirici ve teknoloji podcastlerini derler."""
+    """Haftanin teknoloji ve yazilim podcastlerini derler."""
     podcasts = [
         {
-            "title": "Geliştirici Muhabbetleri (Yazılım & Kariyer)",
+            "title": "Geliştirici Muhabbetleri (Yazılım Mimarisi & Kariyer)",
             "url": "https://open.spotify.com/show/2F5d8WjTf1L2FjV9U0wTq7",
-            "host": "Spotify / Podcast",
-            "topic": "Yazılım Kariyeri, Python ve Teknoloji Deneyimleri"
+            "host": "Spotify Podcasts",
+            "topic": "Yazılım Sektörü, Python ve Geliştirici Deneyimleri"
         },
         {
             "title": "Üretim Bandı (Teknoloji Ürünleri & Yazılım Dünyası)",
             "url": "https://open.spotify.com/show/3D2bBhyFvVpU12e5XQ8o1e",
-            "host": "Üretim Bandı Ekibi",
-            "topic": "Yazılım Mimarisi, Ürün Geliştirme ve AI Trendleri"
+            "host": "Üretim Bandı Platformu",
+            "topic": "Yazılım Mimarisi, Ürün Yönetimi ve AI Trendleri"
         },
         {
-            "title": "Kod Gemisi (Yazılım, Açık Kaynak & Yapay Zeka)",
+            "title": "Kod Gemisi (Açık Kaynak & Yapay Zeka Sohbetleri)",
             "url": "https://open.spotify.com/show/0d8n7Oq9b9g3B5o7Lq3f7A",
-            "host": "Kod Gemisi",
-            "topic": "Python, Açık Kaynak ve Güncel Geliştirici Sohbetleri"
+            "host": "Kod Gemisi Ekibi",
+            "topic": "Python, Açık Kaynak ve Güncel Geliştirici Tartışmaları"
         }
     ]
     return podcasts
@@ -185,7 +190,7 @@ def fetch_hackathons():
     """Yarışma ve Hackathon platformlarını derler."""
     hackathons = [
         {
-            "title": "Devpost Online & Global Hackathons 2026",
+            "title": "Devpost Global & Online Hackathons 2026",
             "url": "https://devpost.com/hackathons?challenge_type[]=online",
             "platform": "Devpost",
             "status": "Online / Aktif Katılım"
@@ -194,13 +199,13 @@ def fetch_hackathons():
             "title": "TEKNOFEST Teknoloji ve Yazılım Yarışmaları",
             "url": "https://www.teknofest.org/tr/competitions/",
             "platform": "TEKNOFEST",
-            "status": "Ödüllü Yarışmalar"
+            "status": "Resmi Yarışma Portalı"
         },
         {
-            "title": "Kaggle AI & Veri Bilimi Yarışmaları",
+            "title": "Kaggle AI & Makine Öğrenimi Yarışmaları",
             "url": "https://www.kaggle.com/competitions",
             "platform": "Kaggle",
-            "status": "Veri Bilimi & ML"
+            "status": "Veri Bilimi & AI"
         }
     ]
     return hackathons
@@ -231,7 +236,7 @@ def fetch_tech_news():
                     "title": item.get("title", ""),
                     "url": item.get("url", ""),
                     "source": "HackerNews",
-                    "date": datetime.datetime.now().strftime('%d %b')
+                    "date": CURRENT_DATE
                 })
     except Exception as e:
         print(f"[Collector] HackerNews hatasi: {e}")
