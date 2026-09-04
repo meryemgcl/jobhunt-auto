@@ -5,47 +5,43 @@ try:
 except ImportError:
     from duckduckgo_search import DDGS
 
+from config import SEARCH_PROMPTS, FEATURE_FLAGS
+
 CURRENT_DATE = datetime.datetime.now().strftime('%Y-%m-%d')
 
 def fetch_jobs():
     """
-    Turkiye Odakli (Sivas, Erzurum, Uzaktan/Remote Turkiye) 
+    Turkiye Odakli (Sivas, Erzurum, Kayseri, Malatya, Konya, Uzaktan/Remote TR) 
     ve Global API'lerden guncel staj ve junior is ilanlarini ceker.
     """
     jobs = []
     
-    # 1. Turkiye & Bolgesel Odakli Arama (Sivas, Erzurum, Remote TR, Youthall, Kariyer, Techcareer)
-    try:
-        ddgs = DDGS()
-        regional_queries = [
-            "site:youthall.com Python OR AI OR Backend staj 2026 remote",
-            "site:kariyer.net Python stajyer remote OR Sivas OR Erzurum",
-            "site:techcareer.net is ilanlari Python OR junior",
-            "Sivas Cumhuriyet Teknokent yazilim staj OR is ilani",
-            "Erzurum Ata Teknokent yazilim staj OR remote",
-            "Turkiye remote junior python backend developer linkedin"
-        ]
-        for q in regional_queries:
-            try:
-                results = list(ddgs.text(q, max_results=2))
-                for res in results:
-                    title = res.get("title", "")
-                    if not title or "..." == title.strip():
-                        continue
-                    jobs.append({
-                        "title": title,
-                        "company": "Kariyer.net / Teknokent / Youthall",
-                        "url": res.get("href", ""),
-                        "location": "Türkiye / Sivas / Erzurum / Uzaktan",
-                        "tags": ["Türkiye", "Staj / İş", "Python / AI"],
-                        "description": res.get("body", "")[:350],
-                        "published_at": CURRENT_DATE,
-                        "source": "Türkiye Yerel & Uzaktan Ağ"
-                    })
-            except Exception as e:
-                print(f"[Collector] Arama uyarisi ({q}): {e}")
-    except Exception as e:
-        print(f"[Collector] DDG Yerel arama hatasi: {e}")
+    # 1. Turkiye & Bolgesel Teknokent Odakli Arama (config.py icindeki promptlar)
+    if FEATURE_FLAGS.get("ENABLE_EXTENDED_TECHNOPARKS", True):
+        try:
+            ddgs = DDGS()
+            prompts = SEARCH_PROMPTS.get("REGIONAL_TECHNO_PARKS", [])
+            for q in prompts:
+                try:
+                    results = list(ddgs.text(q, max_results=2))
+                    for res in results:
+                        title = res.get("title", "")
+                        if not title or "..." == title.strip():
+                            continue
+                        jobs.append({
+                            "title": title,
+                            "company": "Kariyer.net / Teknokent / Youthall",
+                            "url": res.get("href", ""),
+                            "location": "Türkiye / Sivas / Erzurum / Kayseri / Uzaktan",
+                            "tags": ["Türkiye", "Staj / İş", "Python / AI"],
+                            "description": res.get("body", "")[:350],
+                            "published_at": CURRENT_DATE,
+                            "source": "Anadolu Teknokentleri & TR Uzaktan Ağ"
+                        })
+                except Exception as e:
+                    print(f"[Collector] Arama uyarisi ({q}): {e}")
+        except Exception as e:
+            print(f"[Collector] DDG Yerel arama hatasi: {e}")
 
     # 2. Global Remotive API (Uzaktan / Remote Software)
     try:
@@ -95,13 +91,8 @@ def fetch_bootcamps_and_camps():
     camps = []
     try:
         ddgs = DDGS()
-        camp_queries = [
-            "site:techcareer.net/bootcamp basvuru 2026",
-            "site:patika.dev bootcamp egitim basvuru acik",
-            "YetGen basvuru egitim programi 2026",
-            "Google Oyun ve Uygulama Akademisi basvuru"
-        ]
-        for q in camp_queries:
+        camp_prompts = SEARCH_PROMPTS.get("BOOTCAMPS", [])
+        for q in camp_prompts:
             try:
                 results = list(ddgs.text(q, max_results=1))
                 for res in results:
@@ -136,14 +127,16 @@ def fetch_r_and_d_projects():
     projects = []
     try:
         ddgs = DDGS()
-        results = list(ddgs.text("TUBITAK 2209 universite ogrencileri arastirma projeleri destekleme 2026", max_results=2))
-        for res in results:
-            projects.append({
-                "title": res.get("title", "TÜBİTAK 2209 Öğrenci Araştırma Projeleri"),
-                "url": res.get("href", "https://tubitak.gov.tr/tr/burslar/lisans-onlisans/destek-programlari"),
-                "organization": "TÜBİTAK",
-                "type": "Lisans / Ön Lisans AR-GE Proje Hibe Programı"
-            })
+        rd_prompts = SEARCH_PROMPTS.get("RD_PROJECTS", [])
+        for q in rd_prompts:
+            results = list(ddgs.text(q, max_results=1))
+            for res in results:
+                projects.append({
+                    "title": res.get("title", "TÜBİTAK 2209 Öğrenci Araştırma Projeleri"),
+                    "url": res.get("href", "https://tubitak.gov.tr/tr/burslar/lisans-onlisans/destek-programlari"),
+                    "organization": "TÜBİTAK",
+                    "type": "Lisans / Ön Lisans AR-GE Proje Hibe Programı"
+                })
     except Exception as e:
         print(f"[Collector] AR-GE arama hatasi: {e}")
 
@@ -164,7 +157,7 @@ def fetch_r_and_d_projects():
 
 def fetch_podcasts():
     """Haftanin teknoloji ve yazilim podcastlerini derler."""
-    podcasts = [
+    return [
         {
             "title": "Geliştirici Muhabbetleri (Yazılım Mimarisi & Kariyer)",
             "url": "https://open.spotify.com/show/2F5d8WjTf1L2FjV9U0wTq7",
@@ -184,11 +177,10 @@ def fetch_podcasts():
             "topic": "Python, Açık Kaynak ve Güncel Geliştirici Tartışmaları"
         }
     ]
-    return podcasts
 
 def fetch_hackathons():
     """Yarışma ve Hackathon platformlarını derler."""
-    hackathons = [
+    return [
         {
             "title": "Devpost Global & Online Hackathons 2026",
             "url": "https://devpost.com/hackathons?challenge_type[]=online",
@@ -208,7 +200,6 @@ def fetch_hackathons():
             "status": "Veri Bilimi & AI"
         }
     ]
-    return hackathons
 
 def fetch_tech_news():
     """HackerNews ve Dev.to üzerinden en taze haberleri çeker."""
