@@ -1,4 +1,3 @@
-import os
 import json
 
 def extract_profile_with_gemini(cv_text: str) -> dict:

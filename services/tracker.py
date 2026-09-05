@@ -1,11 +1,14 @@
 ﻿import json
-import os
 import datetime
+import logging
+
+from services.state_io import atomic_write_many_text
 
 DASHBOARD_PATH = "DASHBOARD.md"
 APPLICATIONS_PATH = "applications.json"
+logger = logging.getLogger(__name__)
 
-def update_career_dashboard(total_analyzed, matched_count, skill_gap_data):
+def update_career_dashboard(total_analyzed, matched_count, skill_gap_data) -> bool:
     """
     Kariyer takip panosunu (DASHBOARD.md ve applications.json) 
     en son istatistiklerle otonom olarak gunceller.
@@ -20,12 +23,6 @@ def update_career_dashboard(total_analyzed, matched_count, skill_gap_data):
         "top_market_demands": skill_gap_data.get("top_market_demands", [])
     }
     
-    try:
-        with open(APPLICATIONS_PATH, "w", encoding="utf-8") as f:
-            json.dump(data, f, ensure_ascii=False, indent=2)
-    except Exception as e:
-        print(f"[Tracker] applications.json yazma hatasi: {e}")
-
     # DASHBOARD.md olustur
     demands_list = "\n".join([f"- **{d['tech']}**: {d['demand_count']} ilanda talep edildi" for d in skill_gap_data.get('top_market_demands', [])])
     
@@ -67,8 +64,14 @@ Piyasadaki iş ilanlarında en çok aranan ve CV'ye eklenmesi tavsiye edilen tek
 """
 
     try:
-        with open(DASHBOARD_PATH, "w", encoding="utf-8") as f:
-            f.write(md_content)
-        print("✅ DASHBOARD.md panosu basariyla guncellendi!")
+        atomic_write_many_text(
+            {
+                APPLICATIONS_PATH: f"{json.dumps(data, ensure_ascii=False, indent=2)}\n",
+                DASHBOARD_PATH: md_content,
+            }
+        )
+        logger.info("State transaction tamamlandi. files=%s,%s", APPLICATIONS_PATH, DASHBOARD_PATH)
+        return True
     except Exception as e:
-        print(f"[Tracker] DASHBOARD.md yazma hatasi: {e}")
+        logger.error("State transaction basarisiz oldu: %s", e)
+        return False

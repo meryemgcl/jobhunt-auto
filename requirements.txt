@@ -1,5 +1,6 @@
-﻿# JobHunt-Auto Core Dependencies
+﻿# JobHunt-Auto deterministic engine dependencies
 requests>=2.31.0
 python-dotenv>=1.0.1
 beautifulsoup4>=4.12.3
 ddgs>=1.0.0
+Jinja2>=3.1.4

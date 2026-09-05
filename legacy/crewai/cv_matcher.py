@@ -1,7 +1,5 @@
 ﻿from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-import json
-
 def get_cv_similarity_score(job_description, cv_text):
     """TF-IDF kullanarak CV ile is tanimi arasindaki benzerlik skorunu hesaplar (0-100)."""
     try:

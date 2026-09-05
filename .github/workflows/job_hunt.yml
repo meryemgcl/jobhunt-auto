@@ -8,6 +8,10 @@ on:
   # GitHub Actions arayuzunden manuel tetikleme
   workflow_dispatch:
 
+concurrency:
+  group: jobhunt-auto-${{ github.ref }}
+  cancel-in-progress: false
+
 permissions:
   contents: write
 
@@ -29,7 +33,30 @@ jobs:
       - name: Install Dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install -r requirements-dev.txt
+          pip install -r requirements-api.txt
+
+      - name: Static Quality Gate
+        run: |
+          ruff check .
+
+      - name: Syntax Compilation
+        run: |
+          python -m compileall main.py api.py config.py services legacy tests
+
+      - name: Import Smoke Test
+        run: |
+          python -c "import main; import api; from services.notification_and_meta.notifier import build_html_newsletter; print('smoke ok')"
+
+      - name: Unit Tests
+        run: |
+          pytest
+
+      - name: Runtime Healthcheck
+        env:
+          JOBHUNT_DB_PATH: data/jobhunt.db
+        run: |
+          python healthcheck.py
           
       - name: Execute Engine & Dispatch Report
         env:
@@ -38,13 +65,15 @@ jobs:
           SMTP_USER: ${{ secrets.SMTP_USER }}
           SMTP_PASS: ${{ secrets.SMTP_PASS }}
           USER_EMAIL_TO: ${{ secrets.USER_EMAIL_TO }}
+          JOBHUNT_DB_PATH: data/jobhunt.db
+          GITHUB_TOKEN: ${{ github.token }}
         run: |
           python main.py
 
-      - name: Persist Memory (seen_jobs.json)
+      - name: Persist Runtime State Snapshots
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add seen_jobs.json || true
-          git commit -m "chore(memory): update seen jobs database [skip ci]" || echo "No memory changes to commit."
+          git add seen_jobs.json applications.json DASHBOARD.md RUN_SUMMARY.md 2>/dev/null || true
+          git commit -m "chore(state): update jobhunt runtime snapshots [skip ci]" || echo "No state changes to commit."
           git push

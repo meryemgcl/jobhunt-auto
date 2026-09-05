@@ -4,8 +4,8 @@ import json
 from crewai import Agent, LLM
 from crewai.tools import tool
 from langchain_community.tools import DuckDuckGoSearchRun
-from services.scraper import scrape_url_text
-from services.cv_matcher import get_cv_similarity_score
+from legacy.crewai.scraper import scrape_url_text
+from legacy.crewai.cv_matcher import get_cv_similarity_score
 from services.profile_analyzer.analyzer import get_mock_profile
 
 # Gerçek internet araması yapan araç (404 halüsinasyonunu önler)

@@ -1,5 +1,3 @@
-import json
-
 class MatchingEngine:
     def __init__(self):
         pass
@@ -32,7 +30,7 @@ class MatchingEngine:
 
 if __name__ == "__main__":
     from services.profile_analyzer.analyzer import get_mock_profile
-    from services.job_scraper.scraper import JobScraper
+    from legacy.prototypes.job_scraper import JobScraper
     
     profile = get_mock_profile()
     scraper = JobScraper()

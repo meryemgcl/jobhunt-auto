@@ -1,5 +1,5 @@
 {
-  "name": "LinkedIn Job Alert - CrewAI Tetikleyici",
+  "name": "LinkedIn Job Alert - JobHunt-Auto Tetikleyici",
   "nodes": [
     {
       "parameters": {
@@ -26,11 +26,20 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "http://localhost:8000/trigger-crew",
+        "url": "http://localhost:8000/trigger-engine",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-Jobhunt-Token",
+              "value": "={{$env.JOBHUNT_API_TOKEN}}"
+            }
+          ]
+        },
         "options": {}
       },
       "id": "a928e104-c5a4-49c0-99c5-84e1b8eb512c",
-      "name": "CrewAI API Tetikle",
+      "name": "JobHunt-Auto API Tetikle",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
@@ -44,7 +53,7 @@
       "main": [
         [
           {
-            "node": "CrewAI API Tetikle",
+            "node": "JobHunt-Auto API Tetikle",
             "type": "main",
             "index": 0
           }

@@ -1,3 +1,5 @@
+# Legacy Celery/Redis prototype. This is not wired to the current deterministic
+# `main.py` engine and is kept only as a historical reference.
 version: '3.8'
 
 services:

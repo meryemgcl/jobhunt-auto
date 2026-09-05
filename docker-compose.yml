@@ -1,0 +1,35 @@
+services:
+  jobhunt-auto:
+    build: .
+    env_file:
+      - .env
+    environment:
+      JOBHUNT_DB_PATH: /app/data/jobhunt.db
+    volumes:
+      - ./data:/app/data
+    healthcheck:
+      test: ["CMD", "python", "healthcheck.py"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+
+  jobhunt-api:
+    build: .
+    env_file:
+      - .env
+    environment:
+      JOBHUNT_DB_PATH: /app/data/jobhunt.db
+    command: ["uvicorn", "api:app", "--host", "0.0.0.0", "--port", "8000"]
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+    profiles:
+      - api
+    healthcheck:
+      test: ["CMD", "python", "healthcheck.py"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
