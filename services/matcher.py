@@ -1,6 +1,6 @@
-﻿import re
+import re
 
-
+from config import EXCLUDED_COMPANIES, EXCLUDED_KEYWORDS
 from services.feedback import feedback_adjustment_for
 
 
@@ -99,10 +99,25 @@ def score_job_suitability(
 
     title = _normalize(job.get("title"))
     desc = _normalize(job.get("description"))
+    company = _normalize(job.get("company"))
     location = _normalize(job.get("location"))
     tags = [_normalize(tag) for tag in job.get("tags", [])]
     full_text = f"{title} {desc} {location} {' '.join(tags)}"
 
+    # Kullanici tarafindan tanimlanmis sirket kara listesi (config.EXCLUDED_COMPANIES)
+    if EXCLUDED_COMPANIES:
+        for excluded_company in EXCLUDED_COMPANIES:
+            if excluded_company.casefold() and excluded_company.casefold() in company:
+                return 0, f"Elendi: kara listedeki sirket ({excluded_company})"
+
+    # Kullanici tarafindan tanimlanmis kelime kara listesi (config.EXCLUDED_KEYWORDS)
+    if EXCLUDED_KEYWORDS:
+        for excluded_kw in EXCLUDED_KEYWORDS:
+            normalized_kw = excluded_kw.casefold()
+            if normalized_kw and _keyword_in_text(normalized_kw, full_text):
+                return 0, f"Elendi: kara listedeki kelime ({excluded_kw})"
+
+    # Yerlesik sabit negatif filtreler (HARD_NEGATIVE_KEYWORDS)
     negative_matches = [keyword for keyword in HARD_NEGATIVE_KEYWORDS if _keyword_in_text(keyword, full_text)]
     if negative_matches:
         return 0, f"Elendi: negatif filtre ({', '.join(sorted(set(negative_matches[:3])))})"

@@ -16,6 +16,10 @@ Bu liste, mevcut production hardening çalışmasından sonraki geliştirme önc
 - [x] SQLite state, feedback, score history ve run summary tablolarını ekle.
 - [x] Dockerfile, Docker Compose ve healthcheck altyapısını ekle.
 - [x] CI hattına ruff, compileall, import smoke, pytest, healthcheck ve concurrency kilidi ekle.
+- [x] `EXCLUDED_COMPANIES` ve `EXCLUDED_KEYWORDS` kara listelerini `config.py`'ye ekle; matcher'a entegre et.
+- [x] `scripts/generate_static_dashboard.py` — SQLite üzerinden istatistik ve dashboard raporu üret.
+- [x] E-posta şablonuna puan >= 85 için "YÜKSEK EŞLEŞME" etiketi ve "Ön Yazı Üret" butonu ekle.
+- [x] `CHANGELOG.md` ve `SECURITY.md` ekle; `README.md` repo yapısını güncelle.
 
 ## P0 - Kritik Production Hazırlığı
 

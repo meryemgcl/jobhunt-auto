@@ -1,4 +1,4 @@
-﻿# ==============================================================================
+# ==============================================================================
 # JobHunt-Auto Sistem Yapılandırması ve Özellik Bayrakları (Feature Flags)
 # ==============================================================================
 
@@ -12,8 +12,40 @@ FEATURE_FLAGS = {
     "ENABLE_WEEKLY_DIGEST": True,            # 6. Adım: Haftalık Trend & Analiz Özeti (Kabul)
 }
 
+# ==============================================================================
+# Kullanıcı Tarafından Yönetilen Kara Listeler
+# Aşağıdaki listeler matcher.py'daki yerleşik HARD_NEGATIVE_KEYWORDS listesinin
+# ötesinde, kullanıcının kişisel tercihlerine göre özelleştirilir.
+# Her değer büyük/küçük harf duyarsız karşılaştırılır (casefold).
+# ==============================================================================
+
+# Hiçbir ilanı iletilmesini istemediğiniz şirket adları.
+# Örnek: sürekli açık ilan yayınlayan ajanslar veya olumsuz deneyimleriniz olan şirketler.
+EXCLUDED_COMPANIES: list[str] = [
+    # "Örnek Şirket A.Ş.",
+    # "Spam Recruiting Ltd.",
+]
+
+# İlan başlığı veya açıklamasında geçtiğinde ilanın puanını sıfırlamasını
+# istediğiniz anahtar kelimeler.
+# Örnek: kariyer hedefinizle örtüşmeyen teknoloji veya roller.
+EXCLUDED_KEYWORDS: list[str] = [
+    "blockchain",
+    "crypto",
+    "nft",
+    "web3",
+    "solidity",
+    "game designer",
+    "sosyal medya uzmanı",
+    "sosyal medya uzmani",
+    "content creator",
+    "influencer",
+]
+
+# ==============================================================================
 # Deterministik Arama Promptları ve Negatif Filtreleme (False Exclusions)
 # 'False' Filtreleri: Alakasız, senior veya satış odaklı ilanları sistemden eler.
+# ==============================================================================
 SEARCH_PROMPTS = {
     "REGIONAL_TECHNO_PARKS": [
         "site:youthall.com Python OR AI OR Backend staj remote -senior -lead",

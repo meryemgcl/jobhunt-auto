@@ -48,9 +48,12 @@ Aktif mimari LLM veya CrewAI çalışma zamanına bağlı değildir. Eski CrewAI
 **Matching and filtering**
 
 - Teknoloji, rol seviyesi ve lokasyon ağırlıklarıyla deterministik skor
-- Senior, sales, marketing, muhasebe gibi negatif filtreler
+- Yerleşik negatif filtreler: senior, sales, marketing, muhasebe vb.
+- `config.py::EXCLUDED_COMPANIES` — kullanıcı tanımlı şirket kara listesi (0 puan)
+- `config.py::EXCLUDED_KEYWORDS` — kullanıcı tanımlı kelime kara listesi (0 puan)
 - Profil yetenekleriyle ek skor katkısı
-- Kullanıcı feedback’inden üretilen keyword bazlı küçük ağırlık düzeltmeleri
+- Kullanıcı feedback'inden üretilen keyword bazlı küçük ağırlık düzeltmeleri
+- Puan >= 85 olan ilanlar e-postada "YÜKSEK EŞLEŞME" etiketiyle öne çıkar
 
 **State and observability**
 
@@ -102,38 +105,44 @@ flowchart TD
 
 ```text
 jobhunt-auto/
-├── .github/workflows/job_hunt.yml          # Scheduled CI/CD automation
-├── api.py                                  # FastAPI trigger, health and feedback API
-├── main.py                                 # Deterministic orchestration engine
-├── healthcheck.py                          # Runtime/container healthcheck
-├── Dockerfile                              # Production container image
-├── docker-compose.yml                      # CLI/API deployment profile
-├── pyproject.toml                          # Python, package, ruff and pytest config
-├── requirements.txt                        # Core deterministic engine dependencies
-├── requirements-api.txt                    # FastAPI/uvicorn dependencies
-├── requirements-dev.txt                    # pytest/ruff dependencies
-├── requirements-legacy.txt                 # Optional legacy CrewAI dependencies
+├── .github/
+│   ├── workflows/job_hunt.yml          # Scheduled CI/CD automation
+│   ├── ISSUE_TEMPLATE/                 # Bug report & feature request templates
+│   └── PULL_REQUEST_TEMPLATE.md
+├── scripts/
+│   └── generate_static_dashboard.py   # SQLite dashboard report generator
 ├── services/
-│   ├── adapters/                           # Source adapters with shared schema
-│   ├── database.py                         # SQLite state, feedback and score history
-│   ├── feedback.py                         # Feedback ingestion and matcher signals
-│   ├── http_client.py                      # Session, timeout, retry and User-Agent handling
-│   ├── job_collector.py                    # Multi-source collection facade
-│   ├── logging_config.py                   # run_id structured logging
-│   ├── matcher.py                          # Scoring and exclusion rules
-│   ├── memory.py                           # Structured seen_jobs.json compatibility layer
-│   ├── models.py                           # Opportunity model and freshness scoring
-│   ├── observability.py                    # Source counts, alerts and run summaries
-│   ├── state_io.py                         # Atomic file writes and transactions
-│   ├── tracker.py                          # Dashboard/application state writer
+│   ├── adapters/                       # Source adapters with shared schema
+│   ├── database.py                     # SQLite state, feedback and score history
+│   ├── feedback.py                     # Feedback ingestion and matcher signals
+│   ├── http_client.py                  # Session, timeout, retry and User-Agent
+│   ├── job_collector.py                # Multi-source collection facade
+│   ├── logging_config.py               # run_id structured logging
+│   ├── matcher.py                      # Scoring and exclusion rules (inc. blacklists)
+│   ├── memory.py                       # Structured seen_jobs.json compatibility layer
+│   ├── models.py                       # Opportunity model and freshness scoring
+│   ├── observability.py                # Source counts, alerts and run summaries
+│   ├── state_io.py                     # Atomic file writes and transactions
+│   ├── tracker.py                      # Dashboard/application state writer
 │   └── notification_and_meta/
-│       ├── notifier.py                     # SMTP delivery and template rendering
-│       └── templates/newsletter.html.j2    # HTML report template
-├── legacy/                                 # Archived CrewAI/prototype layer
-├── tests/                                  # Unit and smoke tests
-├── seen_jobs.json                          # Versioned memory snapshot
-├── DASHBOARD.md                            # Generated career dashboard snapshot
-└── applications.json                       # Generated machine-readable dashboard state
+│       ├── notifier.py                 # SMTP delivery and Jinja2 template rendering
+│       └── templates/newsletter.html.j2
+├── tests/                              # Unit and smoke tests
+├── legacy/                             # Archived CrewAI/prototype layer
+├── ajan-filosu/                        # Parallel task orchestration system
+├── api.py                              # FastAPI trigger, health and feedback API
+├── main.py                             # Deterministic orchestration engine
+├── config.py                           # Feature flags, search prompts, blacklists
+├── healthcheck.py                      # Runtime/container healthcheck
+├── Dockerfile
+├── docker-compose.yml
+├── pyproject.toml
+├── CHANGELOG.md
+├── SECURITY.md
+├── seen_jobs.json                      # Versioned memory snapshot
+├── jobhunt.db                          # SQLite persistent state
+├── DASHBOARD.md                        # Generated career dashboard snapshot
+└── applications.json                   # Generated machine-readable dashboard state
 ```
 
 ---
