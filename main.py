@@ -112,30 +112,48 @@ def main() -> bool:
         skill_gap = analyze_market_skill_gap(raw_jobs, profile.get("core_skills", []))
         logger.info("Skill gap analizi: %s", skill_gap.get('summary_text', ''))
 
-    # 4. Ilanlari canonical URL ile tekillestirme ve uyum puanlamasi
+    # 4. Ilanlari ve diger kaynaklari tekillestirme (Deduplication Pipeline)
     matched_jobs = []
     scored_jobs = []
-    new_jobs_for_memory = []
+    new_items_for_memory = []
     seen_this_run = set()
     duplicate_count = 0
     invalid_url_count = 0
 
-    for job in raw_jobs:
-        url = clean_url(job.get("url"))
-        canonical_url = canonicalize_url(url)
-        if not canonical_url:
-            invalid_url_count += 1
-            continue
+    def _filter_and_track(items_list):
+        nonlocal duplicate_count, invalid_url_count
+        new_items = []
+        for item in items_list:
+            url = clean_url(item.get("url"))
+            canonical_url = canonicalize_url(url)
+            if not canonical_url:
+                invalid_url_count += 1
+                continue
 
-        job["url"] = url
-        job["canonical_url"] = canonical_url
+            item["url"] = url
+            item["canonical_url"] = canonical_url
 
-        if canonical_url in seen_jobs or canonical_url in seen_this_run:
-            duplicate_count += 1
-            continue
+            if canonical_url in seen_jobs or canonical_url in seen_this_run:
+                duplicate_count += 1
+                continue
 
-        seen_this_run.add(canonical_url)
+            seen_this_run.add(canonical_url)
+            new_items.append(item)
+            new_items_for_memory.append(item)  # SIFIR PUANLI OLSA BİLE TÜM YENİ VERİLER HAFIZAYA YAZILIR
+        return new_items
 
+    # 4.1 Tum diger kaynaklari (haberler, kamplar, issue'lar vb.) filtrele
+    new_github_issues = _filter_and_track(github_issues)
+    new_camps = _filter_and_track(camps)
+    new_rd_projects = _filter_and_track(rd_projects)
+    new_podcasts = _filter_and_track(podcasts)
+    new_hackathons = _filter_and_track(hackathons)
+    new_news = _filter_and_track(news)
+
+    # 4.2 Is ilanlarini filtrele ve puanla
+    new_raw_jobs = _filter_and_track(raw_jobs)
+
+    for job in new_raw_jobs:
         score, reason = score_job_suitability(
             job,
             profile,
@@ -146,22 +164,22 @@ def main() -> bool:
         job["match_reason"] = reason
         scored_jobs.append(job)
 
-        # %50 ve uzeri uygunluktaki ilanlari listeye al
+        # Sadece %50 ve uzeri uygunluktaki ilanlari e-posta listesine al
         if score >= 50:
             matched_jobs.append(job)
-            new_jobs_for_memory.append(job)
 
     matched_jobs.sort(key=lambda x: x["score"], reverse=True)
     logger.info(
-        "Skorlama tamamlandi. matched=%s duplicates=%s invalid_urls=%s",
+        "Deduplication & Skorlama tamamlandi. matched=%s duplicates=%s invalid_urls=%s total_new_items=%s",
         len(matched_jobs),
         duplicate_count,
         invalid_url_count,
+        len(new_items_for_memory)
     )
 
     try:
         upserted_count = upsert_opportunities(
-            scored_jobs + github_issues + camps + rd_projects + podcasts + hackathons + news,
+            scored_jobs + new_github_issues + new_camps + new_rd_projects + new_podcasts + new_hackathons + new_news,
             status="seen",
         )
         history_count = record_score_history(scored_jobs, run_id=run_id)
@@ -178,12 +196,12 @@ def main() -> bool:
     # 6. Zengin Kurumsal HTML E-posta Bültenini Oluştur
     html_report = build_html_newsletter(
         matched_jobs=matched_jobs,
-        camps=camps,
-        rd_projects=rd_projects,
-        podcasts=podcasts,
-        hackathons=hackathons,
-        news=news,
-        github_issues=github_issues,
+        camps=new_camps,
+        rd_projects=new_rd_projects,
+        podcasts=new_podcasts,
+        hackathons=new_hackathons,
+        news=new_news,
+        github_issues=new_github_issues,
         skill_gap=skill_gap,
         profile=profile
     )
@@ -195,11 +213,11 @@ def main() -> bool:
 
     # 8. Hafızayı Güncelle
     memory_added_count = 0
-    if sent and new_jobs_for_memory:
-        memory_added_count = add_seen_jobs(new_jobs_for_memory)
+    if sent and new_items_for_memory:
+        memory_added_count = add_seen_jobs(new_items_for_memory)
         logger.info("%s yeni ilan/firsat structured memory formatinda kaydedildi.", memory_added_count)
         try:
-            upsert_opportunities(new_jobs_for_memory, status="sent")
+            upsert_opportunities(new_items_for_memory, status="sent")
         except Exception as exc:
             logger.error("SQLite sent state guncellenemedi. error=%s", exc)
 
