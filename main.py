@@ -54,22 +54,31 @@ def main() -> bool:
     feedback_keyword_weights = {}
     try:
         init_database()
-        json_seen_records = load_seen_jobs()
-        if json_seen_records:
-            upsert_opportunities(json_seen_records, status="sent")
         db_seen_jobs = load_seen_canonical_urls_from_db()
+        json_backfill_count = 0
+        
+        # O(N) Performans Optimizasyonu: Sadece SQLite tamamen boşsa (ilk kurulum) JSON'dan aktarım yap.
+        if not db_seen_jobs:
+            json_seen_records = load_seen_jobs()
+            if json_seen_records:
+                json_backfill_count = len(json_seen_records)
+                upsert_opportunities(json_seen_records, status="sent")
+                db_seen_jobs = load_seen_canonical_urls_from_db()
+
         feedback_index = load_feedback_index()
         feedback_keyword_weights = load_feedback_keyword_weights()
         seen_jobs = seen_jobs | db_seen_jobs
         logger.info(
             "SQLite hafizasi yuklendi. json_backfill=%s db_seen=%s feedback_records=%s feedback_terms=%s",
-            len(json_seen_records),
+            json_backfill_count,
             len(db_seen_jobs),
             len(feedback_index),
             len(feedback_keyword_weights),
         )
     except Exception as exc:
-        logger.error("SQLite state hazirlanamadi; JSON hafiza ile devam ediliyor. error=%s", exc)
+        logger.error("Kritik Hata: Veritabanı ve hafıza başlatılamadı. error=%s", exc)
+        return False  # Sessizce devam edersek filtreler boş olduğu için 1000'lerce mail atar. Kapatmak zorundayız.
+
     logger.info("Toplam %s daha once gorulmus ilan hafizada.", len(seen_jobs))
 
     # 2. Tum Kategorilerde Canli Veri Topla

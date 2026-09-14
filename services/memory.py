@@ -1,6 +1,7 @@
 import datetime as dt
 import json
 import logging
+import os
 from pathlib import Path
 from typing import Any
 
@@ -8,7 +9,7 @@ from services.state_io import atomic_write_json
 from services.url_utils import canonicalize_url, clean_url
 
 
-MEMORY_FILE = "seen_jobs.json"
+MEMORY_FILE = os.getenv("JOBHUNT_MEMORY_PATH", "seen_jobs.json")
 logger = logging.getLogger(__name__)
 
 

@@ -5,6 +5,7 @@ services:
       - .env
     environment:
       JOBHUNT_DB_PATH: /app/data/jobhunt.db
+      JOBHUNT_MEMORY_PATH: /app/data/seen_jobs.json
     volumes:
       - ./data:/app/data
     healthcheck:
