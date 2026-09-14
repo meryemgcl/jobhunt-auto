@@ -13,6 +13,77 @@ FEATURE_FLAGS = {
 }
 
 # ==============================================================================
+# Puanlama Motoru Ağırlıkları (Matcher Weights)
+# Kod değiştirmeden kalibrasyon yapabilmek için buradan yönetin.
+# Yüksek değer = bu anahtar kelime eşleştiğinde daha fazla puan.
+# ==============================================================================
+
+TECH_WEIGHTS: dict[str, int] = {
+    "python": 18,
+    "machine learning": 14,
+    "artificial intelligence": 12,
+    "ai": 10,
+    "backend": 12,
+    "fastapi": 10,
+    "django": 8,
+    "flask": 8,
+    "sql": 9,
+    "data": 8,
+    "c#": 8,
+    "javascript": 7,
+    "developer": 5,
+    "yazilim": 5,
+    "yazılım": 5,
+}
+
+ROLE_WEIGHTS: dict[str, int] = {
+    "staj": 20,
+    "stajyer": 20,
+    "intern": 20,
+    "junior": 18,
+    "entry level": 16,
+    "new grad": 16,
+    "yeni mezun": 16,
+    "ogrenci": 12,
+    "öğrenci": 12,
+}
+
+LOCATION_WEIGHTS: dict[str, int] = {
+    "sivas": 18,
+    "erzurum": 18,
+    "kayseri": 14,
+    "malatya": 12,
+    "konya": 12,
+    "remote": 14,
+    "uzaktan": 14,
+    "hibrit": 10,
+    "turkiye": 8,
+    "türkiye": 8,
+    "global": 5,
+}
+
+# Kesinlikle 0 puan verilecek anahtar kelimeler (sabit sistem filtreleri).
+# Kişisel tercihler için EXCLUDED_KEYWORDS kullanın.
+HARD_NEGATIVE_KEYWORDS: list[str] = [
+    "senior",
+    "sr",
+    "lead",
+    "principal",
+    "staff engineer",
+    "manager",
+    "director",
+    "muhasebe",
+    "accounting",
+    "sales",
+    "satış",
+    "satis",
+    "marketing",
+    "pazarlama",
+    "call center",
+    "customer support",
+]
+
+# ==============================================================================
 # Kullanıcı Tarafından Yönetilen Kara Listeler
 # Aşağıdaki listeler matcher.py'daki yerleşik HARD_NEGATIVE_KEYWORDS listesinin
 # ötesinde, kullanıcının kişisel tercihlerine göre özelleştirilir.

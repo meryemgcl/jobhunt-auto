@@ -1,4 +1,4 @@
-﻿import logging
+import logging
 import sys
 
 def _configure_stdout_encoding() -> None:
@@ -10,7 +10,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from config import FEATURE_FLAGS
-from services.profile_analyzer.analyzer import get_mock_profile
+from services.profile_analyzer.analyzer import get_profile
 from services.memory import add_seen_jobs, load_seen_canonical_urls, load_seen_jobs
 from services.job_collector import (
     fetch_jobs, 
@@ -48,7 +48,7 @@ def main() -> bool:
     logger.info("JobHunt-Auto gelismis deterministik motor baslatiliyor. run_id=%s", run_id)
 
     # 1. Profil ve Hafizayi Yukle
-    profile = get_mock_profile()
+    profile = get_profile()
     seen_jobs = load_seen_canonical_urls()
     feedback_index = {}
     feedback_keyword_weights = {}

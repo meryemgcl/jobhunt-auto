@@ -53,4 +53,5 @@ select = ["F", "UP", "B"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["."]
-addopts = "-q"
+addopts = "-q --basetemp=.tmp_pytest"
+tmp_path_retention_policy = "failed"

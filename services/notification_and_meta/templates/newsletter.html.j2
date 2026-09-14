@@ -16,8 +16,8 @@
         </div>
 
         <div style="background:#f8fafc;padding:14px 28px;border-bottom:1px solid #e2e8f0;font-size:12px;color:#475569;line-height:1.6;">
-            <div>🎯 <b>Hedef Yetenek Seti:</b> Bilişim Sistemleri, Python, AI/ML, Backend, C#, SQL, Veri Analizi</div>
-            <div>📍 <b>Coğrafi Kapsam:</b> Sivas, Erzurum, Kayseri, Malatya, Konya, Türkiye Geneli (Uzaktan / Hibrit) & Global</div>
+            <div>🎯 <b>Hedef Yetenek Seti:</b> {{ profile.target_skills_label if profile.target_skills_label else (profile.core_skills | join(', ')) }}</div>
+            <div>📍 <b>Coğrafi Kapsam:</b> {{ profile.preferred_locations | join(', ') if profile.preferred_locations else 'Türkiye Geneli &amp; Global' }}</div>
             <div>⚡ <b>Sistem Durumu:</b> Deterministik Çok Kaynaklı Veri Motoru Tarafından Doğrulandı</div>
         </div>
 

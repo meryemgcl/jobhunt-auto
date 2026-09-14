@@ -10,3 +10,4 @@ jobhunt.db*
 data/
 .idea/
 .vscode/
+.tmp_pytest/

@@ -1,0 +1,55 @@
+# ==============================================================================
+# JobHunt-Auto Aday Profili
+# ==============================================================================
+# Bu dosyayı kendinize göre düzenleyin. Hiçbir Python dosyasına dokunmanıza gerek yok.
+# Boş bırakılan alanlar e-posta ve filtreleme sisteminde dikkate alınmaz.
+#
+# Kullanim:
+#   - core_skills: matcher puanlama motorunda teknoloji eşleşmesi için kullanılır.
+#   - preferred_locations: konum ağırlığı hesabında dikkate alınır.
+#   - experience_level: rol seviyesi (Junior/Intern) filtrelemesini etkiler.
+#   - job_roles: profil tabanlı ek puan hesabında kullanılır.
+# ==============================================================================
+
+name: "Meryem Güçlü"
+title: "Yazılım Geliştirici & Bilişim Sistemleri Öğrencisi"
+experience_level: "Junior/Intern"
+
+# Teknik beceriler -- matcher puanlama için kullanılır
+core_skills:
+  - "Python"
+  - "C#"
+  - "JavaScript"
+  - "SQL"
+  - "Google Gemini API"
+  - "Pandas"
+  - "Machine Learning"
+  - "CNN"
+  - "Unity"
+  - "Serverless"
+
+# Hedeflenen roller
+job_roles:
+  - "AI Engineer Intern"
+  - "Data Analyst"
+  - "Junior Backend Developer"
+  - "Frontend Developer"
+  - "AR Developer"
+
+# Tercih edilen konumlar -- e-posta başlık bölümünde gösterilir
+preferred_locations:
+  - "Sivas"
+  - "Erzurum"
+  - "Kayseri"
+  - "Malatya"
+  - "Konya"
+  - "Remote"
+  - "Uzaktan"
+  - "Türkiye Geneli"
+
+# Hedef yetenek seti açıklaması -- e-posta başlık bölümünde gösterilir
+target_skills_label: "Bilişim Sistemleri, Python, AI/ML, Backend, C#, SQL, Veri Analizi"
+
+# Profil bağlantıları
+github_url: "https://github.com/meryemgcl"
+linkedin_url: "https://www.linkedin.com/in/meryemgüçlü/"

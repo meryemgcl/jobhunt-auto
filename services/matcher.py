@@ -1,71 +1,14 @@
 import re
 
-from config import EXCLUDED_COMPANIES, EXCLUDED_KEYWORDS
+from config import (
+    EXCLUDED_COMPANIES,
+    EXCLUDED_KEYWORDS,
+    HARD_NEGATIVE_KEYWORDS,
+    LOCATION_WEIGHTS,
+    ROLE_WEIGHTS,
+    TECH_WEIGHTS,
+)
 from services.feedback import feedback_adjustment_for
-
-
-TECH_WEIGHTS = {
-    "python": 18,
-    "machine learning": 14,
-    "artificial intelligence": 12,
-    "ai": 10,
-    "backend": 12,
-    "fastapi": 10,
-    "django": 8,
-    "flask": 8,
-    "sql": 9,
-    "data": 8,
-    "c#": 8,
-    "javascript": 7,
-    "developer": 5,
-    "yazilim": 5,
-    "yazılım": 5,
-}
-
-ROLE_WEIGHTS = {
-    "staj": 20,
-    "stajyer": 20,
-    "intern": 20,
-    "junior": 18,
-    "entry level": 16,
-    "new grad": 16,
-    "yeni mezun": 16,
-    "ogrenci": 12,
-    "öğrenci": 12,
-}
-
-LOCATION_WEIGHTS = {
-    "sivas": 18,
-    "erzurum": 18,
-    "kayseri": 14,
-    "malatya": 12,
-    "konya": 12,
-    "remote": 14,
-    "uzaktan": 14,
-    "hibrit": 10,
-    "turkiye": 8,
-    "türkiye": 8,
-    "global": 5,
-}
-
-HARD_NEGATIVE_KEYWORDS = [
-    "senior",
-    "sr",
-    "lead",
-    "principal",
-    "staff engineer",
-    "manager",
-    "director",
-    "muhasebe",
-    "accounting",
-    "sales",
-    "satış",
-    "satis",
-    "marketing",
-    "pazarlama",
-    "call center",
-    "customer support",
-]
 
 
 def _normalize(value) -> str:
