@@ -6,7 +6,7 @@ def test_main_returns_false_and_preserves_memory_when_email_fails(monkeypatch):
 
     monkeypatch.setattr(
         jobhunt_main,
-        "get_mock_profile",
+        "get_profile",
         lambda: {"core_skills": ["Python"], "name": "Meryem Guclu"},
     )
     monkeypatch.setattr(jobhunt_main, "load_seen_canonical_urls", lambda: set())
