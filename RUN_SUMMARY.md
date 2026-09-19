@@ -1,22 +1,22 @@
 # JobHunt-Auto Run Summary
 
-- Run ID: `9c614aa7668f`
-- Started At: `2026-09-19T10:28:14+00:00`
-- Finished At: `2026-09-19T10:28:38+00:00`
-- Total Collected: `75`
-- Matched Jobs: `1`
-- Duplicates Skipped: `34`
+- Run ID: `516d63b39fc8`
+- Started At: `2026-09-19T14:12:36+00:00`
+- Finished At: `2026-09-19T14:12:58+00:00`
+- Total Collected: `78`
+- Matched Jobs: `3`
+- Duplicates Skipped: `47`
 - Invalid URLs Skipped: `0`
 - Email Sent: `True`
 - Dashboard Updated: `True`
-- Memory Added Count: `41`
+- Memory Added Count: `31`
 
 ## Source Counts
 
 - `AR-GE Search`: 1
 - `Anadolu Teknokentleri & TR Uzaktan Ağ`: 18
 - `Arbeitnow API`: 20
-- `Bootcamp Search`: 1
+- `Bootcamp Search`: 3
 - `Dev.to (Mahmoud 🦀)`: 1
 - `Dev.to (Mohamed)`: 1
 - `Dev.to (saurabh gupta)`: 1
@@ -26,7 +26,7 @@
 - `Kaggle`: 1
 - `Kod Gemisi Ekibi`: 1
 - `Patika.dev`: 1
-- `Remotive Global API`: 16
+- `Remotive Global API`: 17
 - `Spotify Podcasts`: 1
 - `TEKNOFEST`: 1
 - `Techcareer.net`: 1
