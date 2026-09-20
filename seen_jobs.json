@@ -6638,5 +6638,325 @@
     "first_seen_at": "2026-09-20T10:50:11+00:00",
     "last_seen_at": "2026-09-20T10:50:11+00:00",
     "score": 0
+  },
+  {
+    "url": "https://github.com/future-agi/future-agi/issues/2507",
+    "canonical_url": "https://github.com/future-agi/future-agi/issues/2507",
+    "title": "Agent Playground: moving a node on a saved agent looks like it worked and does not",
+    "company": "",
+    "source": "GitHub Issues API",
+    "first_seen_at": "2026-09-20T14:34:27+00:00",
+    "last_seen_at": "2026-09-20T14:34:27+00:00",
+    "score": null
+  },
+  {
+    "url": "https://github.com/Tracer-Cloud/opensre/issues/5492",
+    "canonical_url": "https://github.com/Tracer-Cloud/opensre/issues/5492",
+    "title": "Run the concurrency suites with the turn limit raised, report what breaks",
+    "company": "",
+    "source": "GitHub Issues API",
+    "first_seen_at": "2026-09-20T14:34:27+00:00",
+    "last_seen_at": "2026-09-20T14:34:27+00:00",
+    "score": null
+  },
+  {
+    "url": "https://github.com/sgl-project/sglang/pull/37261",
+    "canonical_url": "https://github.com/sgl-project/sglang/pull/37261",
+    "title": "feat(deepep_v2): expanded (do_expand=True) prefill dispatch for DeepEP-V2",
+    "company": "",
+    "source": "GitHub Issues API",
+    "first_seen_at": "2026-09-20T14:34:27+00:00",
+    "last_seen_at": "2026-09-20T14:34:27+00:00",
+    "score": null
+  },
+  {
+    "url": "https://dev.to/mikachu/i-built-a-green-blob-that-lives-on-my-desktop-and-now-it-has-feelings-4pjd",
+    "canonical_url": "https://dev.to/mikachu/i-built-a-green-blob-that-lives-on-my-desktop-and-now-it-has-feelings-4pjd",
+    "title": "i built a green blob that lives on my desktop. now it has feelings.",
+    "company": "",
+    "source": "Dev.to (Mika Flowers)",
+    "first_seen_at": "2026-09-20T14:34:27+00:00",
+    "last_seen_at": "2026-09-20T14:34:27+00:00",
+    "score": null
+  },
+  {
+    "url": "https://qwen.ai/blog?id=qwen-image-2.1",
+    "canonical_url": "https://qwen.ai/blog?id=qwen-image-2.1",
+    "title": "Qwen-Image-2.1: Compact, efficient, and unified image creation",
+    "company": "",
+    "source": "HackerNews API",
+    "first_seen_at": "2026-09-20T14:34:27+00:00",
+    "last_seen_at": "2026-09-20T14:34:27+00:00",
+    "score": null
+  },
+  {
+    "url": "https://softwarecrisis.dev/letters/llmentalist/",
+    "canonical_url": "https://softwarecrisis.dev/letters/llmentalist",
+    "title": "Chat-based Large Language Models replicate the mechanisms of a psychic's con",
+    "company": "",
+    "source": "HackerNews API",
+    "first_seen_at": "2026-09-20T14:34:27+00:00",
+    "last_seen_at": "2026-09-20T14:34:27+00:00",
+    "score": null
+  },
+  {
+    "url": "https://millenniumproblems.bio/",
+    "canonical_url": "https://millenniumproblems.bio/",
+    "title": "The Millennium Problems for Biology",
+    "company": "",
+    "source": "HackerNews API",
+    "first_seen_at": "2026-09-20T14:34:27+00:00",
+    "last_seen_at": "2026-09-20T14:34:27+00:00",
+    "score": null
+  },
+  {
+    "url": "https://www.kariyer.net/is-ilanlari/erzurum",
+    "canonical_url": "https://www.kariyer.net/is-ilanlari/erzurum",
+    "title": "Erzurum İş İlanları - Güncel Erzurum İş Fırsatları - Kariyer.net",
+    "company": "Kariyer.net / Teknokent / Youthall",
+    "source": "Anadolu Teknokentleri & TR Uzaktan Ağ",
+    "first_seen_at": "2026-09-20T14:34:27+00:00",
+    "last_seen_at": "2026-09-20T14:34:27+00:00",
+    "score": 98
+  },
+  {
+    "url": "https://remotive.com/remote-jobs/design/frontend-web-application-developer-2091141",
+    "canonical_url": "https://remotive.com/remote-jobs/design/frontend-web-application-developer-2091141",
+    "title": "Frontend Web Application Developer",
+    "company": "KoboToolbox",
+    "source": "Remotive Global API",
+    "first_seen_at": "2026-09-20T14:34:27+00:00",
+    "last_seen_at": "2026-09-20T14:34:27+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://remotive.com/remote-jobs/software-development/senior-shopify-developer-2091140",
+    "canonical_url": "https://remotive.com/remote-jobs/software-development/senior-shopify-developer-2091140",
+    "title": "Senior Shopify Developer",
+    "company": "Sanctuary Computer Inc",
+    "source": "Remotive Global API",
+    "first_seen_at": "2026-09-20T14:34:27+00:00",
+    "last_seen_at": "2026-09-20T14:34:27+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://remotive.com/remote-jobs/customer-service/kundenservice-mobilfunk-inbound-innerhalb-der-eu-ausgenommen-deutschland-2091139",
+    "canonical_url": "https://remotive.com/remote-jobs/customer-service/kundenservice-mobilfunk-inbound-innerhalb-der-eu-ausgenommen-deutschland-2091139",
+    "title": "🇩🇪 Kundenservice Mobilfunk Inbound - innerhalb der EU (ausgenommen: Deutschland)",
+    "company": "hey contact heroes GmbH",
+    "source": "Remotive Global API",
+    "first_seen_at": "2026-09-20T14:34:27+00:00",
+    "last_seen_at": "2026-09-20T14:34:27+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://remotive.com/remote-jobs/artificial-intelligence/senior-ai-engineer-2091131",
+    "canonical_url": "https://remotive.com/remote-jobs/artificial-intelligence/senior-ai-engineer-2091131",
+    "title": "Senior AI Engineer",
+    "company": "Lemon.io",
+    "source": "Remotive Global API",
+    "first_seen_at": "2026-09-20T14:34:27+00:00",
+    "last_seen_at": "2026-09-20T14:34:27+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/mke-munich-investment-gmbh/project-director-schlusselfertiger-wohnungsbau-munich-313403",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/mke-munich-investment-gmbh/project-director-schlusselfertiger-wohnungsbau-munich-313403",
+    "title": "Project Director Schlüsselfertiger Wohnungsbau",
+    "company": "MKE Munich Investment GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-20T14:34:27+00:00",
+    "last_seen_at": "2026-09-20T14:34:27+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/hammelsprung-gmbh/kommunikationsstrategin-kiel-45388",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/hammelsprung-gmbh/kommunikationsstrategin-kiel-45388",
+    "title": "Kommunikationsstrateg:in (m/w/d)",
+    "company": "Hammelsprung GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-20T14:34:27+00:00",
+    "last_seen_at": "2026-09-20T14:34:27+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/wohlrab-aufdampftechnik-gmbh/techniker-fachrichtung-industrielle-beschichtungstechnik-langenzenn-26370",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/wohlrab-aufdampftechnik-gmbh/techniker-fachrichtung-industrielle-beschichtungstechnik-langenzenn-26370",
+    "title": "Techniker Fachrichtung Industrielle Beschichtungstechnik (m/w/d)",
+    "company": "Wohlrab Aufdampftechnik GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-20T14:34:27+00:00",
+    "last_seen_at": "2026-09-20T14:34:27+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/dept/crm-campaign-managers-talent-pool-di-133157",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/dept/crm-campaign-managers-talent-pool-di-133157",
+    "title": "CRM Campaign Managers (Talent Pool) (div/f/m)",
+    "company": "dept",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-20T14:34:27+00:00",
+    "last_seen_at": "2026-09-20T14:34:27+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/dept/campaign-manager-ftc-di-217421",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/dept/campaign-manager-ftc-di-217421",
+    "title": "Campaign Manager (FTC) (div/f/m)",
+    "company": "dept",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-20T14:34:27+00:00",
+    "last_seen_at": "2026-09-20T14:34:27+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/whalarinc/junior-campaign-manager-dach-berlin-97823",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/whalarinc/junior-campaign-manager-dach-berlin-97823",
+    "title": "Junior Campaign Manager, DACH",
+    "company": "whalarinc",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-20T14:34:27+00:00",
+    "last_seen_at": "2026-09-20T14:34:27+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/smartlyio/senior-machine-learning-engineer-ai-platform-berlin-berlin-472949",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/smartlyio/senior-machine-learning-engineer-ai-platform-berlin-berlin-472949",
+    "title": "Senior Machine Learning Engineer, AI Platform",
+    "company": "smartlyio",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-20T14:34:27+00:00",
+    "last_seen_at": "2026-09-20T14:34:27+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/appinio/senior-backend-engineer-hamburg-hamburg-182193",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/appinio/senior-backend-engineer-hamburg-hamburg-182193",
+    "title": "Senior Backend Engineer",
+    "company": "appinio",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-20T14:34:27+00:00",
+    "last_seen_at": "2026-09-20T14:34:27+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/appinio/senior-b2b-insights-consultant-dach-hamburg-hamburg-396794",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/appinio/senior-b2b-insights-consultant-dach-hamburg-hamburg-396794",
+    "title": "Senior B2B Insights Consultant DACH (m/f/d)",
+    "company": "appinio",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-20T14:34:27+00:00",
+    "last_seen_at": "2026-09-20T14:34:27+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/wppmedia/paid-social-performance-manager-mensch-dusseldorf-109652",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/wppmedia/paid-social-performance-manager-mensch-dusseldorf-109652",
+    "title": "Paid Social Performance Manager (Mensch)",
+    "company": "wppmedia",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-20T14:34:27+00:00",
+    "last_seen_at": "2026-09-20T14:34:27+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/wppmedia/media-manager-mensch-airbnb-dusseldorf-146162",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/wppmedia/media-manager-mensch-airbnb-dusseldorf-146162",
+    "title": "Media Manager (Mensch) Airbnb",
+    "company": "wppmedia",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-20T14:34:27+00:00",
+    "last_seen_at": "2026-09-20T14:34:27+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/wppmedia/marketing-manager-retail-media-mensch-dusseldorf-68493",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/wppmedia/marketing-manager-retail-media-mensch-dusseldorf-68493",
+    "title": "Marketing Manager Retail Media (Mensch)",
+    "company": "wppmedia",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-20T14:34:27+00:00",
+    "last_seen_at": "2026-09-20T14:34:27+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/wppmedia/manager-paid-social-mensch-dusseldorf-201317",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/wppmedia/manager-paid-social-mensch-dusseldorf-201317",
+    "title": "Manager Paid Social (Mensch)",
+    "company": "wppmedia",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-20T14:34:27+00:00",
+    "last_seen_at": "2026-09-20T14:34:27+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/wppmedia/manager-paid-social-mensch-frankfurt-272888",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/wppmedia/manager-paid-social-mensch-frankfurt-272888",
+    "title": "Manager Paid Social (Mensch)",
+    "company": "wppmedia",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-20T14:34:27+00:00",
+    "last_seen_at": "2026-09-20T14:34:27+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/wppmedia/manager-paid-search-mensch-dusseldorf-frankfurt-munich-258286",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/wppmedia/manager-paid-search-mensch-dusseldorf-frankfurt-munich-258286",
+    "title": "Manager Paid Search (Mensch)",
+    "company": "wppmedia",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-20T14:34:27+00:00",
+    "last_seen_at": "2026-09-20T14:34:27+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/wppmedia/junior-manager-paid-social-mensch-dusseldorf-104944",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/wppmedia/junior-manager-paid-social-mensch-dusseldorf-104944",
+    "title": "Junior Manager Paid Social (Mensch)",
+    "company": "wppmedia",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-20T14:34:27+00:00",
+    "last_seen_at": "2026-09-20T14:34:27+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/wppmedia/group-head-paid-social-mensch-google-dusseldorf-54301",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/wppmedia/group-head-paid-social-mensch-google-dusseldorf-54301",
+    "title": "Group Head Paid Social (Mensch) Google",
+    "company": "wppmedia",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-20T14:34:27+00:00",
+    "last_seen_at": "2026-09-20T14:34:27+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/wppmedia/group-head-paid-social-human-google-dusseldorf-131614",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/wppmedia/group-head-paid-social-human-google-dusseldorf-131614",
+    "title": "Group Head Paid Social (Human) Google",
+    "company": "wppmedia",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-20T14:34:27+00:00",
+    "last_seen_at": "2026-09-20T14:34:27+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/wppmedia/digital-campaign-manager-mensch-frankfurt-344189",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/wppmedia/digital-campaign-manager-mensch-frankfurt-344189",
+    "title": "Digital Campaign Manager (Mensch)",
+    "company": "wppmedia",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-20T14:34:27+00:00",
+    "last_seen_at": "2026-09-20T14:34:27+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/veeamsoftware/remote-senior-account-executive-enterprise-public-accounts-18944",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/veeamsoftware/remote-senior-account-executive-enterprise-public-accounts-18944",
+    "title": "Senior Account Executive, Enterprise (Public Accounts)",
+    "company": "veeamsoftware",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-20T14:34:27+00:00",
+    "last_seen_at": "2026-09-20T14:34:27+00:00",
+    "score": 0
   }
 ]
