@@ -6958,5 +6958,305 @@
     "first_seen_at": "2026-09-20T14:34:27+00:00",
     "last_seen_at": "2026-09-20T14:34:27+00:00",
     "score": 0
+  },
+  {
+    "url": "https://github.com/sara-czasak/py-simple-wrap/issues/325",
+    "canonical_url": "https://github.com/sara-czasak/py-simple-wrap/issues/325",
+    "title": "🖋️ Add a new function to easy_random",
+    "company": "",
+    "source": "GitHub Issues API",
+    "first_seen_at": "2026-09-21T12:14:41+00:00",
+    "last_seen_at": "2026-09-21T12:14:41+00:00",
+    "score": null
+  },
+  {
+    "url": "https://github.com/yeongseon/azure-functions-openapi-python/issues/585",
+    "canonical_url": "https://github.com/yeongseon/azure-functions-openapi-python/issues/585",
+    "title": "docs(contributing): add a local development quickstart",
+    "company": "",
+    "source": "GitHub Issues API",
+    "first_seen_at": "2026-09-21T12:14:41+00:00",
+    "last_seen_at": "2026-09-21T12:14:41+00:00",
+    "score": null
+  },
+  {
+    "url": "https://github.com/Sathyabalan6/laptop-remote/issues/2",
+    "canonical_url": "https://github.com/Sathyabalan6/laptop-remote/issues/2",
+    "title": "test: add frontend tests for trackpad gestures and preset logic",
+    "company": "",
+    "source": "GitHub Issues API",
+    "first_seen_at": "2026-09-21T12:14:41+00:00",
+    "last_seen_at": "2026-09-21T12:14:41+00:00",
+    "score": null
+  },
+  {
+    "url": "https://dev.to/gde/one-iceberg-mcp-server-seven-catalogs-what-it-takes-to-reach-each-one-2605",
+    "canonical_url": "https://dev.to/gde/one-iceberg-mcp-server-seven-catalogs-what-it-takes-to-reach-each-one-2605",
+    "title": "One Iceberg MCP Server, Seven Catalogs: What It Takes to Reach Each One",
+    "company": "",
+    "source": "Dev.to (xbill)",
+    "first_seen_at": "2026-09-21T12:14:41+00:00",
+    "last_seen_at": "2026-09-21T12:14:41+00:00",
+    "score": null
+  },
+  {
+    "url": "https://dev.to/mskazemi/our-linters-safe-autofix-would-have-silently-disabled-rbac-log",
+    "canonical_url": "https://dev.to/mskazemi/our-linters-safe-autofix-would-have-silently-disabled-rbac-log",
+    "title": "Our linter's \"safe\" autofix would have silently disabled RBAC",
+    "company": "",
+    "source": "Dev.to (Mohsen Seyedkazemi Ardebili)",
+    "first_seen_at": "2026-09-21T12:14:41+00:00",
+    "last_seen_at": "2026-09-21T12:14:41+00:00",
+    "score": null
+  },
+  {
+    "url": "https://dev.to/fengyugbt/ask-pydata-a-source-linked-agent-for-python-data-library-decisions-3f52",
+    "canonical_url": "https://dev.to/fengyugbt/ask-pydata-a-source-linked-agent-for-python-data-library-decisions-3f52",
+    "title": "Ask PyData: A Source-Linked Agent for Python Data Library Decisions",
+    "company": "",
+    "source": "Dev.to (Feng Yu)",
+    "first_seen_at": "2026-09-21T12:14:41+00:00",
+    "last_seen_at": "2026-09-21T12:14:41+00:00",
+    "score": null
+  },
+  {
+    "url": "https://zuckoff.app/",
+    "canonical_url": "https://zuckoff.app/",
+    "title": "ZuckOff Know when a camera is in the room",
+    "company": "",
+    "source": "HackerNews API",
+    "first_seen_at": "2026-09-21T12:14:41+00:00",
+    "last_seen_at": "2026-09-21T12:14:41+00:00",
+    "score": null
+  },
+  {
+    "url": "https://www.wired.me/story/meta-smart-glasses-detector-app-zuckoff",
+    "canonical_url": "https://www.wired.me/story/meta-smart-glasses-detector-app-zuckoff",
+    "title": "ZuckOff Is a Free App That Sees Meta Glasses Before They See You",
+    "company": "",
+    "source": "HackerNews API",
+    "first_seen_at": "2026-09-21T12:14:41+00:00",
+    "last_seen_at": "2026-09-21T12:14:41+00:00",
+    "score": null
+  },
+  {
+    "url": "https://github.com/jaredpalmer/kev/tree/main",
+    "canonical_url": "https://github.com/jaredpalmer/kev/tree/main",
+    "title": "Kev: Tiny Jev-like family of decision models built on top of Qwen3.5",
+    "company": "",
+    "source": "HackerNews API",
+    "first_seen_at": "2026-09-21T12:14:41+00:00",
+    "last_seen_at": "2026-09-21T12:14:41+00:00",
+    "score": null
+  },
+  {
+    "url": "https://joinhandshake.com/find-jobs/remote/",
+    "canonical_url": "https://joinhandshake.com/find-jobs/remote",
+    "title": "Find Remote Jobs | Handshake",
+    "company": "Kariyer.net / Teknokent / Youthall",
+    "source": "Anadolu Teknokentleri & TR Uzaktan Ağ",
+    "first_seen_at": "2026-09-21T12:14:41+00:00",
+    "last_seen_at": "2026-09-21T12:14:41+00:00",
+    "score": 98
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/unitplus/founders-associate-intern-berlin-ab-sofort-387181",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/unitplus/founders-associate-intern-berlin-ab-sofort-387181",
+    "title": "Founders Associate Intern (w/d/m) - Berlin, ab sofort",
+    "company": "UnitPlus",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-21T12:14:41+00:00",
+    "last_seen_at": "2026-09-21T12:14:41+00:00",
+    "score": 20
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/creatorhub-media/influencer-marketing-managerin-deat-mainz-443782",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/creatorhub-media/influencer-marketing-managerin-deat-mainz-443782",
+    "title": "Influencer Marketing Manager:in DE+AT",
+    "company": "creator.hub media",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-21T12:14:41+00:00",
+    "last_seen_at": "2026-09-21T12:14:41+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/tecfox-gmbh/frontend-softwareentwickler-braunschweig-275925",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/tecfox-gmbh/frontend-softwareentwickler-braunschweig-275925",
+    "title": "Frontend Softwareentwickler (m/w/d)",
+    "company": "TecFox GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-21T12:14:41+00:00",
+    "last_seen_at": "2026-09-21T12:14:41+00:00",
+    "score": 14
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/tecfox-gmbh/fullstack-softwareentwickler-braunschweig-59326",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/tecfox-gmbh/fullstack-softwareentwickler-braunschweig-59326",
+    "title": "Fullstack Softwareentwickler (m/w/d)",
+    "company": "TecFox GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-21T12:14:41+00:00",
+    "last_seen_at": "2026-09-21T12:14:41+00:00",
+    "score": 26
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/ghost-office-marketing-und-kommunikationsservices/grafikdesigner-schwerpunkt-layout-gestaltung-berlin-385345",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/ghost-office-marketing-und-kommunikationsservices/grafikdesigner-schwerpunkt-layout-gestaltung-berlin-385345",
+    "title": "Grafikdesigner - Schwerpunkt Layout & Gestaltung (m/w/d)",
+    "company": "Ghost Office Marketing und Kommunikationsservices",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-21T12:14:41+00:00",
+    "last_seen_at": "2026-09-21T12:14:41+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/efly-marketplace-services-gmbh/influencer-marketing-manager-stuttgart-46823",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/efly-marketplace-services-gmbh/influencer-marketing-manager-stuttgart-46823",
+    "title": "Influencer Marketing Manager (m/w/d)",
+    "company": "eFLY Marketplace Services GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-21T12:14:41+00:00",
+    "last_seen_at": "2026-09-21T12:14:41+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/efly-marketplace-services-gmbh/senior-google-performance-analytics-manager-stuttgart-404695",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/efly-marketplace-services-gmbh/senior-google-performance-analytics-manager-stuttgart-404695",
+    "title": "Senior Google Performance & Analytics Manager (m/w/d)",
+    "company": "eFLY Marketplace Services GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-21T12:14:41+00:00",
+    "last_seen_at": "2026-09-21T12:14:41+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/efly-marketplace-services-gmbh/pflichtpraktikum-online-marketing-manager-stuttgart-154704",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/efly-marketplace-services-gmbh/pflichtpraktikum-online-marketing-manager-stuttgart-154704",
+    "title": "Pflichtpraktikum Online Marketing Manager (m/w/d)",
+    "company": "eFLY Marketplace Services GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-21T12:14:41+00:00",
+    "last_seen_at": "2026-09-21T12:14:41+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/efly-marketplace-services-gmbh/pflichtpraktikum-im-bereich-grafikdesign-stuttgart-290500",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/efly-marketplace-services-gmbh/pflichtpraktikum-im-bereich-grafikdesign-stuttgart-290500",
+    "title": "Pflichtpraktikum im Bereich Grafikdesign (m/w/d)",
+    "company": "eFLY Marketplace Services GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-21T12:14:41+00:00",
+    "last_seen_at": "2026-09-21T12:14:41+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/efly-marketplace-services-gmbh/junior-google-performance-analytics-manager-stuttgart-394573",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/efly-marketplace-services-gmbh/junior-google-performance-analytics-manager-stuttgart-394573",
+    "title": "Junior Google Performance & Analytics Manager (m/w/d)",
+    "company": "eFLY Marketplace Services GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-21T12:14:41+00:00",
+    "last_seen_at": "2026-09-21T12:14:41+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/efly-marketplace-services-gmbh/online-marketing-manager-stuttgart-332773",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/efly-marketplace-services-gmbh/online-marketing-manager-stuttgart-332773",
+    "title": "Online Marketing Manager (m/w/d)",
+    "company": "eFLY Marketplace Services GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-21T12:14:41+00:00",
+    "last_seen_at": "2026-09-21T12:14:41+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/homaris-service-gmbh/senior-accountant-buchhalterin-all-genders-in-berlin-455774",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/homaris-service-gmbh/senior-accountant-buchhalterin-all-genders-in-berlin-455774",
+    "title": "(Senior) Accountant/Buchhalter*in (all genders) in Berlin",
+    "company": "Homaris Service GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-21T12:14:41+00:00",
+    "last_seen_at": "2026-09-21T12:14:41+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/emetriq-gmbh/senior-manager-sea-bonn-118699",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/emetriq-gmbh/senior-manager-sea-bonn-118699",
+    "title": "Senior Manager SEA (m/w/d)",
+    "company": "emetriq GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-21T12:14:41+00:00",
+    "last_seen_at": "2026-09-21T12:14:41+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/bahnhofchen-restaurant-ug-hb-co-kg/marketing-empfang-bonn-35305",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/bahnhofchen-restaurant-ug-hb-co-kg/marketing-empfang-bonn-35305",
+    "title": "Marketing & Empfang",
+    "company": "Bahnhöfchen Restaurant UG (hb) & Co KG",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-21T12:14:41+00:00",
+    "last_seen_at": "2026-09-21T12:14:41+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/intermate-media-gmbh/senior-creative-concept-copy-social-gn-berlin-268915",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/intermate-media-gmbh/senior-creative-concept-copy-social-gn-berlin-268915",
+    "title": "Senior Creative Concept/Copy (Social) (gn)",
+    "company": "Intermate Media GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-21T12:14:41+00:00",
+    "last_seen_at": "2026-09-21T12:14:41+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/aramaz-digital/talent-acquisition-manager-bielefeld-67323",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/aramaz-digital/talent-acquisition-manager-bielefeld-67323",
+    "title": "Talent Acquisition Manager (m/w/d)",
+    "company": "Aramaz Digital",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-21T12:14:41+00:00",
+    "last_seen_at": "2026-09-21T12:14:41+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/aramaz-digital/talent-acquisition-manager-bielefeld-142394",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/aramaz-digital/talent-acquisition-manager-bielefeld-142394",
+    "title": "Talent Acquisition Manager (m/w/d)",
+    "company": "Aramaz Digital",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-21T12:14:41+00:00",
+    "last_seen_at": "2026-09-21T12:14:41+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/cms-cinema-management-services-gmbh-cokg/praktikant-controlling-lubeck-98492",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/cms-cinema-management-services-gmbh-cokg/praktikant-controlling-lubeck-98492",
+    "title": "Praktikant (m/w/d) Controlling",
+    "company": "CMS Cinema Management Services GmbH & Co.KG",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-21T12:14:41+00:00",
+    "last_seen_at": "2026-09-21T12:14:41+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/grid-esports-gmbh/senior-data-scientist-real-time-esports-predictions-berlin-136377",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/grid-esports-gmbh/senior-data-scientist-real-time-esports-predictions-berlin-136377",
+    "title": "Senior Data Scientist - Real-Time Esports Predictions (m/f/x)",
+    "company": "GRID eSports GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-21T12:14:41+00:00",
+    "last_seen_at": "2026-09-21T12:14:41+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/allane-se/teamleiter-it-finance-risk-munchen-250333",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/allane-se/teamleiter-it-finance-risk-munchen-250333",
+    "title": "Teamleiter IT Finance & Risk (m/w/d)",
+    "company": "Allane SE",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-21T12:14:41+00:00",
+    "last_seen_at": "2026-09-21T12:14:41+00:00",
+    "score": 0
   }
 ]
