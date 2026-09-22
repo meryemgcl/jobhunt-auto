@@ -7258,5 +7258,295 @@
     "first_seen_at": "2026-09-21T12:14:41+00:00",
     "last_seen_at": "2026-09-21T12:14:41+00:00",
     "score": 0
+  },
+  {
+    "url": "https://github.com/sankaHQ/sanka/issues/130",
+    "canonical_url": "https://github.com/sankaHQ/sanka/issues/130",
+    "title": "Non-interactive sanka plan should name the missing inputs in the text error",
+    "company": "",
+    "source": "GitHub Issues API",
+    "first_seen_at": "2026-09-22T11:08:26+00:00",
+    "last_seen_at": "2026-09-22T11:08:26+00:00",
+    "score": null
+  },
+  {
+    "url": "https://github.com/keras-team/keras/issues/23696",
+    "canonical_url": "https://github.com/keras-team/keras/issues/23696",
+    "title": "Migrate internal `ops.*` calls to `backend.ops.*`",
+    "company": "",
+    "source": "GitHub Issues API",
+    "first_seen_at": "2026-09-22T11:08:26+00:00",
+    "last_seen_at": "2026-09-22T11:08:26+00:00",
+    "score": null
+  },
+  {
+    "url": "https://github.com/TheAlgorithms/Python/issues/15234",
+    "canonical_url": "https://github.com/TheAlgorithms/Python/issues/15234",
+    "title": "sorts: make algorithms sort any comparable items, not just ints",
+    "company": "",
+    "source": "GitHub Issues API",
+    "first_seen_at": "2026-09-22T11:08:26+00:00",
+    "last_seen_at": "2026-09-22T11:08:26+00:00",
+    "score": null
+  },
+  {
+    "url": "https://dev.to/aws-builders/put-the-arithmetic-in-the-tool-an-mcp-server-for-an-aws-waste-scanner-3n79",
+    "canonical_url": "https://dev.to/aws-builders/put-the-arithmetic-in-the-tool-an-mcp-server-for-an-aws-waste-scanner-3n79",
+    "title": "Put the Arithmetic in the Tool: an MCP Server for an AWS Waste Scanner",
+    "company": "",
+    "source": "Dev.to (xbill)",
+    "first_seen_at": "2026-09-22T11:08:26+00:00",
+    "last_seen_at": "2026-09-22T11:08:26+00:00",
+    "score": null
+  },
+  {
+    "url": "https://dev.to/sunnydachs/what-happens-when-enterprise-requirements-hit-strands-langgraph-and-crewai-45-runs-measured-ocg",
+    "canonical_url": "https://dev.to/sunnydachs/what-happens-when-enterprise-requirements-hit-strands-langgraph-and-crewai-45-runs-measured-ocg",
+    "title": "What happens when enterprise requirements hit Strands, LangGraph, and CrewAI - 45 runs measured",
+    "company": "",
+    "source": "Dev.to (sunnydachs)",
+    "first_seen_at": "2026-09-22T11:08:26+00:00",
+    "last_seen_at": "2026-09-22T11:08:26+00:00",
+    "score": null
+  },
+  {
+    "url": "https://dev.to/earlgreyhot1701d/i-wrote-the-code-this-time-does-it-count-if-the-answer-was-wrong-1f2k",
+    "canonical_url": "https://dev.to/earlgreyhot1701d/i-wrote-the-code-this-time-does-it-count-if-the-answer-was-wrong-1f2k",
+    "title": "I Wrote the Code This Time. Does It Count If the Answer Was Wrong?",
+    "company": "",
+    "source": "Dev.to (Earl Grey)",
+    "first_seen_at": "2026-09-22T11:08:26+00:00",
+    "last_seen_at": "2026-09-22T11:08:26+00:00",
+    "score": null
+  },
+  {
+    "url": "https://www.bristol.ac.uk/news/2026/september/world-cup-viewers.html",
+    "canonical_url": "https://www.bristol.ac.uk/news/2026/september/world-cup-viewers.html",
+    "title": "9 Ads per Minute: FIFA Cup 26 – \"the price of the beautiful game\"",
+    "company": "",
+    "source": "HackerNews API",
+    "first_seen_at": "2026-09-22T11:08:26+00:00",
+    "last_seen_at": "2026-09-22T11:08:26+00:00",
+    "score": null
+  },
+  {
+    "url": "https://board.flatassembler.net/topic.php?t=24261",
+    "canonical_url": "https://board.flatassembler.net/topic.php?t=24261",
+    "title": "AMD's random number generator can't generate a 0?",
+    "company": "",
+    "source": "HackerNews API",
+    "first_seen_at": "2026-09-22T11:08:26+00:00",
+    "last_seen_at": "2026-09-22T11:08:26+00:00",
+    "score": null
+  },
+  {
+    "url": "https://nathan.rs/posts/gzip-lm/",
+    "canonical_url": "https://nathan.rs/posts/gzip-lm",
+    "title": "Can gzip be a language model?",
+    "company": "",
+    "source": "HackerNews API",
+    "first_seen_at": "2026-09-22T11:08:26+00:00",
+    "last_seen_at": "2026-09-22T11:08:26+00:00",
+    "score": null
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/hoch-und-tiefbau-generalplanung-schroder-gmbh/fachplaner-sachverstandiger-vorbeugender-brandschutz-berlin-324403",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/hoch-und-tiefbau-generalplanung-schroder-gmbh/fachplaner-sachverstandiger-vorbeugender-brandschutz-berlin-324403",
+    "title": "Fachplaner / Sachverständiger vorbeugender Brandschutz (m/w/d)",
+    "company": "HOCH- UND TIEFBAU-GENERALPLANUNG SCHRÖDER GMBH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-22T11:08:26+00:00",
+    "last_seen_at": "2026-09-22T11:08:26+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/good-hood-gmbh-nebenande/chief-of-staff-berlin-261620",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/good-hood-gmbh-nebenande/chief-of-staff-berlin-261620",
+    "title": "Chief of Staff (m/f/d)",
+    "company": "Good Hood GmbH / nebenan.de",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-22T11:08:26+00:00",
+    "last_seen_at": "2026-09-22T11:08:26+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/kloepfel-group/product-compliance-manager-hamburg-120753",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/kloepfel-group/product-compliance-manager-hamburg-120753",
+    "title": "Product Compliance Manager (m/w/d)",
+    "company": "Kloepfel Group",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-22T11:08:26+00:00",
+    "last_seen_at": "2026-09-22T11:08:26+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/juniz-energy-gmbh/servicetechniker-grossbatteriespeicher-emsr-technik-munich-415137",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/juniz-energy-gmbh/servicetechniker-grossbatteriespeicher-emsr-technik-munich-415137",
+    "title": "Servicetechniker (m/w/d) – Großbatteriespeicher/ EMSR-Technik",
+    "company": "ju:niz Energy GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-22T11:08:26+00:00",
+    "last_seen_at": "2026-09-22T11:08:26+00:00",
+    "score": 14
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/plantacorp-gmbh/referent-personalentwicklung-40-std-hamburg-178779",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/plantacorp-gmbh/referent-personalentwicklung-40-std-hamburg-178779",
+    "title": "Referent Personalentwicklung (w/m/d) 40 Std",
+    "company": "PlantaCorp GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-22T11:08:26+00:00",
+    "last_seen_at": "2026-09-22T11:08:26+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/doubledouble-ads-gmbh/video-editor-social-media-ads-cologne-490684",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/doubledouble-ads-gmbh/video-editor-social-media-ads-cologne-490684",
+    "title": "Video Editor - Social Media Ads (m/w/d)",
+    "company": "Doubledouble Ads GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-22T11:08:26+00:00",
+    "last_seen_at": "2026-09-22T11:08:26+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/rhebo-gmbh/senior-frontend-developer-angular-13-leipzig-475527",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/rhebo-gmbh/senior-frontend-developer-angular-13-leipzig-475527",
+    "title": "Senior Frontend Developer (f/m/d) - Angular 13",
+    "company": "Rhebo GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-22T11:08:26+00:00",
+    "last_seen_at": "2026-09-22T11:08:26+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/hello-brands-gmbh/senior-amazon-consultant-munich-110987",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/hello-brands-gmbh/senior-amazon-consultant-munich-110987",
+    "title": "Senior Amazon Consultant (m/w/d)",
+    "company": "Hello Brands GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-22T11:08:26+00:00",
+    "last_seen_at": "2026-09-22T11:08:26+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/doworks-gmbh/fachinformatiker-in-systemintegration-standort-dortmund-vollzeit-unbefristet-110490",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/doworks-gmbh/fachinformatiker-in-systemintegration-standort-dortmund-vollzeit-unbefristet-110490",
+    "title": "Fachinformatiker/in - Systemintegration (m/w/d) Standort: Dortmund | Vollzeit | unbefristet",
+    "company": "DoWorks GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-22T11:08:26+00:00",
+    "last_seen_at": "2026-09-22T11:08:26+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/doopic-gmbh/backend-developer-berlin-174764",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/doopic-gmbh/backend-developer-berlin-174764",
+    "title": "Backend Developer Berlin (m/f/d)",
+    "company": "Doopic GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-22T11:08:26+00:00",
+    "last_seen_at": "2026-09-22T11:08:26+00:00",
+    "score": 17
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/polytalent-gmbh/kundendienstkoordinator-eilsleben-17355",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/polytalent-gmbh/kundendienstkoordinator-eilsleben-17355",
+    "title": "Kundendienstkoordinator (m/w/d)",
+    "company": "PolyTALENT GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-22T11:08:26+00:00",
+    "last_seen_at": "2026-09-22T11:08:26+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/neumuller-unternehmensgruppe/personliche-assistentin-der-geschaftsfuhrung-schwerpunkt-steuern-und-finanzen-teilzeit-nuremberg-474814",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/neumuller-unternehmensgruppe/personliche-assistentin-der-geschaftsfuhrung-schwerpunkt-steuern-und-finanzen-teilzeit-nuremberg-474814",
+    "title": "Persönliche Assistentin der Geschäftsführung (m/w/d) - Schwerpunkt Steuern und Finanzen (Teilzeit)",
+    "company": "Neumüller Unternehmensgruppe",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-22T11:08:26+00:00",
+    "last_seen_at": "2026-09-22T11:08:26+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/solactive-ag/event-manager-physical-digital-formats-financial-industry-frankfurt-am-main-262502",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/solactive-ag/event-manager-physical-digital-formats-financial-industry-frankfurt-am-main-262502",
+    "title": "Event Manager (Physical & Digital Formats) – Financial Industry",
+    "company": "Solactive AG",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-22T11:08:26+00:00",
+    "last_seen_at": "2026-09-22T11:08:26+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/solactive-ag/staff-engineer-berlin-450975",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/solactive-ag/staff-engineer-berlin-450975",
+    "title": "Staff Engineer (m/f/d)",
+    "company": "Solactive AG",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-22T11:08:26+00:00",
+    "last_seen_at": "2026-09-22T11:08:26+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/grafanalabs/senior-backend-engineer-databases-analytics-germany-remote-394479",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/grafanalabs/senior-backend-engineer-databases-analytics-germany-remote-394479",
+    "title": "Senior Backend Engineer - Databases - Analytics | Germany | Remote",
+    "company": "grafanalabs",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-22T11:08:26+00:00",
+    "last_seen_at": "2026-09-22T11:08:26+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/grafanalabs/engineering-manager-observability-germany-remote-301702",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/grafanalabs/engineering-manager-observability-germany-remote-301702",
+    "title": "Engineering Manager - Observability | Germany | Remote",
+    "company": "grafanalabs",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-22T11:08:26+00:00",
+    "last_seen_at": "2026-09-22T11:08:26+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/wongdoody/creative-director-concept-communication-berlin-de-dusseldorf-231651",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/wongdoody/creative-director-concept-communication-berlin-de-dusseldorf-231651",
+    "title": "Creative Director Concept & Communication",
+    "company": "wongdoody",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-22T11:08:26+00:00",
+    "last_seen_at": "2026-09-22T11:08:26+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/speechify/software-engineer-platform-berlin-germany-94321",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/speechify/software-engineer-platform-berlin-germany-94321",
+    "title": "Software Engineer, Platform - Berlin, Germany",
+    "company": "speechify",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-22T11:08:26+00:00",
+    "last_seen_at": "2026-09-22T11:08:26+00:00",
+    "score": 5
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/contentful/senior-software-engineer-personalization-berlin-415152",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/contentful/senior-software-engineer-personalization-berlin-415152",
+    "title": "Senior Software Engineer - Personalization",
+    "company": "contentful",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-22T11:08:26+00:00",
+    "last_seen_at": "2026-09-22T11:08:26+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/autoscout24/senior-software-engineer-235341",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/autoscout24/senior-software-engineer-235341",
+    "title": "Senior Software Engineer (m/f/d)",
+    "company": "autoscout24",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-22T11:08:26+00:00",
+    "last_seen_at": "2026-09-22T11:08:26+00:00",
+    "score": 0
   }
 ]
