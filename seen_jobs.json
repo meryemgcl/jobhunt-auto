@@ -7548,5 +7548,325 @@
     "first_seen_at": "2026-09-22T11:08:26+00:00",
     "last_seen_at": "2026-09-22T11:08:26+00:00",
     "score": 0
+  },
+  {
+    "url": "https://github.com/keras-team/keras/issues/23718",
+    "canonical_url": "https://github.com/keras-team/keras/issues/23718",
+    "title": "keras.ops.cov fallback is incorrect for complex inputs",
+    "company": "",
+    "source": "GitHub Issues API",
+    "first_seen_at": "2026-09-23T10:58:16+00:00",
+    "last_seen_at": "2026-09-23T10:58:16+00:00",
+    "score": null
+  },
+  {
+    "url": "https://github.com/yiwen-h/collaboration-group1/issues/16",
+    "canonical_url": "https://github.com/yiwen-h/collaboration-group1/issues/16",
+    "title": "Add name and message to File L",
+    "company": "",
+    "source": "GitHub Issues API",
+    "first_seen_at": "2026-09-23T10:58:16+00:00",
+    "last_seen_at": "2026-09-23T10:58:16+00:00",
+    "score": null
+  },
+  {
+    "url": "https://github.com/yiwen-h/collaboration-group1/issues/17",
+    "canonical_url": "https://github.com/yiwen-h/collaboration-group1/issues/17",
+    "title": "Add name and message to File M",
+    "company": "",
+    "source": "GitHub Issues API",
+    "first_seen_at": "2026-09-23T10:58:16+00:00",
+    "last_seen_at": "2026-09-23T10:58:16+00:00",
+    "score": null
+  },
+  {
+    "url": "https://dev.to/gde/what-nobody-is-using-in-your-google-cloud-projects-and-what-it-costs-1k0",
+    "canonical_url": "https://dev.to/gde/what-nobody-is-using-in-your-google-cloud-projects-and-what-it-costs-1k0",
+    "title": "What Nobody Is Using in Your Google Cloud Projects, and What It Costs",
+    "company": "",
+    "source": "Dev.to (xbill)",
+    "first_seen_at": "2026-09-23T10:58:16+00:00",
+    "last_seen_at": "2026-09-23T10:58:16+00:00",
+    "score": null
+  },
+  {
+    "url": "https://dev.to/remdore/i-flipped-one-bit-in-an-image-file-png-died-jpeg-lied-35b3",
+    "canonical_url": "https://dev.to/remdore/i-flipped-one-bit-in-an-image-file-png-died-jpeg-lied-35b3",
+    "title": "PNG admits when it is damaged and JPEG does not",
+    "company": "",
+    "source": "Dev.to (Remdore)",
+    "first_seen_at": "2026-09-23T10:58:16+00:00",
+    "last_seen_at": "2026-09-23T10:58:16+00:00",
+    "score": null
+  },
+  {
+    "url": "https://dev.to/labank_/i-built-a-self-hostable-ai-data-analyst-4-agents-sandboxed-code-execution-your-choice-of-llm-5gdd",
+    "canonical_url": "https://dev.to/labank_/i-built-a-self-hostable-ai-data-analyst-4-agents-sandboxed-code-execution-your-choice-of-llm-5gdd",
+    "title": "I built a self-hostable AI data analyst — 4 agents, sandboxed code execution, your choice of LLM",
+    "company": "",
+    "source": "Dev.to (Kibe🔌💻)",
+    "first_seen_at": "2026-09-23T10:58:16+00:00",
+    "last_seen_at": "2026-09-23T10:58:16+00:00",
+    "score": null
+  },
+  {
+    "url": "https://www.nobodywho.ai/posts/jev-in-25-lines/",
+    "canonical_url": "https://www.nobodywho.ai/posts/jev-in-25-lines",
+    "title": "Jev in 25 Lines of Python",
+    "company": "",
+    "source": "HackerNews API",
+    "first_seen_at": "2026-09-23T10:58:16+00:00",
+    "last_seen_at": "2026-09-23T10:58:16+00:00",
+    "score": null
+  },
+  {
+    "url": "https://openai.com/index/introducing-gpt-6-sol-and-luna/",
+    "canonical_url": "https://openai.com/index/introducing-gpt-6-sol-and-luna",
+    "title": "GPT-6 Sol and Luna",
+    "company": "",
+    "source": "HackerNews API",
+    "first_seen_at": "2026-09-23T10:58:16+00:00",
+    "last_seen_at": "2026-09-23T10:58:16+00:00",
+    "score": null
+  },
+  {
+    "url": "https://www.anthropic.com/claude-opus-5-5",
+    "canonical_url": "https://www.anthropic.com/claude-opus-5-5",
+    "title": "Claude Opus 5.5",
+    "company": "",
+    "source": "HackerNews API",
+    "first_seen_at": "2026-09-23T10:58:16+00:00",
+    "last_seen_at": "2026-09-23T10:58:16+00:00",
+    "score": null
+  },
+  {
+    "url": "https://oip.manual.canon/USRMA-0620-zz-CS-enUS/contents/CS2545_rui_0505_startingtheremoteui.html",
+    "canonical_url": "https://oip.manual.canon/USRMA-0620-zz-CS-enUS/contents/CS2545_rui_0505_startingtheremoteui.html",
+    "title": "Starting the Remote UI - Canon - imageRUNNER 2530 / 2525 ...",
+    "company": "Kariyer.net / Teknokent / Youthall",
+    "source": "Anadolu Teknokentleri & TR Uzaktan Ağ",
+    "first_seen_at": "2026-09-23T10:58:16+00:00",
+    "last_seen_at": "2026-09-23T10:58:16+00:00",
+    "score": 98
+  },
+  {
+    "url": "https://www.instagram.com/officialjunior_andre/",
+    "canonical_url": "https://www.instagram.com/officialjunior_andre",
+    "title": "Junior Andre (@officialjunior_andre) • Instagram photos and ...",
+    "company": "Kariyer.net / Teknokent / Youthall",
+    "source": "Anadolu Teknokentleri & TR Uzaktan Ağ",
+    "first_seen_at": "2026-09-23T10:58:16+00:00",
+    "last_seen_at": "2026-09-23T10:58:16+00:00",
+    "score": 98
+  },
+  {
+    "url": "https://tr.linkedin.com/jobs/view/junior-backend-developer-python-at-lokalde-4445352836",
+    "canonical_url": "https://tr.linkedin.com/jobs/view/junior-backend-developer-python-at-lokalde-4445352836",
+    "title": "Junior Backend Developer (Python) - Lokalde - LinkedIn",
+    "company": "Kariyer.net / Teknokent / Youthall",
+    "source": "Anadolu Teknokentleri & TR Uzaktan Ağ",
+    "first_seen_at": "2026-09-23T10:58:16+00:00",
+    "last_seen_at": "2026-09-23T10:58:16+00:00",
+    "score": 98
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/ai-coustics/forward-deployed-engineer-audio-voice-ai-berlin-18669",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/ai-coustics/forward-deployed-engineer-audio-voice-ai-berlin-18669",
+    "title": "Forward Deployed Engineer (Audio & Voice AI)",
+    "company": "ai-coustics",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-23T10:58:16+00:00",
+    "last_seen_at": "2026-09-23T10:58:16+00:00",
+    "score": 10
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/orange-immobilienagentur/mediengestalter-regensburg-84997",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/orange-immobilienagentur/mediengestalter-regensburg-84997",
+    "title": "Mediengestalter (m/w/d)",
+    "company": "ORANGE Immobilienagentur",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-23T10:58:16+00:00",
+    "last_seen_at": "2026-09-23T10:58:16+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/inco-group/lead-global-partnerships-and-fundraising-berlin-300751",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/inco-group/lead-global-partnerships-and-fundraising-berlin-300751",
+    "title": "Lead - Global Partnerships and Fundraising",
+    "company": "INCO GROUP",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-23T10:58:16+00:00",
+    "last_seen_at": "2026-09-23T10:58:16+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/inco-group/partnerships-and-fundraising-officer-berlin-132936",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/inco-group/partnerships-and-fundraising-officer-berlin-132936",
+    "title": "Partnerships and Fundraising Officer",
+    "company": "INCO GROUP",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-23T10:58:16+00:00",
+    "last_seen_at": "2026-09-23T10:58:16+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/up42-gmbh/product-designer-berlin-107244",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/up42-gmbh/product-designer-berlin-107244",
+    "title": "Product Designer (m/f/x)",
+    "company": "UP42 GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-23T10:58:16+00:00",
+    "last_seen_at": "2026-09-23T10:58:16+00:00",
+    "score": 8
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/nviso/senior-threat-intelligence-consultant-frankfurt-am-main-417131",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/nviso/senior-threat-intelligence-consultant-frankfurt-am-main-417131",
+    "title": "Senior Threat Intelligence Consultant (m/w/d)",
+    "company": "NVISO",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-23T10:58:16+00:00",
+    "last_seen_at": "2026-09-23T10:58:16+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/nviso/purview-expert-frankfurt-am-main-481471",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/nviso/purview-expert-frankfurt-am-main-481471",
+    "title": "Purview Expert (m/w/d)",
+    "company": "NVISO",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-23T10:58:16+00:00",
+    "last_seen_at": "2026-09-23T10:58:16+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/nviso/junior-security-operations-engineering-consultant-frankfurt-am-main-279479",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/nviso/junior-security-operations-engineering-consultant-frankfurt-am-main-279479",
+    "title": "Junior Security Operations Engineering Consultant (m/w/d)",
+    "company": "NVISO",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-23T10:58:16+00:00",
+    "last_seen_at": "2026-09-23T10:58:16+00:00",
+    "score": 18
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/acadon-ag/senior-software-developer-braunschweig-59226",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/acadon-ag/senior-software-developer-braunschweig-59226",
+    "title": "Senior Software Developer (m/w/d)",
+    "company": "acadon AG",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-23T10:58:16+00:00",
+    "last_seen_at": "2026-09-23T10:58:16+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/acadon-ag/infrastructure-cloud-engineer-microsoft-365-krefeld-463588",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/acadon-ag/infrastructure-cloud-engineer-microsoft-365-krefeld-463588",
+    "title": "Infrastructure & Cloud Engineer - Microsoft 365 (m/w/d)",
+    "company": "acadon AG",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-23T10:58:16+00:00",
+    "last_seen_at": "2026-09-23T10:58:16+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/ai-coustics/gtm-growth-manager-berlin-289762",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/ai-coustics/gtm-growth-manager-berlin-289762",
+    "title": "GTM Growth Manager",
+    "company": "ai-coustics",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-23T10:58:16+00:00",
+    "last_seen_at": "2026-09-23T10:58:16+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/ptr-profi-talent-recruitment-ug-haftungsbeschrankt/hr-generalist-mit-schwerpunkt-bewerbermanagement-arbeitnehmeruberlassung-hamburg-464742",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/ptr-profi-talent-recruitment-ug-haftungsbeschrankt/hr-generalist-mit-schwerpunkt-bewerbermanagement-arbeitnehmeruberlassung-hamburg-464742",
+    "title": "HR Generalist (m/w/d) mit Schwerpunkt Bewerbermanagement & Arbeitnehmerüberlassung",
+    "company": "PTR - Profi Talent Recruitment UG (haftungsbeschränkt)",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-23T10:58:16+00:00",
+    "last_seen_at": "2026-09-23T10:58:16+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/duck-duck-go/remote-director-site-reliability-engineering-39645",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/duck-duck-go/remote-director-site-reliability-engineering-39645",
+    "title": "Director, Site Reliability Engineering",
+    "company": "Duck Duck Go",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-23T10:58:16+00:00",
+    "last_seen_at": "2026-09-23T10:58:16+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/prepmymeal-gmbh/customer-support-vollzeit-werkstudent-minijob-frankfurt-am-main-409017",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/prepmymeal-gmbh/customer-support-vollzeit-werkstudent-minijob-frankfurt-am-main-409017",
+    "title": "Customer Support (Vollzeit/Werkstudent/Minijob) (m/w/d)",
+    "company": "prepmymeal GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-23T10:58:16+00:00",
+    "last_seen_at": "2026-09-23T10:58:16+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/bruggen-engineering-gmbh/lead-engineer-automotive-qualitatssicherung-luxemburg-remote-1719-mannheim-379148",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/bruggen-engineering-gmbh/lead-engineer-automotive-qualitatssicherung-luxemburg-remote-1719-mannheim-379148",
+    "title": "Lead Engineer (m/w/d) Automotive Qualitätssicherung Luxemburg / Remote (1719)",
+    "company": "BRÜGGEN ENGINEERING GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-23T10:58:16+00:00",
+    "last_seen_at": "2026-09-23T10:58:16+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/it-studio-rech-gmbh/python-backend-developer-schwerpunkt-ki-plattform-wurzburg-307525",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/it-studio-rech-gmbh/python-backend-developer-schwerpunkt-ki-plattform-wurzburg-307525",
+    "title": "Python Backend Developer (m/w/d) - Schwerpunkt KI-Plattform",
+    "company": "IT Studio Rech GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-23T10:58:16+00:00",
+    "last_seen_at": "2026-09-23T10:58:16+00:00",
+    "score": 52
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/gridscale-gmbh/site-reliability-engineer-cloudstore-koln-160385",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/gridscale-gmbh/site-reliability-engineer-cloudstore-koln-160385",
+    "title": "Site Reliability Engineer -Cloudstore (m/w/d)",
+    "company": "gridscale GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-23T10:58:16+00:00",
+    "last_seen_at": "2026-09-23T10:58:16+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/churchdesk/enterprise-solutions-engineer-berlin-258735",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/churchdesk/enterprise-solutions-engineer-berlin-258735",
+    "title": "Enterprise Solutions Engineer",
+    "company": "ChurchDesk",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-23T10:58:16+00:00",
+    "last_seen_at": "2026-09-23T10:58:16+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/pammys-dieseo-gmbh/senior-treasury-manager-hamburg-440547",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/pammys-dieseo-gmbh/senior-treasury-manager-hamburg-440547",
+    "title": "Senior Treasury Manager (m/w/d)",
+    "company": "Pammys™ (dieseo GmbH)",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-23T10:58:16+00:00",
+    "last_seen_at": "2026-09-23T10:58:16+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/pammys-dieseo-gmbh/senior-funnel-specialist-hamburg-21957",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/pammys-dieseo-gmbh/senior-funnel-specialist-hamburg-21957",
+    "title": "Senior Funnel Specialist (m/w/d)",
+    "company": "Pammys™ (dieseo GmbH)",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-23T10:58:16+00:00",
+    "last_seen_at": "2026-09-23T10:58:16+00:00",
+    "score": 0
   }
 ]

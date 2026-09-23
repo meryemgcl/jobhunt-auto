@@ -1,22 +1,24 @@
 # JobHunt-Auto Run Summary
 
-- Run ID: `43b63d82c206`
-- Started At: `2026-09-22T11:07:58+00:00`
-- Finished At: `2026-09-22T11:08:26+00:00`
-- Total Collected: `71`
-- Matched Jobs: `0`
-- Duplicates Skipped: `42`
+- Run ID: `8cbbca7a5954`
+- Started At: `2026-09-23T10:57:52+00:00`
+- Finished At: `2026-09-23T10:58:16+00:00`
+- Total Collected: `79`
+- Matched Jobs: `4`
+- Duplicates Skipped: `47`
 - Invalid URLs Skipped: `0`
 - Email Sent: `True`
 - Dashboard Updated: `True`
-- Memory Added Count: `29`
+- Memory Added Count: `32`
 
 ## Source Counts
 
-- `Anadolu Teknokentleri & TR Uzaktan Ağ`: 14
+- `AR-GE Search`: 1
+- `Anadolu Teknokentleri & TR Uzaktan Ağ`: 18
 - `Arbeitnow API`: 20
-- `Dev.to (Earl Grey)`: 1
-- `Dev.to (sunnydachs)`: 1
+- `Bootcamp Search`: 3
+- `Dev.to (Kibe🔌💻)`: 1
+- `Dev.to (Remdore)`: 1
 - `Dev.to (xbill)`: 1
 - `Devpost`: 1
 - `GitHub Issues API`: 3
