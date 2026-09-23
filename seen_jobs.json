@@ -7868,5 +7868,295 @@
     "first_seen_at": "2026-09-23T10:58:16+00:00",
     "last_seen_at": "2026-09-23T10:58:16+00:00",
     "score": 0
+  },
+  {
+    "url": "https://github.com/openqasm/openqasm/issues/298",
+    "canonical_url": "https://github.com/openqasm/openqasm/issues/298",
+    "title": "Specification needs update for built-in math functions",
+    "company": "",
+    "source": "GitHub Issues API",
+    "first_seen_at": "2026-09-23T15:24:38+00:00",
+    "last_seen_at": "2026-09-23T15:24:38+00:00",
+    "score": null
+  },
+  {
+    "url": "https://github.com/deepset-ai/haystack/issues/12869",
+    "canonical_url": "https://github.com/deepset-ai/haystack/issues/12869",
+    "title": "TiktokenCounter raises ValueError on literal special-token strings like `<|endoftext|>`",
+    "company": "",
+    "source": "GitHub Issues API",
+    "first_seen_at": "2026-09-23T15:24:38+00:00",
+    "last_seen_at": "2026-09-23T15:24:38+00:00",
+    "score": null
+  },
+  {
+    "url": "https://github.com/pymc-devs/pymc-bart/issues/278",
+    "canonical_url": "https://github.com/pymc-devs/pymc-bart/issues/278",
+    "title": "Expand Quantile regression example",
+    "company": "",
+    "source": "GitHub Issues API",
+    "first_seen_at": "2026-09-23T15:24:38+00:00",
+    "last_seen_at": "2026-09-23T15:24:38+00:00",
+    "score": null
+  },
+  {
+    "url": "https://dev.to/juanauriti/my-ci-hadnt-run-a-single-one-of-those-tests-in-two-months-and-stayed-green-the-whole-time-n15",
+    "canonical_url": "https://dev.to/juanauriti/my-ci-hadnt-run-a-single-one-of-those-tests-in-two-months-and-stayed-green-the-whole-time-n15",
+    "title": "My CI hadn't run a single one of those tests in two months and stayed green the whole time",
+    "company": "",
+    "source": "Dev.to (Juan Camilo Auriti)",
+    "first_seen_at": "2026-09-23T15:24:38+00:00",
+    "last_seen_at": "2026-09-23T15:24:38+00:00",
+    "score": null
+  },
+  {
+    "url": "https://dev.to/slabb/i-built-the-flight-data-recorder-for-ai-agents-38f6",
+    "canonical_url": "https://dev.to/slabb/i-built-the-flight-data-recorder-for-ai-agents-38f6",
+    "title": "I built the flight data recorder for AI agents.",
+    "company": "",
+    "source": "Dev.to (Sam LABBE)",
+    "first_seen_at": "2026-09-23T15:24:38+00:00",
+    "last_seen_at": "2026-09-23T15:24:38+00:00",
+    "score": null
+  },
+  {
+    "url": "https://stripe.dev/blog/meet-stripes-knowledge-ai-platform",
+    "canonical_url": "https://stripe.dev/blog/meet-stripes-knowledge-ai-platform",
+    "title": "Stripe's Knowledge AI Platform",
+    "company": "",
+    "source": "HackerNews API",
+    "first_seen_at": "2026-09-23T15:24:38+00:00",
+    "last_seen_at": "2026-09-23T15:24:38+00:00",
+    "score": null
+  },
+  {
+    "url": "https://blog.szypowi.cz/p/claude-code-reads-agents.md-only-when-telemetry-is-on/",
+    "canonical_url": "https://blog.szypowi.cz/p/claude-code-reads-agents.md-only-when-telemetry-is-on",
+    "title": "Claude Code reads AGENTS.md only when telemetry is on [fixed]",
+    "company": "",
+    "source": "HackerNews API",
+    "first_seen_at": "2026-09-23T15:24:38+00:00",
+    "last_seen_at": "2026-09-23T15:24:38+00:00",
+    "score": null
+  },
+  {
+    "url": "https://strandsagents.com/blog/introducing-strands-harness/",
+    "canonical_url": "https://strandsagents.com/blog/introducing-strands-harness",
+    "title": "Strands Harness",
+    "company": "",
+    "source": "HackerNews API",
+    "first_seen_at": "2026-09-23T15:24:38+00:00",
+    "last_seen_at": "2026-09-23T15:24:38+00:00",
+    "score": null
+  },
+  {
+    "url": "https://remotive.com/remote-jobs/all-others/content-reviewer-united-states-2091144",
+    "canonical_url": "https://remotive.com/remote-jobs/all-others/content-reviewer-united-states-2091144",
+    "title": "Content Reviewer - United States",
+    "company": "TELUS Digital",
+    "source": "Remotive Global API",
+    "first_seen_at": "2026-09-23T15:24:38+00:00",
+    "last_seen_at": "2026-09-23T15:24:38+00:00",
+    "score": 10
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/msw-gmbh-co-kg-wirtschaftsprufungsgesellschaft-steuerberatungsgesellschaft/prufungsassistent-stuttgart-376276",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/msw-gmbh-co-kg-wirtschaftsprufungsgesellschaft-steuerberatungsgesellschaft/prufungsassistent-stuttgart-376276",
+    "title": "Prüfungsassistent (m/w/d)",
+    "company": "MSW GmbH & Co. KG Wirtschaftsprüfungsgesellschaft Steuerberatungsgesellschaft",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-23T15:24:38+00:00",
+    "last_seen_at": "2026-09-23T15:24:38+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/meisterpfad/praktikum-als-social-media-manager-vertical-ai-startup-berlin-429969",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/meisterpfad/praktikum-als-social-media-manager-vertical-ai-startup-berlin-429969",
+    "title": "Praktikum als Social Media Manager (m/w/d), Vertical AI Startup",
+    "company": "MeisterPfad",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-23T15:24:38+00:00",
+    "last_seen_at": "2026-09-23T15:24:38+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/addfame-gmbh/people-culture-manager-hr-operations-recruiting-munich-376085",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/addfame-gmbh/people-culture-manager-hr-operations-recruiting-munich-376085",
+    "title": "People & Culture Manager (m/w/d) - HR Operations & Recruiting",
+    "company": "addfame GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-23T15:24:38+00:00",
+    "last_seen_at": "2026-09-23T15:24:38+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/hrw-gebaudetechnik/projektleiter-kalte-klima-und-luftungstechnik-hamburg-167636",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/hrw-gebaudetechnik/projektleiter-kalte-klima-und-luftungstechnik-hamburg-167636",
+    "title": "Projektleiter Kälte-, Klima- und Lüftungstechnik (m/w/d)",
+    "company": "HRW Gebäudetechnik",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-23T15:24:38+00:00",
+    "last_seen_at": "2026-09-23T15:24:38+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/fischer-partner-gesellschaft-fur-personal-mbh/leiter-finanzbuchhaltung-ua-fur-die-optimierung-der-prozesse-stuttgart-300233",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/fischer-partner-gesellschaft-fur-personal-mbh/leiter-finanzbuchhaltung-ua-fur-die-optimierung-der-prozesse-stuttgart-300233",
+    "title": "Leiter Finanzbuchhaltung (w/m/d), u.a. für die Optimierung der Prozesse",
+    "company": "Fischer & Partner Gesellschaft für Personal mbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-23T15:24:38+00:00",
+    "last_seen_at": "2026-09-23T15:24:38+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/kondi-gmbh/teamleiter-hardware-software-entwicklung-heilbronn-211897",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/kondi-gmbh/teamleiter-hardware-software-entwicklung-heilbronn-211897",
+    "title": "Teamleiter Hardware & Software Entwicklung (m/w/d)",
+    "company": "KONDI GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-23T15:24:38+00:00",
+    "last_seen_at": "2026-09-23T15:24:38+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/gusti-leder-gmbh/werkstudentin-im-bereich-performance-marketing-analytics-rostock-47022",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/gusti-leder-gmbh/werkstudentin-im-bereich-performance-marketing-analytics-rostock-47022",
+    "title": "Werkstudentin im Bereich Performance Marketing Analytics (m/w/d)",
+    "company": "Gusti Leder GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-23T15:24:38+00:00",
+    "last_seen_at": "2026-09-23T15:24:38+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/bewerbung-uniplan/werkstudent-marktanalyse-vertriebskonzeption-im-bereich-biologische-landwirtschaft-dresden-310799",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/bewerbung-uniplan/werkstudent-marktanalyse-vertriebskonzeption-im-bereich-biologische-landwirtschaft-dresden-310799",
+    "title": "Werkstudent (m/w/d) – Marktanalyse & Vertriebskonzeption im Bereich Biologische Landwirtschaft ",
+    "company": "Bewerbung UNIPLAN",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-23T15:24:38+00:00",
+    "last_seen_at": "2026-09-23T15:24:38+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/undkrauss/projektleiter-teamleiter-architektur-oder-senior-architekt-mit-teamverantwortung-berlin-360091",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/undkrauss/projektleiter-teamleiter-architektur-oder-senior-architekt-mit-teamverantwortung-berlin-360091",
+    "title": "Projektleiter / Teamleiter Architektur (m/w/d) oder Senior Architekt mit Teamverantwortung (m/w/d)",
+    "company": "UNDKRAUSS",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-23T15:24:38+00:00",
+    "last_seen_at": "2026-09-23T15:24:38+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/nodeenergy/senior-python-developer-remote-frankfurt-am-main-250296",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/nodeenergy/senior-python-developer-remote-frankfurt-am-main-250296",
+    "title": "Senior Python Developer (w/m/d) - Remote",
+    "company": "node.energy",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-23T15:24:38+00:00",
+    "last_seen_at": "2026-09-23T15:24:38+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/elmi-power-gmbh/eu-expansion-business-analytics-werkstudentin-berlin-bonn-frankfurt-139211",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/elmi-power-gmbh/eu-expansion-business-analytics-werkstudentin-berlin-bonn-frankfurt-139211",
+    "title": "EU-Expansion & Business Analytics (m/w/d) Werkstudent:in (Berlin/Bonn/Frankfurt)",
+    "company": "ELMI Power GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-23T15:24:38+00:00",
+    "last_seen_at": "2026-09-23T15:24:38+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/kanaltechnik-df-ing-gmbh/bau-projektleiter-kanaltechnik-karlstein-am-main-373742",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/kanaltechnik-df-ing-gmbh/bau-projektleiter-kanaltechnik-karlstein-am-main-373742",
+    "title": "Bau-/Projektleiter (m/w/d) - Kanaltechnik",
+    "company": "Kanaltechnik DF-ING GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-23T15:24:38+00:00",
+    "last_seen_at": "2026-09-23T15:24:38+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/momox/crm-marketing-manager-momox-fashion-berlin-145421",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/momox/crm-marketing-manager-momox-fashion-berlin-145421",
+    "title": "CRM Marketing Manager (m/w/d) – momox fashion | Berlin",
+    "company": "momox",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-23T15:24:38+00:00",
+    "last_seen_at": "2026-09-23T15:24:38+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/wolt-english/senior-specialist-market-planning-berlin-260708",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/wolt-english/senior-specialist-market-planning-berlin-260708",
+    "title": "Senior Specialist, Market Planning",
+    "company": "Wolt - English",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-23T15:24:38+00:00",
+    "last_seen_at": "2026-09-23T15:24:38+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/hanitel-gmbh/pc-monteurin-builderin-berlin-19106",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/hanitel-gmbh/pc-monteurin-builderin-berlin-19106",
+    "title": "PC-Monteur:in (Builder:in)",
+    "company": "Hanitel GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-23T15:24:38+00:00",
+    "last_seen_at": "2026-09-23T15:24:38+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/cink-ag/sap-developer-fur-s-4hana-btp-und-ai-hamburg-103311",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/cink-ag/sap-developer-fur-s-4hana-btp-und-ai-hamburg-103311",
+    "title": "SAP Developer für S/4HANA, BTP und AI (w/d/m)",
+    "company": "cink AG",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-23T15:24:38+00:00",
+    "last_seen_at": "2026-09-23T15:24:38+00:00",
+    "score": 15
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/heimsoft/full-stack-software-engineer-freiburg-im-breisgau-445308",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/heimsoft/full-stack-software-engineer-freiburg-im-breisgau-445308",
+    "title": "Full-Stack Software Engineer",
+    "company": "heimsoft",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-23T15:24:38+00:00",
+    "last_seen_at": "2026-09-23T15:24:38+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/echo-poster-gmbh/live-content-creator-ag-freelance-berlin-20643",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/echo-poster-gmbh/live-content-creator-ag-freelance-berlin-20643",
+    "title": "Live Content Creator (ag) - Freelance",
+    "company": "Echo Poster GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-23T15:24:38+00:00",
+    "last_seen_at": "2026-09-23T15:24:38+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/fenstercom/werkstudent-customer-relationship-management-stuttgart-451592",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/fenstercom/werkstudent-customer-relationship-management-stuttgart-451592",
+    "title": "Werkstudent Customer Relationship Management (m/w/d)",
+    "company": "fenster.com",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-23T15:24:38+00:00",
+    "last_seen_at": "2026-09-23T15:24:38+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/heimsoft/senior-software-engineer-berlin-107965",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/heimsoft/senior-software-engineer-berlin-107965",
+    "title": "Senior Software Engineer",
+    "company": "heimsoft",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-23T15:24:38+00:00",
+    "last_seen_at": "2026-09-23T15:24:38+00:00",
+    "score": 0
   }
 ]

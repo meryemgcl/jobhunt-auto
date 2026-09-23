@@ -1,11 +1,11 @@
 {
-  "last_updated": "23.09.2026 10:58",
-  "total_jobs_analyzed": 56,
-  "matched_jobs_count": 4,
+  "last_updated": "23.09.2026 15:24",
+  "total_jobs_analyzed": 53,
+  "matched_jobs_count": 0,
   "top_market_demands": [
     {
       "tech": "GIT",
-      "demand_count": 5
+      "demand_count": 7
     },
     {
       "tech": "DOCKER",
