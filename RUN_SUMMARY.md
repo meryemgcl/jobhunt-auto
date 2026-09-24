@@ -1,23 +1,25 @@
 # JobHunt-Auto Run Summary
 
-- Run ID: `f36fd8c6b03b`
-- Started At: `2026-09-23T15:24:11+00:00`
-- Finished At: `2026-09-23T15:24:38+00:00`
-- Total Collected: `72`
+- Run ID: `4323318ace71`
+- Started At: `2026-09-24T11:16:59+00:00`
+- Finished At: `2026-09-24T11:17:21+00:00`
+- Total Collected: `81`
 - Matched Jobs: `0`
-- Duplicates Skipped: `43`
+- Duplicates Skipped: `49`
 - Invalid URLs Skipped: `0`
 - Email Sent: `True`
 - Dashboard Updated: `True`
-- Memory Added Count: `29`
+- Memory Added Count: `32`
 
 ## Source Counts
 
-- `Anadolu Teknokentleri & TR Uzaktan Ağ`: 14
+- `AR-GE Search`: 1
+- `Anadolu Teknokentleri & TR Uzaktan Ağ`: 18
 - `Arbeitnow API`: 20
-- `Dev.to (Juan Camilo Auriti)`: 1
-- `Dev.to (Remdore)`: 1
-- `Dev.to (Sam LABBE)`: 1
+- `Bootcamp Search`: 4
+- `Dev.to (Can Burak Sofyalioglu)`: 1
+- `Dev.to (Kevin Lupera)`: 1
+- `Dev.to (S M Tahosin)`: 1
 - `Devpost`: 1
 - `GitHub Issues API`: 3
 - `HackerNews API`: 3
