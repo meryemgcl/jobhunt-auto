@@ -1,18 +1,18 @@
 {
-  "last_updated": "24.09.2026 11:17",
+  "last_updated": "25.09.2026 11:22",
   "total_jobs_analyzed": 57,
-  "matched_jobs_count": 0,
+  "matched_jobs_count": 6,
   "top_market_demands": [
     {
       "tech": "GIT",
-      "demand_count": 5
+      "demand_count": 4
+    },
+    {
+      "tech": "AWS",
+      "demand_count": 3
     },
     {
       "tech": "DOCKER",
-      "demand_count": 2
-    },
-    {
-      "tech": "POSTGRESQL",
       "demand_count": 2
     }
   ]

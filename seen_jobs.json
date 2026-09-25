@@ -8478,5 +8478,355 @@
     "first_seen_at": "2026-09-24T11:17:21+00:00",
     "last_seen_at": "2026-09-24T11:17:21+00:00",
     "score": 0
+  },
+  {
+    "url": "https://github.com/Cambridge-ICCS/TCTrack/issues/266",
+    "canonical_url": "https://github.com/Cambridge-ICCS/TCTrack/issues/266",
+    "title": "Update the TCTracker verbosity control",
+    "company": "",
+    "source": "GitHub Issues API",
+    "first_seen_at": "2026-09-25T11:22:41+00:00",
+    "last_seen_at": "2026-09-25T11:22:41+00:00",
+    "score": null
+  },
+  {
+    "url": "https://github.com/vllm-project/vllm/issues/27433",
+    "canonical_url": "https://github.com/vllm-project/vllm/issues/27433",
+    "title": "[Feature]: Batch Invariant Feature and Performance Optimization",
+    "company": "",
+    "source": "GitHub Issues API",
+    "first_seen_at": "2026-09-25T11:22:41+00:00",
+    "last_seen_at": "2026-09-25T11:22:41+00:00",
+    "score": null
+  },
+  {
+    "url": "https://github.com/spec-kitty/spec-kitty/issues/2551",
+    "canonical_url": "https://github.com/spec-kitty/spec-kitty/issues/2551",
+    "title": "[enhancement] Add explicit Devin harness support alongside Windsurf",
+    "company": "",
+    "source": "GitHub Issues API",
+    "first_seen_at": "2026-09-25T11:22:41+00:00",
+    "last_seen_at": "2026-09-25T11:22:41+00:00",
+    "score": null
+  },
+  {
+    "url": "https://dev.to/kenwalger/i-pulled-nine-years-of-my-own-devto-data-the-numbers-were-not-what-i-expected-37ac",
+    "canonical_url": "https://dev.to/kenwalger/i-pulled-nine-years-of-my-own-devto-data-the-numbers-were-not-what-i-expected-37ac",
+    "title": "I Pulled Nine Years of My Own Dev.to Data. The Numbers Were Not What I Expected.",
+    "company": "",
+    "source": "Dev.to (Ken W Alger)",
+    "first_seen_at": "2026-09-25T11:22:41+00:00",
+    "last_seen_at": "2026-09-25T11:22:41+00:00",
+    "score": null
+  },
+  {
+    "url": "https://dev.to/remdore/copying-chromes-handshake-opened-18-doors-that-had-been-closed-5h75",
+    "canonical_url": "https://dev.to/remdore/copying-chromes-handshake-opened-18-doors-that-had-been-closed-5h75",
+    "title": "Copying Chrome's handshake opened 18 doors that had been closed",
+    "company": "",
+    "source": "Dev.to (Remdore)",
+    "first_seen_at": "2026-09-25T11:22:41+00:00",
+    "last_seen_at": "2026-09-25T11:22:41+00:00",
+    "score": null
+  },
+  {
+    "url": "https://dev.to/remdore/what-a-server-knows-about-you-before-it-reads-a-single-header-hig",
+    "canonical_url": "https://dev.to/remdore/what-a-server-knows-about-you-before-it-reads-a-single-header-hig",
+    "title": "What a server knows about you before it reads a single header",
+    "company": "",
+    "source": "Dev.to (Remdore)",
+    "first_seen_at": "2026-09-25T11:22:41+00:00",
+    "last_seen_at": "2026-09-25T11:22:41+00:00",
+    "score": null
+  },
+  {
+    "url": "https://www.dawo.community/en/",
+    "canonical_url": "https://www.dawo.community/en",
+    "title": "Dutch governments builds alternative for Microsoft based on NixOS",
+    "company": "",
+    "source": "HackerNews API",
+    "first_seen_at": "2026-09-25T11:22:41+00:00",
+    "last_seen_at": "2026-09-25T11:22:41+00:00",
+    "score": null
+  },
+  {
+    "url": "https://economist.com/europe/2026/09/24/the-mafia-may-be-keeping-fentanyl-out-of-italy",
+    "canonical_url": "https://economist.com/europe/2026/09/24/the-mafia-may-be-keeping-fentanyl-out-of-italy",
+    "title": "The Mafia may be keeping fentanyl out of Italy",
+    "company": "",
+    "source": "HackerNews API",
+    "first_seen_at": "2026-09-25T11:22:41+00:00",
+    "last_seen_at": "2026-09-25T11:22:41+00:00",
+    "score": null
+  },
+  {
+    "url": "https://www.inkandswitch.com/",
+    "canonical_url": "https://www.inkandswitch.com/",
+    "title": "Ink and Switch Interactive Homepage",
+    "company": "",
+    "source": "HackerNews API",
+    "first_seen_at": "2026-09-25T11:22:41+00:00",
+    "last_seen_at": "2026-09-25T11:22:41+00:00",
+    "score": null
+  },
+  {
+    "url": "https://www.pinterest.com/pin/4503668374627396/",
+    "canonical_url": "https://www.pinterest.com/pin/4503668374627396",
+    "title": "Luxury kitchen cabinets with lights | Kitchen cabinet with glass doors ...",
+    "company": "Kariyer.net / Teknokent / Youthall",
+    "source": "Anadolu Teknokentleri & TR Uzaktan Ağ",
+    "first_seen_at": "2026-09-25T11:22:41+00:00",
+    "last_seen_at": "2026-09-25T11:22:41+00:00",
+    "score": 98
+  },
+  {
+    "url": "https://x.com/",
+    "canonical_url": "https://x.com/",
+    "title": "X - Official Site",
+    "company": "Kariyer.net / Teknokent / Youthall",
+    "source": "Anadolu Teknokentleri & TR Uzaktan Ağ",
+    "first_seen_at": "2026-09-25T11:22:41+00:00",
+    "last_seen_at": "2026-09-25T11:22:41+00:00",
+    "score": 98
+  },
+  {
+    "url": "https://rs.brunswick.com/",
+    "canonical_url": "https://rs.brunswick.com/",
+    "title": "Brunswick Corporation - Remote Support Portal",
+    "company": "Kariyer.net / Teknokent / Youthall",
+    "source": "Anadolu Teknokentleri & TR Uzaktan Ağ",
+    "first_seen_at": "2026-09-25T11:22:41+00:00",
+    "last_seen_at": "2026-09-25T11:22:41+00:00",
+    "score": 98
+  },
+  {
+    "url": "https://speakwrite.com/transcription-jobs/",
+    "canonical_url": "https://speakwrite.com/transcription-jobs",
+    "title": "Remote Transcription Job Positions Open",
+    "company": "Kariyer.net / Teknokent / Youthall",
+    "source": "Anadolu Teknokentleri & TR Uzaktan Ağ",
+    "first_seen_at": "2026-09-25T11:22:41+00:00",
+    "last_seen_at": "2026-09-25T11:22:41+00:00",
+    "score": 98
+  },
+  {
+    "url": "https://www.amazon.com/ipad-remote-control/s?k=ipad+remote+control",
+    "canonical_url": "https://www.amazon.com/ipad-remote-control/s?k=ipad+remote+control",
+    "title": "Amazon.com: Ipad Remote Control",
+    "company": "Kariyer.net / Teknokent / Youthall",
+    "source": "Anadolu Teknokentleri & TR Uzaktan Ağ",
+    "first_seen_at": "2026-09-25T11:22:41+00:00",
+    "last_seen_at": "2026-09-25T11:22:41+00:00",
+    "score": 98
+  },
+  {
+    "url": "https://en.wikipedia.org/wiki/Junior_Bonner",
+    "canonical_url": "https://en.wikipedia.org/wiki/Junior_Bonner",
+    "title": "Junior Bonner - Wikipedia",
+    "company": "Kariyer.net / Teknokent / Youthall",
+    "source": "Anadolu Teknokentleri & TR Uzaktan Ağ",
+    "first_seen_at": "2026-09-25T11:22:41+00:00",
+    "last_seen_at": "2026-09-25T11:22:41+00:00",
+    "score": 98
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/sauerland-spielgeraete-gmbh/vertriebsleiter-salzkotten-293987",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/sauerland-spielgeraete-gmbh/vertriebsleiter-salzkotten-293987",
+    "title": "Vertriebsleiter (m/w/d)",
+    "company": "Sauerland Spielgeraete GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-25T11:22:41+00:00",
+    "last_seen_at": "2026-09-25T11:22:41+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/sparkasse-karlsruhe/marketing-assistenz-des-geschaftsfuhrers-in-vollzeit-karlsruhe-383271",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/sparkasse-karlsruhe/marketing-assistenz-des-geschaftsfuhrers-in-vollzeit-karlsruhe-383271",
+    "title": "Marketing & Assistenz des Geschäftsführers (m/w/d) in Vollzeit",
+    "company": "Sparkasse Karlsruhe",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-25T11:22:41+00:00",
+    "last_seen_at": "2026-09-25T11:22:41+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/qualityminds-gmbh/senior-tester-schwerpunkt-sap-testing-nuremberg-376260",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/qualityminds-gmbh/senior-tester-schwerpunkt-sap-testing-nuremberg-376260",
+    "title": "Senior Tester (m/w/d) Schwerpunkt SAP Testing",
+    "company": "QualityMinds GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-25T11:22:41+00:00",
+    "last_seen_at": "2026-09-25T11:22:41+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/fntio/head-of-enterprise-sales-muhltal-321814",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/fntio/head-of-enterprise-sales-muhltal-321814",
+    "title": "Head of Enterprise Sales (m/w/d)",
+    "company": "FNTIO",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-25T11:22:41+00:00",
+    "last_seen_at": "2026-09-25T11:22:41+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/my-humancapital-gmbh/sachbearbeiter-kredit-vertragsmanagement-munich-163323",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/my-humancapital-gmbh/sachbearbeiter-kredit-vertragsmanagement-munich-163323",
+    "title": "Sachbearbeiter Kredit & Vertragsmanagement (m/w/d)",
+    "company": "MY Humancapital GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-25T11:22:41+00:00",
+    "last_seen_at": "2026-09-25T11:22:41+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/homie/senior-performance-marketing-manager-hamburg-125364",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/homie/senior-performance-marketing-manager-hamburg-125364",
+    "title": "Senior Performance Marketing Manager (m/w/d)",
+    "company": "homie",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-25T11:22:41+00:00",
+    "last_seen_at": "2026-09-25T11:22:41+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/skills-hr-experts-gmbh/selbstandiger-finanzberater-vermogensberater-frankfurt-am-main-341360",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/skills-hr-experts-gmbh/selbstandiger-finanzberater-vermogensberater-frankfurt-am-main-341360",
+    "title": "Selbständiger Finanzberater/Vermögensberater (m/w/d)",
+    "company": "SKILLs HR Experts GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-25T11:22:41+00:00",
+    "last_seen_at": "2026-09-25T11:22:41+00:00",
+    "score": 14
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/konfetti-gmbh/founders-associate-in-berlin-447420",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/konfetti-gmbh/founders-associate-in-berlin-447420",
+    "title": "Founders Associate (m/f/x) in Berlin",
+    "company": "Konfetti GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-25T11:22:41+00:00",
+    "last_seen_at": "2026-09-25T11:22:41+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/cn-st-gallen-personalberatung-gmbh-co-kg/bereichsleitung-uberwachungsaufgaben-hanover-45121",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/cn-st-gallen-personalberatung-gmbh-co-kg/bereichsleitung-uberwachungsaufgaben-hanover-45121",
+    "title": "Bereichsleitung Überwachungsaufgaben (m/w/d)",
+    "company": "CN St. Gallen Personalberatung GmbH & Co. KG",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-25T11:22:41+00:00",
+    "last_seen_at": "2026-09-25T11:22:41+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/kurt-personal-gmbh/o-au-pinneberg-55008",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/kurt-personal-gmbh/o-au-pinneberg-55008",
+    "title": "𝗣𝗲𝗿𝘀ö𝗻𝗹𝗶𝗰𝗵𝗲𝗿 𝗥𝗲𝗳𝗲𝗿𝗲𝗻𝘁 𝗱𝗲𝘀 𝗚𝗲𝘀𝗰𝗵ä𝗳𝘁𝘀𝗳ü𝗵𝗿𝗲𝗿𝘀 (𝗺/𝘄/𝗱)",
+    "company": "KURT Personal GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-25T11:22:41+00:00",
+    "last_seen_at": "2026-09-25T11:22:41+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/mediform-gmbh/head-of-marketing-b2b-saas-growth-healthcare-start-up-hybrid-karlsruhe-455845",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/mediform-gmbh/head-of-marketing-b2b-saas-growth-healthcare-start-up-hybrid-karlsruhe-455845",
+    "title": "Head of Marketing - B2B SaaS Growth - Healthcare/ Start-Up- Hybrid",
+    "company": "Mediform GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-25T11:22:41+00:00",
+    "last_seen_at": "2026-09-25T11:22:41+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/inp-deutschland-gmbh/bauuberwacher-im-anlagenbau-in-bergrheinfeld-358862",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/inp-deutschland-gmbh/bauuberwacher-im-anlagenbau-in-bergrheinfeld-358862",
+    "title": "Bauüberwacher (m/w/d) im Anlagenbau in Bergrheinfeld",
+    "company": "INP Deutschland GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-25T11:22:41+00:00",
+    "last_seen_at": "2026-09-25T11:22:41+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/amphenol-sachsenkabel/mitarbeiter-buchhaltung-controlling-gornsdorf-23796",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/amphenol-sachsenkabel/mitarbeiter-buchhaltung-controlling-gornsdorf-23796",
+    "title": "Mitarbeiter Buchhaltung & Controlling (m/w/d)",
+    "company": "Amphenol Sachsenkabel",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-25T11:22:41+00:00",
+    "last_seen_at": "2026-09-25T11:22:41+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/spized-gmbh/werkstudent-content-creation-design-cologne-447102",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/spized-gmbh/werkstudent-content-creation-design-cologne-447102",
+    "title": "Werkstudent (m/w/d) Content Creation & Design",
+    "company": "spized GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-25T11:22:41+00:00",
+    "last_seen_at": "2026-09-25T11:22:41+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/spized-gmbh/werkstudent-kommunikationsdesign-cologne-359167",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/spized-gmbh/werkstudent-kommunikationsdesign-cologne-359167",
+    "title": "Werkstudent (m/w/d) Kommunikationsdesign",
+    "company": "spized GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-25T11:22:41+00:00",
+    "last_seen_at": "2026-09-25T11:22:41+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/sidekick-network-gmbh-co-kg/senior-dvelop-sap-erv-salesforce-consultant-freelance-dresden-31290",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/sidekick-network-gmbh-co-kg/senior-dvelop-sap-erv-salesforce-consultant-freelance-dresden-31290",
+    "title": "Senior d.velop SAP / ERV / Salesforce Consultant (Freelance)",
+    "company": "Sidekick Network GmbH & Co. KG",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-25T11:22:41+00:00",
+    "last_seen_at": "2026-09-25T11:22:41+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/exp-software-gmbh/senior-developer-ai-native-software-engineering-pfaffenhofen-an-der-ilm-229024",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/exp-software-gmbh/senior-developer-ai-native-software-engineering-pfaffenhofen-an-der-ilm-229024",
+    "title": "Senior Developer - AI-native Software Engineering (m/w/d)",
+    "company": "EXP Software GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-25T11:22:41+00:00",
+    "last_seen_at": "2026-09-25T11:22:41+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/wyrld/werkstudent-vibe-coding-ai-prototyping-hamburg-133198",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/wyrld/werkstudent-vibe-coding-ai-prototyping-hamburg-133198",
+    "title": "Werkstudent Vibe Coding & AI-Prototyping (m/w/d)",
+    "company": "wyrld",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-25T11:22:41+00:00",
+    "last_seen_at": "2026-09-25T11:22:41+00:00",
+    "score": 10
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/exp-software-gmbh/product-owner-fur-agentic-twin-plattform-explore-pfaffenhofen-an-der-ilm-124648",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/exp-software-gmbh/product-owner-fur-agentic-twin-plattform-explore-pfaffenhofen-an-der-ilm-124648",
+    "title": "Product Owner für Agentic-Twin-Plattform explore (m/w/d)",
+    "company": "EXP Software GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-25T11:22:41+00:00",
+    "last_seen_at": "2026-09-25T11:22:41+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/tintometer-gmbh/mitarbeiter-technischer-service-dortmund-9885",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/tintometer-gmbh/mitarbeiter-technischer-service-dortmund-9885",
+    "title": "Mitarbeiter Technischer Service (m/w/d)",
+    "company": "Tintometer GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-25T11:22:41+00:00",
+    "last_seen_at": "2026-09-25T11:22:41+00:00",
+    "score": 0
   }
 ]
