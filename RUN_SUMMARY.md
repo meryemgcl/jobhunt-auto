@@ -1,32 +1,29 @@
 # JobHunt-Auto Run Summary
 
-- Run ID: `23533e055f0c`
-- Started At: `2026-09-26T10:58:04+00:00`
-- Finished At: `2026-09-26T10:58:22+00:00`
-- Total Collected: `81`
+- Run ID: `7305b513ee32`
+- Started At: `2026-09-26T14:56:45+00:00`
+- Finished At: `2026-09-26T14:57:11+00:00`
+- Total Collected: `71`
 - Matched Jobs: `1`
-- Duplicates Skipped: `47`
+- Duplicates Skipped: `44`
 - Invalid URLs Skipped: `0`
 - Email Sent: `True`
 - Dashboard Updated: `True`
-- Memory Added Count: `34`
+- Memory Added Count: `27`
 
 ## Source Counts
 
-- `AR-GE Search`: 1
-- `Anadolu Teknokentleri & TR Uzaktan Ağ`: 18
+- `Anadolu Teknokentleri & TR Uzaktan Ağ`: 14
 - `Arbeitnow API`: 20
-- `Bootcamp Search`: 4
-- `Dev.to (Mika Flowers)`: 1
-- `Dev.to (Remdore)`: 1
-- `Dev.to (xbill)`: 1
+- `Dev.to (Mika Flowers)`: 2
+- `Dev.to (Suraj Raj Bhandari)`: 1
 - `Devpost`: 1
 - `GitHub Issues API`: 3
 - `HackerNews API`: 3
 - `Kaggle`: 1
 - `Kod Gemisi Ekibi`: 1
 - `Patika.dev`: 1
-- `Remotive Global API`: 19
+- `Remotive Global API`: 18
 - `Spotify Podcasts`: 1
 - `TEKNOFEST`: 1
 - `Techcareer.net`: 1

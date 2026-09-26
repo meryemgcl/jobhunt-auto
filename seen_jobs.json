@@ -9168,5 +9168,275 @@
     "first_seen_at": "2026-09-26T10:58:22+00:00",
     "last_seen_at": "2026-09-26T10:58:22+00:00",
     "score": 10
+  },
+  {
+    "url": "https://github.com/learningequality/kolibri/issues/15389",
+    "canonical_url": "https://github.com/learningequality/kolibri/issues/15389",
+    "title": "Retain text-decoration styles in SafeHTML",
+    "company": "",
+    "source": "GitHub Issues API",
+    "first_seen_at": "2026-09-26T14:57:11+00:00",
+    "last_seen_at": "2026-09-26T14:57:11+00:00",
+    "score": null
+  },
+  {
+    "url": "https://github.com/pesu-dev/auth/issues/168",
+    "canonical_url": "https://github.com/pesu-dev/auth/issues/168",
+    "title": "Enrich /health with version, environment and readiness checks",
+    "company": "",
+    "source": "GitHub Issues API",
+    "first_seen_at": "2026-09-26T14:57:11+00:00",
+    "last_seen_at": "2026-09-26T14:57:11+00:00",
+    "score": null
+  },
+  {
+    "url": "https://github.com/azezpz1/messy-weather-sports-bot/issues/36",
+    "canonical_url": "https://github.com/azezpz1/messy-weather-sports-bot/issues/36",
+    "title": "Add more platforms: Discord/Slack webhooks and Mastodon (then Threads)",
+    "company": "",
+    "source": "GitHub Issues API",
+    "first_seen_at": "2026-09-26T14:57:11+00:00",
+    "last_seen_at": "2026-09-26T14:57:11+00:00",
+    "score": null
+  },
+  {
+    "url": "https://dev.to/mikachu/i-built-a-better-codex-pet-than-openai-did-eib",
+    "canonical_url": "https://dev.to/mikachu/i-built-a-better-codex-pet-than-openai-did-eib",
+    "title": "I Built a Better Codex Pet Than OpenAI Did",
+    "company": "",
+    "source": "Dev.to (Mika Flowers)",
+    "first_seen_at": "2026-09-26T14:57:11+00:00",
+    "last_seen_at": "2026-09-26T14:57:11+00:00",
+    "score": null
+  },
+  {
+    "url": "https://dev.to/surajrb/okay-ive-been-sitting-on-this-post-for-a-while-and-im-finally-writing-it-437f",
+    "canonical_url": "https://dev.to/surajrb/okay-ive-been-sitting-on-this-post-for-a-while-and-im-finally-writing-it-437f",
+    "title": "Okay, I've been sitting on this post for a while and I'm finally writing it. 😄",
+    "company": "",
+    "source": "Dev.to (Suraj Raj Bhandari)",
+    "first_seen_at": "2026-09-26T14:57:11+00:00",
+    "last_seen_at": "2026-09-26T14:57:11+00:00",
+    "score": null
+  },
+  {
+    "url": "https://gultsch.de/posts/breaking-up-with-google-play/",
+    "canonical_url": "https://gultsch.de/posts/breaking-up-with-google-play",
+    "title": "Breaking Up with Google Play: Why Conversations Is Now Free",
+    "company": "",
+    "source": "HackerNews API",
+    "first_seen_at": "2026-09-26T14:57:11+00:00",
+    "last_seen_at": "2026-09-26T14:57:11+00:00",
+    "score": null
+  },
+  {
+    "url": "https://www.atateknokent.com.tr/tr/firma/kesin-yazilim-ve-danismanlik-ltd-sti-76",
+    "canonical_url": "https://www.atateknokent.com.tr/tr/firma/kesin-yazilim-ve-danismanlik-ltd-sti-76",
+    "title": "KESİN YAZILIM VE DANIŞMANLIK LTD.ŞTİ. - Firma Detayları",
+    "company": "Kariyer.net / Teknokent / Youthall",
+    "source": "Anadolu Teknokentleri & TR Uzaktan Ağ",
+    "first_seen_at": "2026-09-26T14:57:11+00:00",
+    "last_seen_at": "2026-09-26T14:57:11+00:00",
+    "score": 98
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/una-synth-gmbh/techniker-ingenieur-in-der-chemie-und-pharmaproduktion-kaltenkirchen-237219",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/una-synth-gmbh/techniker-ingenieur-in-der-chemie-und-pharmaproduktion-kaltenkirchen-237219",
+    "title": "Techniker / Ingenieur in der Chemie- und Pharmaproduktion (m/w/d)",
+    "company": "UNA-Synth GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-26T14:57:11+00:00",
+    "last_seen_at": "2026-09-26T14:57:11+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/viviania-gmbh/energieberater-beratung-vertrieb-ulm-436672",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/viviania-gmbh/energieberater-beratung-vertrieb-ulm-436672",
+    "title": "Energieberater - Beratung & Vertrieb (m/w/d)",
+    "company": "viviania GmbH",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-26T14:57:11+00:00",
+    "last_seen_at": "2026-09-26T14:57:11+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/planetlabs/remote-senior-infrastructure-solutions-engineer-59844",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/planetlabs/remote-senior-infrastructure-solutions-engineer-59844",
+    "title": "Senior Infrastructure Solutions Engineer",
+    "company": "planetlabs",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-26T14:57:11+00:00",
+    "last_seen_at": "2026-09-26T14:57:11+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/planetlabs/satellite-data-processing-engineer-berlin-1471",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/planetlabs/satellite-data-processing-engineer-berlin-1471",
+    "title": "Satellite Data Processing Engineer",
+    "company": "planetlabs",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-26T14:57:11+00:00",
+    "last_seen_at": "2026-09-26T14:57:11+00:00",
+    "score": 8
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/wolt/senior-creative-producer-fixed-term-employment-berlin-458587",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/wolt/senior-creative-producer-fixed-term-employment-berlin-458587",
+    "title": "Senior Creative Producer (Fixed-term Employment)",
+    "company": "wolt",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-26T14:57:11+00:00",
+    "last_seen_at": "2026-09-26T14:57:11+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/remotecom/senior-hr-specialist-employee-relations-and-transitions-emea-hrbp-395596",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/remotecom/senior-hr-specialist-employee-relations-and-transitions-emea-hrbp-395596",
+    "title": "Senior HR Specialist, Employee Relations and Transitions - EMEA (HRBP)",
+    "company": "remotecom",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-26T14:57:11+00:00",
+    "last_seen_at": "2026-09-26T14:57:11+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/dkbcodefactory/ios-developer-xfm-berlin-297576",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/dkbcodefactory/ios-developer-xfm-berlin-297576",
+    "title": "iOS Developer (x,f,m)",
+    "company": "dkbcodefactory",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-26T14:57:11+00:00",
+    "last_seen_at": "2026-09-26T14:57:11+00:00",
+    "score": 5
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/thequalitygroupgmbh2/remote-master-data-management-lead-gn-489583",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/thequalitygroupgmbh2/remote-master-data-management-lead-gn-489583",
+    "title": "Master Data Management Lead (gn)",
+    "company": "thequalitygroupgmbh2",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-26T14:57:11+00:00",
+    "last_seen_at": "2026-09-26T14:57:11+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/awin/head-of-product-ai-enablement-berlin-berlin-75748",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/awin/head-of-product-ai-enablement-berlin-berlin-75748",
+    "title": "Head of Product, AI Enablement (f/m/d)",
+    "company": "Awin",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-26T14:57:11+00:00",
+    "last_seen_at": "2026-09-26T14:57:11+00:00",
+    "score": 18
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/workato/technical-architect-berlin-380999",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/workato/technical-architect-berlin-380999",
+    "title": "Technical Architect",
+    "company": "workato",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-26T14:57:11+00:00",
+    "last_seen_at": "2026-09-26T14:57:11+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/workato/senior-infrastructure-engineer-postgresql-dba-berlin-frankfurt-munich-34011",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/workato/senior-infrastructure-engineer-postgresql-dba-berlin-frankfurt-munich-34011",
+    "title": "Senior Infrastructure Engineer (PostgreSQL DBA)",
+    "company": "workato",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-26T14:57:11+00:00",
+    "last_seen_at": "2026-09-26T14:57:11+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/almedia/product-manager-berlin-96348",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/almedia/product-manager-berlin-96348",
+    "title": "Product Manager",
+    "company": "Almedia",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-26T14:57:11+00:00",
+    "last_seen_at": "2026-09-26T14:57:11+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/almedia/product-lead-adtech-berlin-71381",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/almedia/product-lead-adtech-berlin-71381",
+    "title": "Product Lead - Adtech",
+    "company": "Almedia",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-26T14:57:11+00:00",
+    "last_seen_at": "2026-09-26T14:57:11+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/almedia/product-lead-berlin-265601",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/almedia/product-lead-berlin-265601",
+    "title": "Product Lead",
+    "company": "Almedia",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-26T14:57:11+00:00",
+    "last_seen_at": "2026-09-26T14:57:11+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/almedia/senior-product-ui-designer-berlin-432284",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/almedia/senior-product-ui-designer-berlin-432284",
+    "title": "Senior Product UI Designer",
+    "company": "Almedia",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-26T14:57:11+00:00",
+    "last_seen_at": "2026-09-26T14:57:11+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/almedia/qa-lead-berlin-433385",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/almedia/qa-lead-berlin-433385",
+    "title": "QA Lead",
+    "company": "Almedia",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-26T14:57:11+00:00",
+    "last_seen_at": "2026-09-26T14:57:11+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/almedia/head-of-product-design-berlin-386553",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/almedia/head-of-product-design-berlin-386553",
+    "title": "Head of Product Design",
+    "company": "Almedia",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-26T14:57:11+00:00",
+    "last_seen_at": "2026-09-26T14:57:11+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/voize/freelance-senior-backend-engineer-kotlin-berlin-170391",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/voize/freelance-senior-backend-engineer-kotlin-berlin-170391",
+    "title": "Freelance Senior Backend Engineer - Kotlin (m/f/d)",
+    "company": "Voize",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-26T14:57:11+00:00",
+    "last_seen_at": "2026-09-26T14:57:11+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/n8n/forward-deployed-engineer-emea-germany-44529",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/n8n/forward-deployed-engineer-emea-germany-44529",
+    "title": "Forward Deployed Engineer - EMEA",
+    "company": "N8N",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-26T14:57:11+00:00",
+    "last_seen_at": "2026-09-26T14:57:11+00:00",
+    "score": 0
+  },
+  {
+    "url": "https://www.arbeitnow.com/jobs/companies/roadsurfer/accounts-payable-specialist-munich-347262",
+    "canonical_url": "https://www.arbeitnow.com/jobs/companies/roadsurfer/accounts-payable-specialist-munich-347262",
+    "title": "Accounts Payable Specialist",
+    "company": "Roadsurfer",
+    "source": "Arbeitnow API",
+    "first_seen_at": "2026-09-26T14:57:11+00:00",
+    "last_seen_at": "2026-09-26T14:57:11+00:00",
+    "score": 0
   }
 ]
