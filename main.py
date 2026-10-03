@@ -129,6 +129,14 @@ def main() -> bool:
     duplicate_count = 0
     invalid_url_count = 0
 
+    def generate_dedup_key(item: dict) -> str:
+        import hashlib
+        title = str(item.get("title", "")).lower().strip()
+        company = str(item.get("company", "")).lower().strip()
+        location = str(item.get("location", "")).lower().strip()
+        raw_key = f"{title}|{company}|{location}"
+        return hashlib.md5(raw_key.encode("utf-8")).hexdigest()
+
     def _filter_and_track(items_list):
         nonlocal duplicate_count, invalid_url_count
         new_items = []
@@ -140,13 +148,20 @@ def main() -> bool:
                 continue
 
             item["url"] = url
-            item["canonical_url"] = canonical_url
+            
+            # MD5 Hashing (Qwen Onerisi 3) - Eger title veya company eksikse fallback olarak canonical_url kullanilir
+            if item.get("title") and item.get("company"):
+                dedup_key = generate_dedup_key(item)
+            else:
+                dedup_key = canonical_url
+                
+            item["canonical_url"] = dedup_key # Veritabani schema uyumlulugu icin ayni alanda tutuyoruz
 
-            if canonical_url in seen_jobs or canonical_url in seen_this_run:
+            if dedup_key in seen_jobs or dedup_key in seen_this_run:
                 duplicate_count += 1
                 continue
 
-            seen_this_run.add(canonical_url)
+            seen_this_run.add(dedup_key)
             new_items.append(item)
             new_items_for_memory.append(item)  # SIFIR PUANLI OLSA BİLE TÜM YENİ VERİLER HAFIZAYA YAZILIR
         return new_items
@@ -173,11 +188,34 @@ def main() -> bool:
         job["match_reason"] = reason
         scored_jobs.append(job)
 
-        # Sadece %50 ve uzeri uygunluktaki ilanlari e-posta listesine al
+        # %50 ve uzeri uygunluktaki ilanlari e-posta listesine al
         if score >= 50:
             matched_jobs.append(job)
 
     matched_jobs.sort(key=lambda x: x["score"], reverse=True)
+    
+    # Qwen Onerisi 1: Fallback (Eger hic 50 ustu yoksa en iyi 3 ilani 'Potansiyel' olarak ekle)
+    fallback_mode = False
+    if not matched_jobs and scored_jobs:
+        scored_jobs.sort(key=lambda x: x["score"], reverse=True)
+        # 20 puan ve uzeri en iyi 3 ilani alalim (0 puanlari, yani hard-filter yiyenleri alma)
+        potential_jobs = [j for j in scored_jobs if 20 <= j["score"] < 50][:3]
+        if potential_jobs:
+            matched_jobs = potential_jobs
+            fallback_mode = True
+            logger.info("Matched=0 oldugu icin Fallback (Potansiyel) moduna gecildi. %s ilan eklendi.", len(matched_jobs))
+
+    # Qwen Onerisi 6: Sifir Eslesme Raporu (Run Stats)
+    run_stats = {
+        "total_scanned": len(raw_jobs),
+        "dedup_filtered": duplicate_count,
+        "negative_filtered": sum(1 for j in scored_jobs if j["score"] == 0),
+        "low_score_filtered": sum(1 for j in scored_jobs if 0 < j["score"] < 50),
+        "highest_score": scored_jobs[0]["score"] if scored_jobs else 0,
+        "highest_job_title": scored_jobs[0]["title"] if scored_jobs else "Bulunamadi",
+        "fallback_mode": fallback_mode
+    }
+
     logger.info(
         "Deduplication & Skorlama tamamlandi. matched=%s duplicates=%s invalid_urls=%s total_new_items=%s",
         len(matched_jobs),
@@ -212,7 +250,8 @@ def main() -> bool:
         news=new_news,
         github_issues=new_github_issues,
         skill_gap=skill_gap,
-        profile=profile
+        profile=profile,
+        run_stats=run_stats
     )
     logger.info("HTML bulten derlendi. content_length=%s", len(html_report))
 

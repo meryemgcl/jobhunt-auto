@@ -55,7 +55,7 @@ def _prepare_newsletter_item(item: dict, *, include_score: bool = False) -> dict
     return payload
 
 
-def build_html_newsletter(matched_jobs, camps, rd_projects, podcasts, hackathons, news, github_issues, skill_gap, profile):
+def build_html_newsletter(matched_jobs, camps, rd_projects, podcasts, hackathons, news, github_issues, skill_gap, profile, run_stats=None):
     """Render the executive briefing from the Jinja2 HTML template."""
     from config import FEATURE_FLAGS  # Inline import: circular-import riskini onler
 
@@ -72,6 +72,7 @@ def build_html_newsletter(matched_jobs, camps, rd_projects, podcasts, hackathons
         skill_gap=skill_gap or {},
         profile=profile or {},
         feature_flags=FEATURE_FLAGS,
+        run_stats=run_stats or {},
     )
 
 

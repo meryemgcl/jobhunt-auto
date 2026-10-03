@@ -5,6 +5,7 @@ from config import (
     EXCLUDED_KEYWORDS,
     HARD_NEGATIVE_KEYWORDS,
     LOCATION_WEIGHTS,
+    LOCATION_SYNONYMS,
     ROLE_WEIGHTS,
     TECH_WEIGHTS,
 )
@@ -13,6 +14,11 @@ from services.feedback import feedback_adjustment_for
 
 def _normalize(value) -> str:
     return str(value or "").casefold()
+
+
+def _normalize_location(location: str) -> str:
+    loc = _normalize(location)
+    return LOCATION_SYNONYMS.get(loc, loc)
 
 
 def _keyword_in_text(keyword: str, text: str) -> bool:
@@ -43,9 +49,10 @@ def score_job_suitability(
     title = _normalize(job.get("title"))
     desc = _normalize(job.get("description"))
     company = _normalize(job.get("company"))
-    location = _normalize(job.get("location"))
+    location = _normalize_location(job.get("location"))
     tags = [_normalize(tag) for tag in job.get("tags", [])]
     full_text = f"{title} {desc} {location} {' '.join(tags)}"
+    title_company_text = f"{title} {company}"
 
     # Kullanici tarafindan tanimlanmis sirket kara listesi (config.EXCLUDED_COMPANIES)
     if EXCLUDED_COMPANIES:
@@ -60,11 +67,16 @@ def score_job_suitability(
             if normalized_kw and _keyword_in_text(normalized_kw, full_text):
                 return 0, f"Elendi: kara listedeki kelime ({excluded_kw})"
 
-    # Yerlesik sabit negatif filtreler (HARD_NEGATIVE_KEYWORDS)
-    negative_matches = [keyword for keyword in HARD_NEGATIVE_KEYWORDS if _keyword_in_text(keyword, full_text)]
-    if negative_matches:
-        return 0, f"Elendi: negatif filtre ({', '.join(sorted(set(negative_matches[:3])))})"
-
+    # Yerlesik negatif filtreler (HARD_NEGATIVE_KEYWORDS) - Context Aware
+    hard_penalty = 0
+    negative_matches_title = [keyword for keyword in HARD_NEGATIVE_KEYWORDS if _keyword_in_text(keyword, title_company_text)]
+    if negative_matches_title:
+        return 0, f"Elendi: başlık/şirkette negatif filtre ({', '.join(sorted(set(negative_matches_title[:3])))})"
+    
+    negative_matches_desc = [keyword for keyword in HARD_NEGATIVE_KEYWORDS if _keyword_in_text(keyword, desc)]
+    if negative_matches_desc:
+        hard_penalty = -15
+        
     tech_matches, tech_score = _collect_weighted_matches(TECH_WEIGHTS, full_text)
     role_matches, role_score = _collect_weighted_matches(ROLE_WEIGHTS, full_text)
     location_matches, location_score = _collect_weighted_matches(LOCATION_WEIGHTS, full_text)
@@ -86,10 +98,12 @@ def score_job_suitability(
 
     score = min(
         98,
-        max(0, tech_score + role_score + location_score + min(profile_skill_bonus, 12) + feedback_adjustment + keyword_adjustment),
+        max(0, tech_score + role_score + location_score + min(profile_skill_bonus, 12) + feedback_adjustment + keyword_adjustment + hard_penalty),
     )
 
     analysis_parts = []
+    if hard_penalty < 0 and negative_matches_desc:
+        analysis_parts.append(f"Uyarı: {', '.join(set(negative_matches_desc[:2]))} ({hard_penalty})")
     if feedback_reason:
         analysis_parts.append(feedback_reason)
     if role_matches:

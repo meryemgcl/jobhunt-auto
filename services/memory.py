@@ -150,7 +150,25 @@ def add_seen_jobs(new_jobs: list[str | dict[str, Any]], path: str | Path = MEMOR
         records_by_url[record["canonical_url"]] = record
         added_count += 1
 
-    if added_count:
+    # Qwen Onerisi 3: TTL (Time-To-Live) - 30 gunden eski kayitlari temizle
+    ttl_limit = dt.datetime.now(dt.UTC) - dt.timedelta(days=30)
+    filtered_records = []
+    
+    for record in records:
+        try:
+            last_seen = dt.datetime.fromisoformat(record.get("last_seen_at", timestamp))
+        except ValueError:
+            last_seen = dt.datetime.now(dt.UTC)
+            
+        if last_seen >= ttl_limit:
+            filtered_records.append(record)
+            
+    deleted_count = len(records) - len(filtered_records)
+    if deleted_count > 0:
+        logger.info("%s adet 30 gunden eski ilan hafizadan silindi (TTL).", deleted_count)
+        records = filtered_records
+
+    if added_count or deleted_count > 0:
         atomic_write_json(path, records)
         logger.info("%s yeni ilan/firsat hafizaya kaydedildi.", added_count)
 

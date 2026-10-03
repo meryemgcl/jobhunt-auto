@@ -1,173 +1,315 @@
 <!DOCTYPE html>
-<html>
-<head><meta charset="utf-8"></head>
-<body style="font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;background-color:#f1f5f9;margin:0;padding:24px;color:#0f172a;">
-    <div style="max-width:720px;margin:0 auto;background:#ffffff;border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.08);border:1px solid #cbd5e1;">
-        <div style="background:#0f172a;color:#ffffff;padding:24px 28px;border-bottom:3px solid #2563eb;">
-            <div style="display:flex;justify-content:space-between;align-items:center;">
-                <div>
-                    <div style="font-size:11px;font-weight:700;letter-spacing:1.2px;color:#94a3b8;text-transform:uppercase;">JOBHUNT-AUTO SYSTEM</div>
-                    <h1 style="margin:4px 0 0 0;font-size:20px;font-weight:700;color:#ffffff;letter-spacing:0;">Kariyer & Fırsat İstihbarat Raporu</h1>
-                </div>
-                <div style="text-align:right;">
-                    <span style="background:#1e293b;color:#cbd5e1;padding:4px 10px;border-radius:4px;font-size:11px;font-weight:600;border:1px solid #334155;">{{ current_date }}</span>
-                </div>
-            </div>
-        </div>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <title>JobHunt-Auto Raporu</title>
+</head>
+<body style="margin:0;padding:0;background-color:#f0f4f8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
 
-        <div style="background:#f8fafc;padding:14px 28px;border-bottom:1px solid #e2e8f0;font-size:12px;color:#475569;line-height:1.6;">
-            <div>🎯 <b>Hedef Yetenek Seti:</b> {{ profile.target_skills_label if profile.target_skills_label else (profile.core_skills | join(', ')) }}</div>
-            <div>📍 <b>Coğrafi Kapsam:</b> {{ profile.preferred_locations | join(', ') if profile.preferred_locations else 'Türkiye Geneli &amp; Global' }}</div>
-            <div>⚡ <b>Sistem Durumu:</b> Deterministik Çok Kaynaklı Veri Motoru Tarafından Doğrulandı</div>
-        </div>
+  <!-- Outer wrapper -->
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f0f4f8;padding:32px 16px;">
+    <tr><td align="center">
+      <!-- Card -->
+      <table width="640" cellpadding="0" cellspacing="0" border="0" style="max-width:640px;width:100%;background:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 4px 24px rgba(15,23,42,0.10);border:1px solid #e2e8f0;">
 
-        <div style="padding:24px 28px;">
-            <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:14px 18px;margin-bottom:20px;">
-                <div style="color:#b45309;font-size:13px;font-weight:700;margin-bottom:6px;display:flex;align-items:center;">
-                    📊 PİYASA YETENEK AÇIĞI (SKILL GAP) İSTİHBARATI
-                </div>
-                <p style="margin:0 0 8px 0;font-size:12px;color:#78350f;line-height:1.5;">
-                    {{ skill_gap.summary_text }}
-                </p>
-                <div style="margin-top:6px;">
+        <!-- ═══════════════ HEADER ═══════════════ -->
+        <tr>
+          <td style="background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 100%);padding:32px 36px 28px;">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td>
+                  <div style="font-size:10px;font-weight:700;letter-spacing:2px;color:#64a3c8;text-transform:uppercase;margin-bottom:8px;">JOBHUNT-AUTO · AI-POWERED CAREER INTELLIGENCE</div>
+                  <div style="font-size:24px;font-weight:800;color:#ffffff;line-height:1.2;margin-bottom:4px;">Kariyer &amp; Fırsat<br>İstihbarat Raporu</div>
+                  <div style="font-size:13px;color:#94a3b8;margin-top:8px;">{{ profile.name if profile.name else 'Meryem Güçlü' }} için kişisel olarak derlendi</div>
+                </td>
+                <td align="right" valign="top">
+                  <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:8px;padding:12px 16px;text-align:center;min-width:80px;">
+                    <div style="font-size:10px;color:#94a3b8;letter-spacing:1px;text-transform:uppercase;">Tarih</div>
+                    <div style="font-size:15px;font-weight:700;color:#ffffff;margin-top:4px;">{{ current_date }}</div>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- ═══════════════ PROFILE STRIP ═══════════════ -->
+        <tr>
+          <td style="background:#f8fafc;padding:14px 36px;border-bottom:1px solid #e2e8f0;">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td style="font-size:12px;color:#64748b;">
+                  <span style="margin-right:20px;">🎯 <b style="color:#334155;">Hedef:</b> {{ profile.target_skills_label if profile.target_skills_label else (profile.core_skills | join(', ')) }}</span>
+                  <span>📍 <b style="color:#334155;">Kapsam:</b> {{ profile.preferred_locations | join(' · ') if profile.preferred_locations else 'Türkiye &amp; Uzaktan' }}</span>
+                </td>
+                <td align="right" style="font-size:11px;">
+                  <span style="background:#dcfce7;color:#166534;padding:3px 10px;border-radius:20px;font-weight:700;">✅ Sistem Aktif</span>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- ═══════════════ SKILL GAP ═══════════════ -->
+        {% if skill_gap and skill_gap.summary_text %}
+        <tr>
+          <td style="padding:24px 36px 0;">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:linear-gradient(135deg,#fffbeb,#fef3c7);border:1px solid #fde68a;border-radius:10px;overflow:hidden;">
+              <tr>
+                <td style="padding:16px 20px;">
+                  <div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#b45309;text-transform:uppercase;margin-bottom:6px;">📊 Piyasa Yetenek Açığı Analizi</div>
+                  <div style="font-size:13px;color:#78350f;line-height:1.6;margin-bottom:12px;">{{ skill_gap.summary_text }}</div>
+                  <div>
                     {% for item in skill_gap.top_market_demands %}
-                    <span style="background:#fef3c7;color:#92400e;padding:4px 8px;border-radius:4px;font-size:11px;font-weight:700;margin-right:6px;">⚡ {{ item.tech }} ({{ item.demand_count }} İlanda)</span>
+                    <span style="display:inline-block;background:#fef9c3;color:#713f12;border:1px solid #fde047;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:700;margin:2px 4px 2px 0;">⚡ {{ item.tech }} · {{ item.demand_count }} ilan</span>
                     {% endfor %}
-                </div>
-            </div>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        {% endif %}
 
-            <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid #0f172a;padding-bottom:6px;margin-bottom:14px;">
-                <h2 style="color:#0f172a;font-size:15px;font-weight:700;margin:0;text-transform:uppercase;letter-spacing:0.5px;">
-                    💼 Doğrulanmış İş ve Staj Fırsatları
-                </h2>
-                <span style="font-size:12px;color:#64748b;font-weight:600;">{{ matched_jobs|length }} Aktif Pozisyon</span>
-            </div>
+        <!-- ═══════════════ JOB MATCHES ═══════════════ -->
+        <tr>
+          <td style="padding:28px 36px 0;">
+            <!-- Section Header -->
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-bottom:2px solid #0f172a;padding-bottom:8px;margin-bottom:16px;">
+              <tr>
+                <td style="font-size:13px;font-weight:800;color:#0f172a;text-transform:uppercase;letter-spacing:0.8px;">💼 Doğrulanmış İş &amp; Staj Fırsatları</td>
+                <td align="right" style="font-size:12px;color:#64748b;font-weight:600;">{{ matched_jobs|length }} pozisyon</td>
+              </tr>
+            </table>
+
             {% if matched_jobs %}
-                {% for job in matched_jobs[:8] %}
-                <div style="background:#ffffff;border:1px solid #cbd5e1;border-radius:8px;padding:16px;margin-bottom:14px;box-shadow:0 1px 3px rgba(15,23,42,0.04);">
-                    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
-                        <h3 style="margin:0;color:#0f172a;font-size:15px;font-weight:700;line-height:1.3;">{{ job.title }}</h3>
-                        <div style="margin-left:10px;white-space:nowrap;">
-                            <span style="background:#047857;color:#ffffff;padding:3px 8px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:0.3px;">%{{ job.score }} EŞLEŞME İNDEKSİ</span>
-                        </div>
+              {% if run_stats.fallback_mode %}
+              <!-- Fallback Warning Block -->
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#fff1f2;border:1px solid #fecdd3;border-radius:8px;margin-bottom:16px;">
+                <tr><td style="padding:14px 18px;font-size:12px;color:#9f1239;line-height:1.5;">
+                  <b>⚠️ %50 barajını geçen ilan bulunamadı.</b><br>
+                  Aşağıdaki <span style="font-weight:bold;">{{ matched_jobs|length }} ilan</span> en yüksek puana sahip ({{ run_stats.highest_score }}) <i>potansiyel adaylar</i> olarak listelenmiştir.
+                </td></tr>
+              </table>
+              {% endif %}
+              
+              {% for job in matched_jobs[:8] %}
+              <!-- Job Card -->
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#ffffff;border:1px solid #e2e8f0;border-radius:10px;margin-bottom:12px;overflow:hidden;box-shadow:0 1px 4px rgba(15,23,42,0.06);">
+                <!-- Score bar accent -->
+                <tr><td style="height:3px;background:{% if job.score >= 85 %}linear-gradient(90deg,#7c3aed,#a855f7){% elif job.score >= 70 %}linear-gradient(90deg,#2563eb,#60a5fa){% elif job.score >= 50 %}linear-gradient(90deg,#059669,#34d399){% else %}linear-gradient(90deg,#eab308,#facc15){% endif %};"></td></tr>
+                <tr>
+                  <td style="padding:16px 18px;">
+                    <!-- Title + score -->
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td style="font-size:15px;font-weight:700;color:#0f172a;line-height:1.3;">{{ job.title }}</td>
+                        <td align="right" valign="top" style="padding-left:12px;white-space:nowrap;">
+                          <span style="background:{% if job.score >= 85 %}#7c3aed{% elif job.score >= 70 %}#2563eb{% elif job.score >= 50 %}#047857{% else %}#ca8a04{% endif %};color:#ffffff;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:800;">%{{ job.score }}</span>
+                        </td>
+                      </tr>
+                    </table>
+                    <!-- Meta -->
+                    <div style="margin:8px 0 6px;font-size:12px;color:#64748b;">
+                      🏢 <b>{{ job.company }}</b> &nbsp;·&nbsp; 📍 {{ job.location }} &nbsp;·&nbsp; 📅 {{ job.published_at }}
                     </div>
-                    <div style="margin:4px 0 8px 0;color:#475569;font-size:12px;">
-                        🏢 <b>Kurum:</b> {{ job.company }} &nbsp;|&nbsp; 📍 <b>Konum:</b> {{ job.location }} &nbsp;|&nbsp; 📅 <b>Tarih:</b> {{ job.published_at }} &nbsp;|&nbsp; 🏷️ <b>Ağ:</b> {{ job.source }}
+                    <!-- Match reason -->
+                    <div style="background:#f1f5f9;border-left:3px solid {% if job.score >= 50 %}#2563eb{% else %}#ca8a04{% endif %};border-radius:0 6px 6px 0;padding:8px 12px;font-size:12px;color:#334155;line-height:1.5;margin-bottom:12px;">
+                      {{ job.match_reason }}
                     </div>
-                    <div style="margin:8px 0;color:#475569;font-size:12px;">
-                        Güven: <b>%{{ job.source_reliability }}</b> &nbsp;|&nbsp; Tazelik: <b>%{{ job.freshness_score }}</b> ({{ job.freshness_label }})
-                    </div>
-                    <div style="margin:8px 0;color:#1e293b;font-size:12px;background:#f8fafc;padding:10px 12px;border-left:3px solid #2563eb;border-radius:2px;line-height:1.5;">
-                        🔍 <b>Sistem Uygunluk Analizi:</b> {{ job.match_reason }}
-                    </div>
-                    <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap;">
-                        <a href="{{ job.url }}" style="background:#0f172a;color:#ffffff;text-decoration:none;padding:6px 14px;border-radius:4px;font-size:12px;font-weight:600;display:inline-block;">İlanı İncele &amp; Doğrudan Başvur ➔</a>
+                    <!-- CTA buttons -->
+                    <table cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td style="padding-right:8px;">
+                          <a href="{{ job.url }}" style="display:inline-block;background:#0f172a;color:#ffffff;text-decoration:none;padding:8px 18px;border-radius:6px;font-size:12px;font-weight:700;">İlanı İncele →</a>
+                        </td>
                         {% if job.score >= 85 %}
-                        <span style="background:#7c3aed;color:#ffffff;padding:5px 12px;border-radius:4px;font-size:11px;font-weight:700;display:inline-block;letter-spacing:0.3px;">⚡ YÜKSEK EŞLEŞME</span>
-                        {% if feature_flags.ENABLE_COVER_LETTER_GENERATOR %}
-                        <a href="{{ job.url }}" style="background:#059669;color:#ffffff;text-decoration:none;padding:6px 12px;border-radius:4px;font-size:11px;font-weight:600;display:inline-block;" title="Ön yazı üretmek için bu ilanın URL'ini kullanın.">✍️ Ön Yazı Üret</a>
+                        <td>
+                          <span style="display:inline-block;background:#7c3aed;color:#ffffff;padding:8px 14px;border-radius:6px;font-size:11px;font-weight:700;">⚡ Yüksek Eşleşme</span>
+                        </td>
                         {% endif %}
-                        {% endif %}
-                    </div>
-                </div>
-                {% endfor %}
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+              {% endfor %}
             {% else %}
-                <p style="color:#64748b;font-size:13px;">Kriterlere uygun yeni pozisyon bulunamadı.</p>
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f8fafc;border:1px dashed #cbd5e1;border-radius:10px;">
+                <tr><td style="padding:24px;font-size:13px;color:#475569;">
+                  <div style="text-align:center;font-weight:700;color:#0f172a;margin-bottom:12px;">Bu koşuda profilinizle eşleşen (veya potansiyel barajını aşan) ilan bulunamadı.</div>
+                  {% if run_stats %}
+                  <div style="background:#ffffff;border:1px solid #e2e8f0;padding:12px;border-radius:6px;font-size:12px;line-height:1.6;margin-top:16px;">
+                    <b>📊 Sistem Özeti:</b><br>
+                    • Toplam Taranan İlan: <b>{{ run_stats.total_scanned }}</b><br>
+                    • Tekrar (Dedup) Elenen: <b>{{ run_stats.dedup_filtered }}</b><br>
+                    • Kara Liste (Hard Filter) Elenen: <b>{{ run_stats.negative_filtered }}</b><br>
+                    • Puanı Yetersiz Kalan: <b>{{ run_stats.low_score_filtered }}</b><br>
+                    <span style="color:#64748b;font-style:italic;">En Yüksek Puanlı: %{{ run_stats.highest_score }} ("{{ run_stats.highest_job_title }}")</span>
+                  </div>
+                  {% endif %}
+                </td></tr>
+              </table>
             {% endif %}
+          </td>
+        </tr>
 
-            <div style="border-bottom:2px solid #0f172a;padding-bottom:6px;margin-top:28px;margin-bottom:14px;">
-                <h2 style="color:#0f172a;font-size:15px;font-weight:700;margin:0;text-transform:uppercase;letter-spacing:0.5px;">🐙 GitHub Açık Kaynak Radarı</h2>
-            </div>
+        <!-- ═══════════════ GITHUB ═══════════════ -->
+        {% if github_issues %}
+        <tr>
+          <td style="padding:28px 36px 0;">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-bottom:2px solid #0f172a;padding-bottom:8px;margin-bottom:16px;">
+              <tr><td style="font-size:13px;font-weight:800;color:#0f172a;text-transform:uppercase;letter-spacing:0.8px;">🐙 GitHub Açık Kaynak Radar</td></tr>
+            </table>
             {% for issue in github_issues %}
-            <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:12px 14px;margin-bottom:8px;">
-                <div style="display:flex;justify-content:space-between;align-items:center;">
-                    <span style="color:#0f172a;font-weight:700;font-size:13px;">🐙 {{ issue.title }}</span>
-                    <span style="color:#64748b;font-size:11px;background:#e2e8f0;padding:2px 6px;border-radius:3px;">{{ issue.repo }}</span>
-                </div>
-                <div style="margin-top:4px;font-size:12px;color:#64748b;">
-                    Tarih: {{ issue.created_at }} &nbsp;|&nbsp; Güven: %{{ issue.source_reliability }} &nbsp;|&nbsp; Tazelik: %{{ issue.freshness_score }}
-                    <a href="{{ issue.url }}" style="color:#2563eb;font-weight:600;text-decoration:none;">Sorunu İncele & Katkı Sağla ➔</a>
-                </div>
-            </div>
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;margin-bottom:8px;">
+              <tr>
+                <td style="padding:12px 16px;">
+                  <div style="font-size:13px;font-weight:600;color:#0f172a;margin-bottom:4px;">{{ issue.title }}</div>
+                  <div style="font-size:11px;color:#64748b;">
+                    <span style="background:#e2e8f0;padding:2px 7px;border-radius:4px;font-weight:600;">{{ issue.repo }}</span>
+                    &nbsp;·&nbsp; {{ issue.created_at }}
+                    &nbsp;·&nbsp; <a href="{{ issue.url }}" style="color:#2563eb;font-weight:600;text-decoration:none;">Katkı Sağla →</a>
+                  </div>
+                </td>
+              </tr>
+            </table>
             {% endfor %}
+          </td>
+        </tr>
+        {% endif %}
 
-            <div style="border-bottom:2px solid #0f172a;padding-bottom:6px;margin-top:28px;margin-bottom:14px;">
-                <h2 style="color:#0f172a;font-size:15px;font-weight:700;margin:0;text-transform:uppercase;letter-spacing:0.5px;">🎓 Ücretsiz Eğitim Kampları & Bootcampler</h2>
-            </div>
+        <!-- ═══════════════ CAMPS ═══════════════ -->
+        {% if camps %}
+        <tr>
+          <td style="padding:28px 36px 0;">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-bottom:2px solid #0f172a;padding-bottom:8px;margin-bottom:16px;">
+              <tr><td style="font-size:13px;font-weight:800;color:#0f172a;text-transform:uppercase;letter-spacing:0.8px;">🎓 Ücretsiz Eğitim Kampları &amp; Bootcampler</td></tr>
+            </table>
             {% for camp in camps %}
-            <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:12px 14px;margin-bottom:8px;">
-                <div style="display:flex;justify-content:space-between;align-items:center;">
-                    <span style="color:#0f172a;font-weight:600;font-size:13px;">🎓 {{ camp.title }}</span>
-                    <span style="color:#047857;font-size:11px;font-weight:600;background:#d1fae5;padding:2px 6px;border-radius:3px;">{{ camp.status }}</span>
-                </div>
-                <div style="margin-top:4px;font-size:12px;color:#64748b;">
-                    Platform: <b>{{ camp.platform }}</b> &nbsp;|&nbsp; Güven: %{{ camp.source_reliability }} &nbsp;|&nbsp;
-                    <a href="{{ camp.url }}" style="color:#2563eb;font-weight:600;text-decoration:none;">Program Detayları & Kayıt ➔</a>
-                </div>
-            </div>
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;margin-bottom:8px;">
+              <tr>
+                <td style="padding:12px 16px;">
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td style="font-size:13px;font-weight:600;color:#0f172a;">{{ camp.title }}</td>
+                      <td align="right"><span style="background:#d1fae5;color:#065f46;padding:2px 8px;border-radius:20px;font-size:11px;font-weight:700;">{{ camp.status }}</span></td>
+                    </tr>
+                  </table>
+                  <div style="font-size:11px;color:#64748b;margin-top:4px;">
+                    {{ camp.platform }} &nbsp;·&nbsp; <a href="{{ camp.url }}" style="color:#2563eb;font-weight:600;text-decoration:none;">Kayıt &amp; Detaylar →</a>
+                  </div>
+                </td>
+              </tr>
+            </table>
             {% endfor %}
+          </td>
+        </tr>
+        {% endif %}
 
-            <div style="border-bottom:2px solid #0f172a;padding-bottom:6px;margin-top:28px;margin-bottom:14px;">
-                <h2 style="color:#0f172a;font-size:15px;font-weight:700;margin:0;text-transform:uppercase;letter-spacing:0.5px;">🔬 AR-GE Projeleri & TÜBİTAK Öğrenci Destekleri</h2>
-            </div>
+        <!-- ═══════════════ R&D ═══════════════ -->
+        {% if rd_projects %}
+        <tr>
+          <td style="padding:28px 36px 0;">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-bottom:2px solid #0f172a;padding-bottom:8px;margin-bottom:16px;">
+              <tr><td style="font-size:13px;font-weight:800;color:#0f172a;text-transform:uppercase;letter-spacing:0.8px;">🔬 AR-GE &amp; TÜBİTAK Öğrenci Destekleri</td></tr>
+            </table>
             {% for project in rd_projects %}
-            <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:12px 14px;margin-bottom:8px;">
-                <div style="display:flex;justify-content:space-between;align-items:center;">
-                    <span style="color:#0f172a;font-weight:600;font-size:13px;">🔬 {{ project.title }}</span>
-                    <span style="color:#1d4ed8;font-size:11px;font-weight:600;background:#dbeafe;padding:2px 6px;border-radius:3px;">{{ project.organization }}</span>
-                </div>
-                <div style="margin-top:4px;font-size:12px;color:#64748b;">
-                    Kapsam: {{ project.type }} &nbsp;|&nbsp; Güven: %{{ project.source_reliability }} &nbsp;|&nbsp;
-                    <a href="{{ project.url }}" style="color:#2563eb;font-weight:600;text-decoration:none;">Resmi Başvuru Çağrısı ➔</a>
-                </div>
-            </div>
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;margin-bottom:8px;">
+              <tr>
+                <td style="padding:12px 16px;">
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td style="font-size:13px;font-weight:600;color:#0f172a;">{{ project.title }}</td>
+                      <td align="right"><span style="background:#dbeafe;color:#1e40af;padding:2px 8px;border-radius:20px;font-size:11px;font-weight:700;">{{ project.organization }}</span></td>
+                    </tr>
+                  </table>
+                  <div style="font-size:11px;color:#64748b;margin-top:4px;">
+                    {{ project.type }} &nbsp;·&nbsp; <a href="{{ project.url }}" style="color:#2563eb;font-weight:600;text-decoration:none;">Başvuru Detayları →</a>
+                  </div>
+                </td>
+              </tr>
+            </table>
             {% endfor %}
+          </td>
+        </tr>
+        {% endif %}
 
-            <div style="border-bottom:2px solid #0f172a;padding-bottom:6px;margin-top:28px;margin-bottom:14px;">
-                <h2 style="color:#0f172a;font-size:15px;font-weight:700;margin:0;text-transform:uppercase;letter-spacing:0.5px;">🎧 Haftalık Geliştirici & Teknoloji Podcast'leri</h2>
-            </div>
-            {% for podcast in podcasts %}
-            <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:12px 14px;margin-bottom:8px;">
-                <div style="color:#0f172a;font-weight:600;font-size:13px;">🎧 {{ podcast.title }}</div>
-                <div style="color:#64748b;font-size:12px;margin:2px 0;">{{ podcast.topic }}</div>
-                <div style="font-size:12px;margin-top:4px;">
-                    Yayın Kanalı: <b>{{ podcast.host }}</b> &nbsp;|&nbsp; Güven: %{{ podcast.source_reliability }} &nbsp;|&nbsp;
-                    <a href="{{ podcast.url }}" style="color:#7c3aed;font-weight:600;text-decoration:none;">Bölümü Dinle ➔</a>
-                </div>
-            </div>
+        <!-- ═══════════════ HACKATHONS ═══════════════ -->
+        {% if hackathons %}
+        <tr>
+          <td style="padding:28px 36px 0;">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-bottom:2px solid #0f172a;padding-bottom:8px;margin-bottom:16px;">
+              <tr><td style="font-size:13px;font-weight:800;color:#0f172a;text-transform:uppercase;letter-spacing:0.8px;">🏆 Yarışmalar &amp; Hackathonlar</td></tr>
+            </table>
+            {% for hackathon in hackathons %}
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;margin-bottom:8px;">
+              <tr>
+                <td style="padding:12px 16px;">
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td style="font-size:13px;font-weight:600;color:#0f172a;">{{ hackathon.title }}</td>
+                      <td align="right"><span style="background:#ecfdf5;color:#065f46;padding:2px 8px;border-radius:20px;font-size:11px;font-weight:700;">{{ hackathon.status }}</span></td>
+                    </tr>
+                  </table>
+                  <div style="font-size:11px;color:#64748b;margin-top:4px;">
+                    {{ hackathon.platform }} &nbsp;·&nbsp; <a href="{{ hackathon.url }}" style="color:#2563eb;font-weight:600;text-decoration:none;">Katıl →</a>
+                  </div>
+                </td>
+              </tr>
+            </table>
             {% endfor %}
+          </td>
+        </tr>
+        {% endif %}
 
-            <div style="border-bottom:2px solid #0f172a;padding-bottom:6px;margin-top:28px;margin-bottom:14px;">
-                <h2 style="color:#0f172a;font-size:15px;font-weight:700;margin:0;text-transform:uppercase;letter-spacing:0.5px;">🏆 Aktif Yarışma & Hackathon Platformları</h2>
-            </div>
-            <ul style="padding-left:18px;margin:8px 0;">
-                {% for hackathon in hackathons %}
-                <li style="margin-bottom:8px;font-size:13px;color:#334155;line-height:1.4;">
-                    🏆 <b>{{ hackathon.title }}</b> ({{ hackathon.platform }}) &nbsp;•&nbsp; <span style="color:#059669;font-weight:600;">{{ hackathon.status }}</span>
-                    &nbsp;•&nbsp; Güven: %{{ hackathon.source_reliability }}
-                    <a href="{{ hackathon.url }}" style="color:#2563eb;margin-left:6px;text-decoration:none;font-weight:600;">Katılım Bağlantısı ➔</a>
-                </li>
-                {% endfor %}
-            </ul>
+        <!-- ═══════════════ NEWS ═══════════════ -->
+        {% if news %}
+        <tr>
+          <td style="padding:28px 36px 0;">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-bottom:2px solid #0f172a;padding-bottom:8px;margin-bottom:16px;">
+              <tr><td style="font-size:13px;font-weight:800;color:#0f172a;text-transform:uppercase;letter-spacing:0.8px;">📰 Güncel Teknoloji Haberleri</td></tr>
+            </table>
+            {% for item in news %}
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-bottom:1px solid #f1f5f9;margin-bottom:8px;">
+              <tr>
+                <td style="padding:8px 0 8px 12px;border-left:3px solid #e2e8f0;">
+                  <div style="font-size:13px;font-weight:600;color:#0f172a;margin-bottom:2px;">{{ item.title }}</div>
+                  <div style="font-size:11px;color:#94a3b8;">
+                    {{ item.source }} &nbsp;·&nbsp; <a href="{{ item.url }}" style="color:#2563eb;font-weight:600;text-decoration:none;">Oku →</a>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            {% endfor %}
+          </td>
+        </tr>
+        {% endif %}
 
-            <div style="border-bottom:2px solid #0f172a;padding-bottom:6px;margin-top:28px;margin-bottom:14px;">
-                <h2 style="color:#0f172a;font-size:15px;font-weight:700;margin:0;text-transform:uppercase;letter-spacing:0.5px;">📰 Güncel Teknoloji Gelişmeleri</h2>
-            </div>
-            <ul style="padding-left:18px;margin:8px 0;">
-                {% for item in news %}
-                <li style="margin-bottom:8px;font-size:13px;color:#334155;line-height:1.4;">
-                    📰 <b>{{ item.title }}</b> <span style="color:#64748b;font-size:12px;">({{ item.source }})</span>
-                    &nbsp;•&nbsp; Güven: %{{ item.source_reliability }} &nbsp;•&nbsp; Tazelik: %{{ item.freshness_score }} ({{ item.freshness_label }})
-                    <a href="{{ item.url }}" style="color:#2563eb;margin-left:6px;text-decoration:none;font-weight:600;">Haberi İncele ➔</a>
-                </li>
-                {% endfor %}
-            </ul>
-        </div>
+        <!-- ═══════════════ FOOTER ═══════════════ -->
+        <tr>
+          <td style="padding:28px 36px;">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#0f172a;border-radius:10px;">
+              <tr>
+                <td style="padding:20px 24px;text-align:center;">
+                  <div style="font-size:12px;font-weight:700;color:#ffffff;margin-bottom:6px;">JobHunt-Auto · AI Career Intelligence System</div>
+                  <div style="font-size:11px;color:#64748b;line-height:1.6;">
+                    Bu rapor otonom veri motoru tarafından {{ profile.name if profile.name else '' }} için derlenmiştir.<br>
+                    Deterministik çok kaynaklı tarama · Gerçek zamanlı deduplication · Kişisel profil eşleştirme
+                  </div>
+                  <div style="margin-top:12px;">
+                    <a href="https://github.com/meryemgcl/jobhunt-auto" style="color:#3b82f6;font-size:11px;font-weight:600;text-decoration:none;">GitHub Reposu →</a>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
 
-        <div style="background:#f8fafc;padding:16px 28px;text-align:center;border-top:1px solid #e2e8f0;font-size:11px;color:#64748b;line-height:1.5;">
-            Bu rapor <b>JobHunt-Auto Otonom Veri Motoru</b> tarafından taranmış, doğrulanmış ve derlenmiştir.<br>
-            Sistem bildirimleri kurumsal yapılandırma kapsamında periyodik olarak iletilmektedir.
-        </div>
-    </div>
+      </table>
+    </td></tr>
+  </table>
 </body>
 </html>

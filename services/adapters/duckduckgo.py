@@ -42,10 +42,18 @@ class DuckDuckGoAdapter(OpportunityAdapter):
             return []
 
         for prompt in self.prompts:
-            try:
-                results = list(ddgs.text(prompt, max_results=self.max_results))
-            except Exception as exc:
-                logger.warning("DuckDuckGo arama uyarisi (%s): %s", prompt, exc)
+            results = []
+            for attempt in range(3):
+                try:
+                    results = list(ddgs.text(prompt, max_results=self.max_results))
+                    break  # Basarili olursa retry dongusunden cik
+                except Exception as exc:
+                    wait_time = (2 ** attempt) + 1  # 2, 3, 5 saniye bekle
+                    logger.warning("DuckDuckGo arama uyarisi (%s) - attempt %s/3: %s. %s saniye bekleniyor...", prompt, attempt + 1, exc, wait_time)
+                    import time
+                    time.sleep(wait_time)
+            
+            if not results:
                 continue
 
             for result in results:

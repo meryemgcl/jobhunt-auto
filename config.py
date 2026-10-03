@@ -62,6 +62,14 @@ LOCATION_WEIGHTS: dict[str, int] = {
     "global": 5,
 }
 
+LOCATION_SYNONYMS: dict[str, str] = {
+    "turkey": "türkiye",
+    "tr": "türkiye",
+    "remote - turkey": "remote",
+    "istanbul (remote)": "remote",
+    "uzaktan": "remote",
+}
+
 # Kesinlikle 0 puan verilecek anahtar kelimeler (sabit sistem filtreleri).
 # Kişisel tercihler için EXCLUDED_KEYWORDS kullanın.
 HARD_NEGATIVE_KEYWORDS: list[str] = [
