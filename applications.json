@@ -1,11 +1,11 @@
 {
-  "last_updated": "03.10.2026 19:33",
-  "total_jobs_analyzed": 42,
-  "matched_jobs_count": 6,
+  "last_updated": "03.10.2026 11:15",
+  "total_jobs_analyzed": 46,
+  "matched_jobs_count": 0,
   "top_market_demands": [
     {
       "tech": "GIT",
-      "demand_count": 7
+      "demand_count": 6
     },
     {
       "tech": "KUBERNETES",

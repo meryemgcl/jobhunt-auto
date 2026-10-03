@@ -7,13 +7,15 @@ SQLite veritabanı üzerinde profesyonel veri sorgulama,
 raporlama ve dışa aktarma fonksiyonları.
 
 Kullanım:
-    from services.analytics import Analytics
+    from services.analytics import Analytics, analyze_market_skill_gap
     a = Analytics()
     df = a.all_opportunities()
     report = a.summary_report()
+    skill_gap = analyze_market_skill_gap(raw_jobs, core_skills)
 """
 from __future__ import annotations
 
+import collections
 import csv
 import io
 import json
@@ -22,6 +24,65 @@ from pathlib import Path
 from typing import Any
 
 from services.database import connect, init_database
+
+
+def analyze_market_skill_gap(jobs: list[dict], core_skills: list[str]) -> dict:
+    """Taranan ilanlardan piyasanın en çok talep ettiği teknolojileri çıkarır.
+
+    Args:
+        jobs:        Ham iş ilanı listesi (title, description, tags alanlarıyla).
+        core_skills: Kullanıcının mevcut beceri listesi (profilden).
+
+    Returns:
+        Piyasa analizi özeti; top_market_demands ve summary_text içerir.
+    """
+    if not jobs:
+        return {"top_market_demands": [], "summary_text": "", "total_analyzed": 0}
+
+    COMMON_TECH_TERMS = [
+        "python", "javascript", "typescript", "java", "kotlin", "swift",
+        "go", "golang", "rust", "c#", "c++", "ruby", "php", "scala",
+        "react", "angular", "vue", "nextjs", "nodejs", "django", "flask",
+        "fastapi", "spring", "express", "tensorflow", "pytorch", "keras",
+        "pandas", "numpy", "scikit", "sql", "postgresql", "mysql", "mongodb",
+        "redis", "elasticsearch", "docker", "kubernetes", "aws", "azure",
+        "gcp", "git", "linux", "rest", "graphql", "machine learning",
+        "deep learning", "nlp", "generative ai", "llm", "data science",
+        "devops", "ci/cd", "agile", "scrum",
+    ]
+
+    skill_counter: dict[str, int] = collections.Counter()
+    for job in jobs:
+        text = " ".join([
+            str(job.get("title") or ""),
+            str(job.get("description") or ""),
+            " ".join(str(t) for t in job.get("tags", [])),
+        ]).lower()
+
+        for term in COMMON_TECH_TERMS:
+            if term in text:
+                skill_counter[term.upper()] += 1
+
+    skill_gaps = [
+        {"tech": tech, "demand_count": count}
+        for tech, count in skill_counter.most_common(3)
+    ]
+
+    total_analyzed = len(jobs)
+    summary_text = ""
+    if skill_gaps:
+        summary_text = (
+            f"Taranan {total_analyzed} pozisyonun analizinde en çok talep edilen "
+            "ve portfolyona eklemen önerilen teknolojiler: "
+            + ", ".join(f"{g['tech']} ({g['demand_count']} ilanda)" for g in skill_gaps)
+            + "."
+        )
+
+    return {
+        "top_market_demands": skill_gaps,
+        "total_analyzed": total_analyzed,
+        "summary_text": summary_text,
+    }
 
 
 class Analytics:

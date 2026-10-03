@@ -1,24 +1,23 @@
 # JobHunt-Auto Run Summary
 
-- Run ID: `8ac0f6da8df4`
-- Started At: `2026-10-03T16:29:23+00:00`
-- Finished At: `2026-10-03T16:33:42+00:00`
+- Run ID: `13439b7e513d`
+- Started At: `2026-10-03T11:14:53+00:00`
+- Finished At: `2026-10-03T11:15:15+00:00`
 - Total Collected: `65`
-- Matched Jobs: `6`
-- Duplicates Skipped: `13`
+- Matched Jobs: `0`
+- Duplicates Skipped: `36`
 - Invalid URLs Skipped: `0`
 - Email Sent: `True`
 - Dashboard Updated: `True`
-- Memory Added Count: `52`
+- Memory Added Count: `29`
 
 ## Source Counts
 
-- `Anadolu Teknokentleri & TR Uzaktan Ağ`: 6
+- `Anadolu Teknokentleri & TR Uzaktan Ağ`: 10
 - `Arbeitnow API`: 20
-- `Bootcamp Search`: 4
-- `Dev.to (Akhouri Anmol Kumar)`: 1
-- `Dev.to (Can Burak Sofyalioglu)`: 1
-- `Dev.to (Kuga)`: 1
+- `Dev.to (Junyoung Park)`: 1
+- `Dev.to (Ruesch Manny)`: 1
+- `Dev.to (Yash Lohade)`: 1
 - `Devpost`: 1
 - `GitHub Issues API`: 3
 - `HackerNews API`: 3
