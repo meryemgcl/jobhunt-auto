@@ -8,7 +8,6 @@ from services.state_io import atomic_write_text
 
 
 RUN_SUMMARY_FILE = "RUN_SUMMARY.md"
-MONITORED_SOURCES = ("Remotive Global API", "Arbeitnow API", "GitHub Issues API")
 
 logger = logging.getLogger(__name__)
 
@@ -21,28 +20,54 @@ def summarize_sources(opportunities: list[dict[str, Any]]) -> dict[str, int]:
     return dict(sorted(counts.items()))
 
 
+def summarize_job_quality(
+    jobs: list[dict[str, Any]],
+    *,
+    matched_urls: set[str] | None = None,
+) -> dict[str, dict[str, int]]:
+    matched_urls = matched_urls or set()
+    grouped: dict[str, list[dict[str, Any]]] = {}
+    for job in jobs:
+        source = str(job.get("source") or "unknown")
+        grouped.setdefault(source, []).append(job)
+
+    quality = {}
+    for source, source_jobs in sorted(grouped.items()):
+        count = len(source_jobs)
+        quality[source] = {
+            "jobs": count,
+            "matched": sum(str(job.get("canonical_url") or job.get("url") or "") in matched_urls for job in source_jobs),
+            "companies": len(
+                {
+                    str(job.get("company") or "").strip().casefold()
+                    for job in source_jobs
+                    if str(job.get("company") or "").strip()
+                }
+            ),
+            "dated": sum(bool(job.get("published_at")) for job in source_jobs),
+            "application_links": sum(
+                bool((job.get("metadata") or {}).get("application_url"))
+                for job in source_jobs
+            ),
+            "locations": sum(bool(job.get("location")) for job in source_jobs),
+        }
+    return quality
+
+
 def detect_source_alerts(
     source_counts: dict[str, int],
     *,
-    monitored_sources: tuple[str, ...] = MONITORED_SOURCES,
+    source_errors: dict[str, int] | None = None,
 ) -> list[str]:
     alerts = []
     if sum(source_counts.values()) == 0:
         alerts.append("Hiç fırsat toplanamadı; ağ bağlantısı, adapter hataları ve API limitleri kontrol edilmeli.")
 
-    for source in monitored_sources:
-        if source_counts.get(source, 0) == 0:
-            alerts.append(f"{source}: bu çalıştırmada 0 kayıt döndü; kaynak sağlığı veya rate limit kontrol edilmeli.")
+    for source, error_count in sorted((source_errors or {}).items()):
+        if error_count:
+            alerts.append(f"{source}: {error_count} source request(s) failed; inspect run logs.")
 
     return alerts
-
-
-def infer_source_errors(
-    source_counts: dict[str, int],
-    *,
-    monitored_sources: tuple[str, ...] = MONITORED_SOURCES,
-) -> dict[str, int]:
-    return {source: 1 for source in monitored_sources if source_counts.get(source, 0) == 0}
 
 
 def build_run_summary(
@@ -57,9 +82,11 @@ def build_run_summary(
     dashboard_updated: bool,
     memory_added_count: int,
     source_counts: dict[str, int],
+    source_errors: dict[str, int] | None = None,
+    job_source_quality: dict[str, dict[str, int]] | None = None,
 ) -> dict[str, Any]:
-    source_errors = infer_source_errors(source_counts)
-    alerts = detect_source_alerts(source_counts)
+    source_errors = dict(source_errors or {})
+    alerts = detect_source_alerts(source_counts, source_errors=source_errors)
     return {
         "run_id": run_id,
         "started_at": started_at,
@@ -73,6 +100,7 @@ def build_run_summary(
         "memory_added_count": memory_added_count,
         "source_counts": source_counts,
         "source_errors": source_errors,
+        "job_source_quality": job_source_quality or {},
         "alerts": alerts,
     }
 
@@ -82,6 +110,17 @@ def write_daily_summary(summary: dict[str, Any], path: str | Path = RUN_SUMMARY_
         f"- `{source}`: {count}" for source, count in sorted(dict(summary.get("source_counts") or {}).items())
     ]
     alert_lines = [f"- {alert}" for alert in summary.get("alerts", [])]
+    quality_lines = [
+        (
+            f"- `{source}`: {metrics.get('jobs', 0)} ilan, "
+            f"{metrics.get('companies', 0)} şirket, "
+            f"{metrics.get('matched', 0)} eşleşme, "
+            f"{metrics.get('dated', 0)} tarihli, "
+            f"{metrics.get('application_links', 0)} doğrudan başvuru bağlantılı, "
+            f"{metrics.get('locations', 0)} konumlu"
+        )
+        for source, metrics in sorted(dict(summary.get("job_source_quality") or {}).items())
+    ]
 
     content = "\n".join(
         [
@@ -101,6 +140,10 @@ def write_daily_summary(summary: dict[str, Any], path: str | Path = RUN_SUMMARY_
             "## Source Counts",
             "",
             "\n".join(source_lines) if source_lines else "- No source data.",
+            "",
+            "## Job Source Quality",
+            "",
+            "\n".join(quality_lines) if quality_lines else "- No job source data.",
             "",
             "## Alerts",
             "",

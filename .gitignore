@@ -11,3 +11,5 @@ data/
 .idea/
 .vscode/
 .tmp_pytest/
+*.db
+seen_jobs.json

@@ -20,7 +20,7 @@
             <table width="100%" cellpadding="0" cellspacing="0" border="0">
               <tr>
                 <td>
-                  <div style="font-size:10px;font-weight:700;letter-spacing:2px;color:#64a3c8;text-transform:uppercase;margin-bottom:8px;">JOBHUNT-AUTO · AI-POWERED CAREER INTELLIGENCE</div>
+                  <div style="font-size:10px;font-weight:700;letter-spacing:2px;color:#64a3c8;text-transform:uppercase;margin-bottom:8px;">JOBHUNT-AUTO · DETERMINISTIC CAREER INTELLIGENCE</div>
                   <div style="font-size:24px;font-weight:800;color:#ffffff;line-height:1.2;margin-bottom:4px;">Kariyer &amp; Fırsat<br>İstihbarat Raporu</div>
                   <div style="font-size:13px;color:#94a3b8;margin-top:8px;">{{ profile.name if profile.name else 'Meryem Güçlü' }} için kişisel olarak derlendi</div>
                 </td>
@@ -79,22 +79,24 @@
             <!-- Section Header -->
             <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-bottom:2px solid #0f172a;padding-bottom:8px;margin-bottom:16px;">
               <tr>
-                <td style="font-size:13px;font-weight:800;color:#0f172a;text-transform:uppercase;letter-spacing:0.8px;">💼 Doğrulanmış İş &amp; Staj Fırsatları</td>
+                <td style="font-size:13px;font-weight:800;color:#0f172a;text-transform:uppercase;letter-spacing:0.8px;">💼 Eşleşen İş &amp; Staj Fırsatları</td>
                 <td align="right" style="font-size:12px;color:#64748b;font-weight:600;">{{ matched_jobs|length }} pozisyon</td>
               </tr>
             </table>
 
+            {% if run_stats.job_source_quality %}
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;margin-bottom:16px;font-size:11px;color:#475569;">
+              {% for source, quality in run_stats.job_source_quality.items() %}
+              <tr>
+                <td style="padding:6px 10px;">{{ source }}</td>
+                <td align="right" style="padding:6px 10px;">{{ quality.jobs }} ilan · {{ quality.companies }} şirket · {{ quality.matched }} eşleşme · {{ quality.dated }} tarihli · {{ quality.application_links }} başvuru bağlantısı</td>
+              </tr>
+              {% endfor %}
+              <tr><td colspan="2" style="padding:6px 10px;color:#64748b;">Başvuru bağlantılarının çalışır veya başvuruya açık olduğu otomatik doğrulanmaz.</td></tr>
+            </table>
+            {% endif %}
+
             {% if matched_jobs %}
-              {% if run_stats.fallback_mode %}
-              <!-- Fallback Warning Block -->
-              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#fff1f2;border:1px solid #fecdd3;border-radius:8px;margin-bottom:16px;">
-                <tr><td style="padding:14px 18px;font-size:12px;color:#9f1239;line-height:1.5;">
-                  <b>⚠️ %50 barajını geçen ilan bulunamadı.</b><br>
-                  Aşağıdaki <span style="font-weight:bold;">{{ matched_jobs|length }} ilan</span> en yüksek puana sahip ({{ run_stats.highest_score }}) <i>potansiyel adaylar</i> olarak listelenmiştir.
-                </td></tr>
-              </table>
-              {% endif %}
-              
               {% for job in matched_jobs[:8] %}
               <!-- Job Card -->
               <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#ffffff;border:1px solid #e2e8f0;border-radius:10px;margin-bottom:12px;overflow:hidden;box-shadow:0 1px 4px rgba(15,23,42,0.06);">
@@ -113,7 +115,7 @@
                     </table>
                     <!-- Meta -->
                     <div style="margin:8px 0 6px;font-size:12px;color:#64748b;">
-                      🏢 <b>{{ job.company }}</b> &nbsp;·&nbsp; 📍 {{ job.location }} &nbsp;·&nbsp; 📅 {{ job.published_at }}
+                      🏢 <b>{{ job.company or 'Şirket detayını ilanda doğrulayın' }}</b> &nbsp;·&nbsp; 📍 {{ job.location or 'Konum belirtilmemiş' }} &nbsp;·&nbsp; 📅 {{ job.published_at or 'Tarih bilinmiyor' }} ({{ job.freshness_label }}) &nbsp;·&nbsp; 📡 {{ job.source }}
                     </div>
                     <!-- Match reason -->
                     <div style="background:#f1f5f9;border-left:3px solid {% if job.score >= 50 %}#2563eb{% else %}#ca8a04{% endif %};border-radius:0 6px 6px 0;padding:8px 12px;font-size:12px;color:#334155;line-height:1.5;margin-bottom:12px;">
@@ -125,6 +127,11 @@
                         <td style="padding-right:8px;">
                           <a href="{{ job.url }}" style="display:inline-block;background:#0f172a;color:#ffffff;text-decoration:none;padding:8px 18px;border-radius:6px;font-size:12px;font-weight:700;">İlanı İncele →</a>
                         </td>
+                        {% if job.application_url and job.application_url != job.url %}
+                        <td style="padding-right:8px;">
+                          <a href="{{ job.application_url }}" style="display:inline-block;background:#1d4ed8;color:#ffffff;text-decoration:none;padding:8px 18px;border-radius:6px;font-size:12px;font-weight:700;">Şirket İlanı →</a>
+                        </td>
+                        {% endif %}
                         {% if job.score >= 85 %}
                         <td>
                           <span style="display:inline-block;background:#7c3aed;color:#ffffff;padding:8px 14px;border-radius:6px;font-size:11px;font-weight:700;">⚡ Yüksek Eşleşme</span>

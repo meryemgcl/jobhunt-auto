@@ -26,9 +26,22 @@ def canonicalize_url(url: str | None) -> str:
     if not cleaned:
         return ""
 
-    parsed = urlsplit(cleaned)
-    if parsed.scheme not in {"http", "https"} or not parsed.netloc:
-        return cleaned
+    try:
+        parsed = urlsplit(cleaned)
+        hostname = parsed.hostname
+        port = parsed.port
+    except ValueError:
+        return ""
+
+    if (
+        parsed.scheme not in {"http", "https"}
+        or not parsed.netloc
+        or not hostname
+        or parsed.username
+        or parsed.password
+        or port is not None and not 0 <= port <= 65535
+    ):
+        return ""
 
     query_params = []
     for key, value in parse_qsl(parsed.query, keep_blank_values=True):

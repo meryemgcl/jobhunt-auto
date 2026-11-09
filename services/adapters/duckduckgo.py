@@ -1,5 +1,5 @@
-import datetime as dt
 import logging
+import time
 from collections.abc import Callable
 from typing import Any
 
@@ -12,6 +12,8 @@ from services.adapters.base import OpportunityAdapter
 
 
 logger = logging.getLogger(__name__)
+SEARCH_TIMEOUT_SECONDS = 10
+SEARCH_ATTEMPTS = 2
 
 
 class DuckDuckGoAdapter(OpportunityAdapter):
@@ -32,36 +34,44 @@ class DuckDuckGoAdapter(OpportunityAdapter):
         self.result_mapper = result_mapper
 
     def fetch(self) -> list[dict[str, Any]]:
+        self.last_error = None
         opportunities = []
-        current_date = dt.datetime.now(dt.UTC).strftime("%Y-%m-%d")
-
         try:
-            ddgs = DDGS()
+            ddgs = DDGS(timeout=SEARCH_TIMEOUT_SECONDS)
         except Exception as exc:
+            self.last_error = str(exc)
             logger.error("DuckDuckGo adapter baslatilamadi: %s", exc)
             return []
 
+        failed_prompts = 0
         for prompt in self.prompts:
             results = []
-            for attempt in range(3):
+            for attempt in range(SEARCH_ATTEMPTS):
                 try:
                     results = list(ddgs.text(prompt, max_results=self.max_results))
                     break  # Basarili olursa retry dongusunden cik
                 except Exception as exc:
-                    wait_time = (2 ** attempt) + 1  # 2, 3, 5 saniye bekle
-                    logger.warning("DuckDuckGo arama uyarisi (%s) - attempt %s/3: %s. %s saniye bekleniyor...", prompt, attempt + 1, exc, wait_time)
-                    import time
+                    wait_time = 2**attempt
+                    logger.warning(
+                        "DuckDuckGo search warning (%s) - attempt %s/%s: %s. Retrying in %s seconds.",
+                        prompt,
+                        attempt + 1,
+                        SEARCH_ATTEMPTS,
+                        exc,
+                        wait_time,
+                    )
                     time.sleep(wait_time)
+                    if attempt == SEARCH_ATTEMPTS - 1:
+                        failed_prompts += 1
             
             if not results:
                 continue
 
             for result in results:
                 title = result.get("title", "")
-                if not title or "..." == title.strip():
+                if not title or "..." == title.strip() or not result.get("href"):
                     continue
                 payload = self.result_mapper(result, prompt)
-                payload.setdefault("published_at", current_date)
                 payload.setdefault("description", result.get("body", "")[:350])
                 payload.setdefault("url", result.get("href", ""))
                 payload.setdefault("title", title)
@@ -69,4 +79,6 @@ class DuckDuckGoAdapter(OpportunityAdapter):
                 payload.setdefault("source_reliability", self.source_reliability)
                 opportunities.append(self.opportunity(**payload))
 
+        if failed_prompts:
+            self.last_error = f"{failed_prompts} search prompt(s) failed after retries."
         return opportunities

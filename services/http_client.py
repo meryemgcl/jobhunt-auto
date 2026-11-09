@@ -18,6 +18,7 @@ class ResilientHttpClient:
         user_agent: str | None = None,
     ):
         self.timeout = timeout or float(os.getenv("JOBHUNT_HTTP_TIMEOUT", "10"))
+        self.verify = os.getenv("JOBHUNT_HTTP_VERIFY_SSL", "true").strip().lower() in {"true", "1", "yes"}
         self.session = requests.Session()
         self.session.headers.update(
             {
@@ -42,6 +43,7 @@ class ResilientHttpClient:
 
     def get(self, url: str, **kwargs) -> requests.Response:
         kwargs.setdefault("timeout", self.timeout)
+        kwargs.setdefault("verify", self.verify)
         response = self.session.get(url, **kwargs)
         response.raise_for_status()
         return response

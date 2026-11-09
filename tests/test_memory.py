@@ -1,5 +1,7 @@
 import json
 
+import pytest
+
 from services.memory import add_seen_jobs, load_seen_jobs
 
 
@@ -53,3 +55,31 @@ def test_add_seen_jobs_writes_structured_records_atomically(tmp_path):
     assert len(records) == 1
     assert records[0]["canonical_url"] == "https://example.com/job"
     assert records[0]["score"] == 72
+
+
+def test_memory_uses_real_url_instead_of_legacy_hash(tmp_path):
+    memory_path = tmp_path / "seen_jobs.json"
+    memory_path.write_text(
+        json.dumps(
+            [
+                {
+                    "url": "https://example.com/job?utm_source=mail",
+                    "canonical_url": "legacy-content-hash",
+                    "title": "Junior Python Developer",
+                }
+            ]
+        ),
+        encoding="utf-8",
+    )
+
+    [record] = load_seen_jobs(memory_path)
+
+    assert record["canonical_url"] == "https://example.com/job"
+
+
+def test_memory_rejects_corrupt_json_instead_of_treating_everything_as_new(tmp_path):
+    memory_path = tmp_path / "seen_jobs.json"
+    memory_path.write_text("{broken json", encoding="utf-8")
+
+    with pytest.raises(ValueError, match="invalid JSON"):
+        load_seen_jobs(memory_path)

@@ -1,5 +1,7 @@
 import os
 import logging
+import hmac
+import threading
 from typing import Annotated
 
 from fastapi import BackgroundTasks, FastAPI, Header, HTTPException
@@ -18,6 +20,7 @@ app = FastAPI(
 
 
 logger = logging.getLogger(__name__)
+_engine_lock = threading.Lock()
 
 
 class FeedbackRequest(BaseModel):
@@ -28,18 +31,26 @@ class FeedbackRequest(BaseModel):
 
 def _verify_api_token(x_jobhunt_token: str | None) -> None:
     expected_token = os.getenv("JOBHUNT_API_TOKEN")
-    if expected_token and x_jobhunt_token != expected_token:
+    if not expected_token:
+        raise HTTPException(status_code=503, detail="API authentication is not configured.")
+    if not x_jobhunt_token or not hmac.compare_digest(x_jobhunt_token, expected_token):
         raise HTTPException(status_code=401, detail="Invalid JobHunt-Auto API token.")
 
 
 def jobhunt_background_task():
     """Arka planda JobHunt-Auto deterministik motorunu çalıştırır."""
-    configure_logging()
-    logger.info("n8n/API tetiklemesi alindi. JobHunt-Auto deterministik motoru baslatiliyor.")
-    run_jobhunt_engine()
+    try:
+        configure_logging()
+        logger.info("n8n/API tetiklemesi alindi. JobHunt-Auto deterministik motoru baslatiliyor.")
+        if not run_jobhunt_engine():
+            logger.error("API tarafindan baslatilan engine calismasi basarisiz oldu.")
+    except Exception:
+        logger.exception("API tarafindan baslatilan engine calismasi beklenmeyen hata ile sonlandi.")
+    finally:
+        _engine_lock.release()
 
 
-@app.api_route("/trigger-engine", methods=["GET", "POST"])
+@app.post("/trigger-engine")
 async def trigger_engine(
     background_tasks: BackgroundTasks,
     x_jobhunt_token: Annotated[str | None, Header()] = None,
@@ -49,11 +60,17 @@ async def trigger_engine(
     JobHunt-Auto motoru asenkron olarak başlatılabilir.
     """
     _verify_api_token(x_jobhunt_token)
-    background_tasks.add_task(jobhunt_background_task)
+    if not _engine_lock.acquire(blocking=False):
+        raise HTTPException(status_code=409, detail="A JobHunt-Auto engine run is already in progress.")
+    try:
+        background_tasks.add_task(jobhunt_background_task)
+    except Exception:
+        _engine_lock.release()
+        raise
     return {"status": "success", "message": "JobHunt-Auto engine run queued."}
 
 
-@app.api_route("/trigger-crew", methods=["GET", "POST"])
+@app.post("/trigger-crew")
 async def trigger_crew_legacy(
     background_tasks: BackgroundTasks,
     x_jobhunt_token: Annotated[str | None, Header()] = None,

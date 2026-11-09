@@ -12,7 +12,6 @@ Bu sekilde profili degistirmek icin hic Python dosyasina dokunmaya gerek kalmaz.
 
 from __future__ import annotations
 
-import json
 import logging
 from pathlib import Path
 
@@ -93,6 +92,7 @@ def get_profile() -> dict:
         loaded = _load_yaml_profile(_PROFILE_YAML_PATH)
         if loaded:
             return loaded
+        raise ValueError(f"profile.yaml is present but invalid: {_PROFILE_YAML_PATH}")
     logger.warning(
         "profile.yaml bulunamadi (%s). Mock profil kullaniliyor. "
         "Lutfen profile.yaml olusturun.",
@@ -125,15 +125,8 @@ def get_mock_profile() -> dict:
     }
 
 
-def extract_profile_with_gemini(cv_text: str) -> dict:
-    """
-    Kullanicinin CV metnini alir ve yapılandırılmıs bir profil dondurmek uzere
-    tasarlanmis API entegrasyon noktasi.
-    Simdilik get_profile()'a delege ediyor.
-    """
-    return get_profile()
-
-
 if __name__ == "__main__":
+    import json
+
     profile = get_profile()
     print(json.dumps(profile, indent=2, ensure_ascii=False))

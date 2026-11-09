@@ -14,10 +14,17 @@ class DevToAdapter(OpportunityAdapter):
     url = "https://dev.to/api/articles?tag=python&top=1"
 
     def fetch(self) -> list[dict[str, Any]]:
+        self.last_error = None
         try:
             payload = self.client.get_json(self.url)
         except Exception as exc:
+            self.last_error = str(exc)
             logger.error("Dev.to haber hatasi: %s", exc)
+            return []
+
+        if not isinstance(payload, list):
+            self.last_error = "Invalid response payload: expected an articles list."
+            logger.error("Dev.to API yanit formati gecersiz.")
             return []
 
         return [

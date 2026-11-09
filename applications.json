@@ -1,19 +1,19 @@
 {
-  "last_updated": "03.10.2026 11:15",
-  "total_jobs_analyzed": 46,
-  "matched_jobs_count": 0,
+  "last_updated": "20.10.2026 09:15",
+  "total_jobs_analyzed": 197,
+  "matched_jobs_count": 3,
   "top_market_demands": [
     {
+      "tech": "GO",
+      "demand_count": 13
+    },
+    {
+      "tech": "RUST",
+      "demand_count": 7
+    },
+    {
       "tech": "GIT",
-      "demand_count": 6
-    },
-    {
-      "tech": "KUBERNETES",
-      "demand_count": 2
-    },
-    {
-      "tech": "DOCKER",
-      "demand_count": 2
+      "demand_count": 5
     }
   ]
 }

@@ -6,9 +6,9 @@ ENV JOBHUNT_DB_PATH=/app/data/jobhunt.db
 
 WORKDIR /app
 
-COPY requirements.txt requirements-api.txt .
+COPY requirements.txt requirements-api.txt requirements-postgres.txt .
 RUN python -m pip install --no-cache-dir --upgrade pip \
-    && python -m pip install --no-cache-dir -r requirements-api.txt
+    && python -m pip install --no-cache-dir -r requirements-api.txt -r requirements-postgres.txt
 
 COPY . .
 

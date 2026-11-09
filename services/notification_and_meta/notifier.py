@@ -1,7 +1,14 @@
 import datetime as dt
 import logging
 import os
+import re
 import smtplib
+
+def _sanitize_header(value: str) -> str:
+    """E-posta baslik injection saldirisini onler: CRLF karakterlerini temizler."""
+    return " ".join(str(value or "").split())
+
+import ssl
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.utils import formataddr
@@ -12,7 +19,7 @@ from dotenv import load_dotenv
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 from services.models import freshness_label
-from services.url_utils import clean_url
+from services.url_utils import canonicalize_url
 
 
 load_dotenv()
@@ -20,7 +27,7 @@ logger = logging.getLogger(__name__)
 
 
 def _safe_url(value) -> str:
-    url = clean_url(value)
+    url = canonicalize_url(value)
     parsed = urlparse(url)
     if parsed.scheme not in {"http", "https"} or not parsed.netloc:
         return "#"
@@ -47,6 +54,10 @@ def _template_environment() -> Environment:
 def _prepare_newsletter_item(item: dict, *, include_score: bool = False) -> dict:
     payload = dict(item or {})
     payload["url"] = _safe_url(payload.get("url"))
+    metadata = payload.get("metadata") or {}
+    application_url = _safe_url(metadata.get("application_url"))
+    if application_url != "#":
+        payload["application_url"] = application_url
     payload["source_reliability"] = max(0, min(100, _int(payload.get("source_reliability"), 70)))
     payload["freshness_score"] = max(0, min(100, _int(payload.get("freshness_score"), 50)))
     payload["freshness_label"] = payload.get("freshness_label") or freshness_label(payload["freshness_score"])
@@ -76,10 +87,17 @@ def build_html_newsletter(matched_jobs, camps, rd_projects, podcasts, hackathons
     )
 
 
-def send_email_newsletter(html_content, total_jobs_count):
+def send_email_newsletter(html_content, total_jobs_count, *, message_id: str | None = None):
     """Send the rendered newsletter over SMTP."""
-    smtp_host = os.getenv("SMTP_HOST", "smtp.gmail.com")
-    smtp_port = int(os.getenv("SMTP_PORT", 587))
+    smtp_host = os.getenv("SMTP_HOST") or "smtp.gmail.com"
+    try:
+        smtp_port = int(os.getenv("SMTP_PORT") or "587")
+    except ValueError:
+        logger.error("SMTP_PORT sayisal bir port degeri olmalidir.")
+        return False
+    if not 1 <= smtp_port <= 65535:
+        logger.error("SMTP_PORT 1 ile 65535 arasinda olmalidir.")
+        return False
     smtp_user = os.getenv("SMTP_USER")
     smtp_pass = os.getenv("SMTP_PASS")
     user_email_to = os.getenv("USER_EMAIL_TO")
@@ -92,22 +110,31 @@ def send_email_newsletter(html_content, total_jobs_count):
     logger.info("Rapor hedef adrese iletiliyor. recipient=%s", user_email_to)
 
     msg = MIMEMultipart("alternative")
-    msg["From"] = formataddr(("JobHunt-Auto Platform Intelligence", smtp_user))
-    msg["To"] = user_email_to
-    msg["Reply-To"] = "no-reply@jobhunt.auto"
-    msg["Subject"] = (
-        f"JobHunt-Auto Raporu | {total_jobs_count} Doğrulanmış Pozisyon, "
-        f"GitHub Fırsatları & AR-GE Çağrısı ({current_date_str})"
+    safe_from = _sanitize_header(smtp_user)
+    safe_to = _sanitize_header(user_email_to)
+    subject_raw = (
+        f"JobHunt-Auto Raporu | {total_jobs_count} Eslesen Pozisyon, "
+        f"GitHub Firsatlari & AR-GE Cagrisi ({current_date_str})"
     )
+    safe_subject = _sanitize_header(subject_raw)
+
+    msg["From"] = formataddr(("JobHunt-Auto Platform Intelligence", safe_from))
+    msg["To"] = safe_to
+    msg["Reply-To"] = "no-reply@jobhunt.auto"
+    msg["Subject"] = safe_subject
     msg["X-Auto-Response-Suppress"] = "All"
     msg["X-Entity-Ref-ID"] = f"JOBHUNT-AUTO-{dt.datetime.now().strftime('%Y%m%d%H%M')}"
+    if message_id:
+        normalized_id = "".join(char for char in message_id if char.isalnum() or char in "-_")
+        msg["X-JobHunt-Outbox-ID"] = normalized_id
+        msg["Message-ID"] = f"<{normalized_id}@jobhunt-auto>"
 
     msg.attach(MIMEText("Lütfen HTML destekleyen bir e-posta istemcisi kullanın.", "plain", "utf-8"))
     msg.attach(MIMEText(html_content, "html", "utf-8"))
 
     try:
         with smtplib.SMTP(smtp_host, smtp_port, timeout=30) as server:
-            server.starttls()
+            server.starttls(context=ssl.create_default_context())
             server.login(smtp_user, smtp_pass)
             server.send_message(msg)
     except Exception as exc:

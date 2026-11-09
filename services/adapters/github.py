@@ -19,6 +19,7 @@ class GitHubIssuesAdapter(OpportunityAdapter):
     )
 
     def fetch(self) -> list[dict[str, Any]]:
+        self.last_error = None
         headers = {
             "Accept": "application/vnd.github.v3+json",
         }
@@ -29,7 +30,13 @@ class GitHubIssuesAdapter(OpportunityAdapter):
         try:
             payload = self.client.get_json(self.url, headers=headers)
         except Exception as exc:
+            self.last_error = str(exc)
             logger.error("GitHub Issues API hatasi: %s", exc)
+            return []
+
+        if not isinstance(payload, dict) or not isinstance(payload.get("items"), list):
+            self.last_error = "Invalid response payload: expected an items list."
+            logger.error("GitHub Issues API yanit formati gecersiz.")
             return []
 
         opportunities = []

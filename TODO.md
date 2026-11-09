@@ -23,23 +23,31 @@ Bu liste, mevcut production hardening çalışmasından sonraki geliştirme önc
 
 ## P0 - Kritik Production Hazırlığı
 
-- [ ] Gerçek SMTP ve API token değerlerinin yalnızca GitHub Secrets veya deployment secret manager üzerinden geldiğini doğrula.
+- [ ] Gerçek SMTP, API token ve `DATABASE_URL` değerlerinin yalnızca GitHub Secrets veya deployment secret manager üzerinden geldiğini doğrula.
 - [ ] GitHub Actions üzerinde manuel `workflow_dispatch` çalıştırması yaparak e-posta, dashboard ve state commit akışını uçtan uca test et.
-- [ ] SQLite backfill sonrası `seen_jobs.json` ve `jobhunt.db` dedupe davranışını en az iki ardışık koşuda doğrula.
-- [ ] Kaynak adapter’ları için fixture tabanlı contract testlerini genişlet.
+- [ ] PostgreSQL backfill sonrası `seen_jobs.json` ve DB dedupe davranışını en az iki ardışık koşuda doğrula.
+- [x] Kaynak adapter’ları için fixture tabanlı contract testlerini genişlet.
+- [x] İş kaynaklarını Remotive, Arbeitnow, Hacker News Hiring, Greenhouse, Lever ve Ashby board'larıyla çeşitlendir; kaynak tarihi olan eski ilanları filtrele.
+- [x] Tarihi bilinmeyen arama sonuçlarına bugünün tarihini atama; başvuru/dizin sonuçlarını doğrulanmış aktif fırsat gibi etiketleme.
+- [x] Yerel CLI varsayılanını e-postasız ve state yazmayan HTML önizlemesi yap; e-posta gönderimini açık `--send` seçeneğine bağla.
+- [x] Windows yerel kurulum betiği ekle; örnek SMTP kimlik bilgilerini boş tut ve mevcut `.env` dosyasını koru.
+- [x] SMTP teslimat hatalarında aynı digest'i kalıcı outbox üzerinden yeniden dene; bekleyen digest çözülmeden yeni taramaları bastırma.
+- [x] Doğrulanmamış statik podcast bağlantılarını kaldır; yarışma bağlantılarını etkin etkinlik değil, kaynak dizini olarak etiketle.
 - [ ] SMTP başarısızlığı, API rate limit, network timeout ve bozuk JSON senaryoları için hata testleri ekle.
-- [ ] `JOBHUNT_API_TOKEN` zorunlu modunu production deployment dokümantasyonunda netleştir.
-- [ ] Docker image build ve `docker compose --profile api up` senaryosunu CI veya release checklist içine al.
+- [x] `JOBHUNT_API_TOKEN` zorunlu modunu production deployment dokümantasyonunda netleştir.
+- [x] PostgreSQL destekli Docker image build senaryosunu CI içine al.
+- [ ] `docker compose --profile api up` senaryosunu gerçek secret ve veritabanıyla release checklist içinde doğrula.
 
 ## P1 - Veri Modeli ve Matcher İyileştirmeleri
 
-- [ ] Aday profilini hard-coded mock yapıdan çıkarıp `profile.yaml` veya SQLite `candidate_profile` tablosuna taşı.
-- [ ] Matcher ağırlıklarını config dosyasından yönetilebilir hale getir.
+- [x] Aday profilini hard-coded mock yapıdan çıkarıp `profile.yaml` veya SQLite `candidate_profile` tablosuna taşı.
+- [x] Matcher ağırlıklarını config dosyasından yönetilebilir hale getir.
 - [ ] Feedback learning için keyword yaklaşımını etiket, kaynak, şirket ve lokasyon bazlı ayrı sinyallere böl.
 - [ ] `alakasız` feedback’i için benzer ilanları düşüren fakat false negative riskini sınırlayan eşik sistemi ekle.
 - [ ] Her opportunity için `status` geçişlerini netleştir: `seen`, `sent`, `fit`, `irrelevant`, `applied`, `archived`.
 - [ ] Skor geçmişi üzerinden haftalık trend raporu üret.
-- [ ] Kaynak güven puanını statik değer yerine başarı oranı, hata oranı ve tazelik verisiyle dinamik hesapla.
+- [x] Kaynak bazında ilan, şirket çeşitliliği, eşleşme, tarih ve doğrudan başvuru bağlantısı ölçümlerini çalıştırma özetine ekle.
+- [ ] Kaynak güven puanını statik değer yerine birikmiş başarı oranı, hata oranı ve tazelik verisiyle dinamik hesapla.
 
 ## P2 - UX, Dashboard ve Operasyon
 

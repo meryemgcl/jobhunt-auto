@@ -104,6 +104,7 @@ class Analytics:
         source: str | None = None,
         since_days: int | None = None,
         limit: int = 500,
+        offset: int = 0,
     ) -> list[dict[str, Any]]:
         """Tüm fırsatları filtreli olarak getirir.
 
@@ -136,7 +137,8 @@ class Analytics:
             params.append(cutoff)
 
         query += " ORDER BY latest_score DESC NULLS LAST, last_seen_at DESC"
-        query += f" LIMIT {int(limit)}"
+        query += " LIMIT ? OFFSET ?"
+        params.extend([int(limit), int(offset)])
 
         with connect(self.db_path) as conn:
             rows = conn.execute(query, params).fetchall()
@@ -271,8 +273,13 @@ class Analytics:
         if not row:
             return {}
         d = dict(row)
-        total = d["total_runs"] or 1
-        d["success_rate_pct"] = round(d["successful_sends"] / total * 100, 1)
+        total = d.get("total_runs") or 0
+        successful = d.get("successful_sends") or 0
+        d["successful_sends"] = successful
+        d["total_items_ever"] = d.get("total_items_ever") or 0
+        d["total_matched_ever"] = d.get("total_matched_ever") or 0
+        d["total_saved_ever"] = d.get("total_saved_ever") or 0
+        d["success_rate_pct"] = round(successful / total * 100, 1) if total > 0 else 0.0
         return d
 
     # ─────────────────────────────────────────────

@@ -38,7 +38,7 @@ def _coerce_record(entry: Any, timestamp: str) -> dict[str, Any] | None:
         return None
 
     url = clean_url(entry.get("url") or entry.get("canonical_url"))
-    canonical_url = canonicalize_url(entry.get("canonical_url") or url)
+    canonical_url = canonicalize_url(url or entry.get("canonical_url"))
     if not canonical_url:
         return None
 
@@ -83,7 +83,7 @@ def load_seen_jobs(path: str | Path = MEMORY_FILE) -> list[dict[str, Any]]:
             raw_data = json.load(handle)
     except json.JSONDecodeError as exc:
         logger.error("Hafiza dosyasi JSON olarak okunamadi: %s", exc)
-        return []
+        raise ValueError(f"Memory file is invalid JSON: {memory_path}") from exc
 
     timestamp = _now_iso()
     if isinstance(raw_data, dict):
@@ -91,8 +91,10 @@ def load_seen_jobs(path: str | Path = MEMORY_FILE) -> list[dict[str, Any]]:
     elif isinstance(raw_data, list):
         raw_entries = raw_data
     else:
-        logger.warning("Hafiza dosyasinda beklenmeyen format bulundu: %s", type(raw_data).__name__)
-        return []
+        raise ValueError(f"Memory file has an unsupported format: {memory_path}")
+
+    if not isinstance(raw_entries, list):
+        raise ValueError(f"Memory file jobs field must be a list: {memory_path}")
 
     records = [_coerce_record(entry, timestamp) for entry in raw_entries]
     return _dedupe_records([record for record in records if record])
@@ -111,7 +113,7 @@ def build_seen_job_record(job: str | dict[str, Any], timestamp: str | None = Non
         return None
 
     url = clean_url(job.get("url"))
-    canonical_url = canonicalize_url(job.get("canonical_url") or url)
+    canonical_url = canonicalize_url(url or job.get("canonical_url"))
     if not canonical_url:
         return None
 
@@ -150,7 +152,7 @@ def add_seen_jobs(new_jobs: list[str | dict[str, Any]], path: str | Path = MEMOR
         records_by_url[record["canonical_url"]] = record
         added_count += 1
 
-    # Qwen Onerisi 3: TTL (Time-To-Live) - 30 gunden eski kayitlari temizle
+    # Expire stale deduplication entries after 30 days.
     ttl_limit = dt.datetime.now(dt.UTC) - dt.timedelta(days=30)
     filtered_records = []
     

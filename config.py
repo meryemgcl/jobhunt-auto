@@ -70,6 +70,9 @@ LOCATION_SYNONYMS: dict[str, str] = {
     "uzaktan": "remote",
 }
 
+MIN_MATCH_SCORE = 55
+MAX_MATCHES_PER_COMPANY = 2
+
 # Kesinlikle 0 puan verilecek anahtar kelimeler (sabit sistem filtreleri).
 # Kişisel tercihler için EXCLUDED_KEYWORDS kullanın.
 HARD_NEGATIVE_KEYWORDS: list[str] = [
@@ -126,25 +129,48 @@ EXCLUDED_KEYWORDS: list[str] = [
 # 'False' Filtreleri: Alakasız, senior veya satış odaklı ilanları sistemden eler.
 # ==============================================================================
 SEARCH_PROMPTS = {
-    "REGIONAL_TECHNO_PARKS": [
-        "site:youthall.com Python OR AI OR Backend staj remote -senior -lead",
-        "site:kariyer.net Python stajyer remote OR Sivas OR Erzurum OR Kayseri -senior",
-        "site:techcareer.net is ilanlari Python OR junior -senior",
-        "Sivas Cumhuriyet Teknokent yazilim staj OR is ilani -muhasebe",
-        "Erzurum Ata Teknokent yazilim staj OR remote -muhasebe",
-        "Kayseri Erciyes Teknokent yazilim staj OR remote -muhasebe",
-        "Malatya Teknokent yazilim staj OR junior -muhasebe",
-        "Konya Teknokent yazilim staj OR remote -muhasebe",
-        "Turkiye remote junior python backend developer linkedin -senior"
-    ],
     "BOOTCAMPS": [
-        "site:techcareer.net/bootcamp basvuru 2026 -ucretli",
-        "site:patika.dev bootcamp egitim basvuru acik -ucretli",
-        "YetGen basvuru egitim programi 2026",
+        "site:techcareer.net/bootcamp basvuru acik",
+        "site:patika.dev bootcamp egitim basvuru",
+        "YetGen basvuru egitim programi",
         "Google Oyun ve Uygulama Akademisi basvuru"
     ],
     "RD_PROJECTS": [
-        "TUBITAK 2209 universite ogrencileri arastirma projeleri destekleme 2026",
+        "TUBITAK 2209 universite ogrencileri arastirma projeleri cagri basvuru",
         "Teknokent universite ogrenci arastirmaci stajyer arge projesi"
     ]
+}
+
+GREENHOUSE_BOARDS = [
+    "gitlab",
+    "cloudflare",
+    "stripe",
+    "datadog",
+    "reddit",
+    "duolingo",
+    "mongodb",
+    "elastic",
+    "figma",
+    "anthropic",
+    "mozilla",
+    "twilio",
+    "dreamgames",
+]
+
+LEVER_BOARDS = {
+    "trendyol": "Trendyol",
+    "iyzico": "iyzico",
+    "peakgames": "Peak Games",
+    "dreamgames": "Dream Games",
+}
+
+ASHBY_BOARDS = {
+    "supabase": "Supabase",
+    "posthog": "PostHog",
+    "linear": "Linear",
+    "ramp": "Ramp",
+    "docker": "Docker",
+    "replit": "Replit",
+    "perplexity": "Perplexity",
+    "openai": "OpenAI",
 }

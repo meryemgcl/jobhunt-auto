@@ -1,12 +1,15 @@
 import logging
 import sys
 
+from dotenv import load_dotenv
+
 from services.database import init_database
 from services.logging_config import configure_logging
 from services.memory import load_seen_jobs
 
 
 logger = logging.getLogger(__name__)
+load_dotenv()
 
 
 def main() -> int:

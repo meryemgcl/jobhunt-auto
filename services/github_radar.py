@@ -1,6 +1,7 @@
 ﻿import logging
 
 from services.adapters import GitHubIssuesAdapter, StaticOpportunityAdapter
+from services.job_collector import record_source_error
 
 
 logger = logging.getLogger(__name__)
@@ -10,7 +11,10 @@ def fetch_good_first_issues():
     GitHub REST API uzerinden Python ve AI odakli 'good first issue' ve 
     'help wanted' etiketine sahip acik kaynak firsatlarini ceker.
     """
-    issues = GitHubIssuesAdapter().fetch()
+    adapter = GitHubIssuesAdapter()
+    issues = adapter.fetch()
+    if adapter.last_error:
+        record_source_error(adapter.source_name)
 
     if not issues:
         logger.info("GitHub API sonuc vermedi; curated fallback baglantilari kullaniliyor.")
