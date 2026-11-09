@@ -1,14 +1,14 @@
 # ==============================================================================
 # JobHunt-Auto Aday Profili
 # ==============================================================================
-# Bu dosyayı kendinize göre düzenleyin. Hiçbir Python dosyasına dokunmanıza gerek yok.
+# Bu dosyayı kendinize göre düzenleyin. Python kodlarına dokunmanıza gerek yoktur.
 # Boş bırakılan alanlar e-posta ve filtreleme sisteminde dikkate alınmaz.
 #
-# Kullanim:
-#   - core_skills: matcher puanlama motorunda teknoloji eşleşmesi için kullanılır.
-#   - preferred_locations: konum ağırlığı hesabında dikkate alınır.
-#   - experience_level: rol seviyesi (Junior/Intern) filtrelemesini etkiler.
-#   - job_roles: profil tabanlı ek puan hesabında kullanılır.
+# Kullanım:
+#   - core_skills: Matcher puanlama motorunda teknoloji eşleşmesi için kullanılır.
+#   - preferred_locations: Konum ağırlığı hesabında dikkate alınır.
+#   - experience_level: Rol seviyesi (Junior/Intern) filtrelemesini etkiler.
+#   - job_roles: Profil tabanlı ek puan hesabında kullanılır.
 # ==============================================================================
 
 name: "Meryem Güçlü"
@@ -52,4 +52,4 @@ target_skills_label: "Bilişim Sistemleri, Python, AI/ML, Backend, C#, SQL, Veri
 
 # Profil bağlantıları
 github_url: "https://github.com/meryemgcl"
-linkedin_url: "https://www.linkedin.com/in/meryemgüçlü/"
+linkedin_url: "https://www.linkedin.com/in/meryemguclu/"

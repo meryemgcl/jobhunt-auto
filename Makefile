@@ -1,16 +1,19 @@
-.PHONY: install test lint run clean build-fetcher data-report data-jobs data-runs data-trend data-companies data-export
+.PHONY: install test lint run clean build-fetcher data-report data-jobs data-runs data-trend data-companies data-unread data-export
 
 install:
 	python -m pip install -r requirements.txt -r requirements-dev.txt -r requirements-api.txt
 
 test:
-	pytest
+	pytest -q --tb=short
 
 lint:
 	ruff check . --fix
 
 run:
-	python main.py
+	python main.py --dry-run
+
+send:
+	python main.py --send
 
 dashboard:
 	python scripts/generate_static_dashboard.py --days 30 --output DASHBOARD.md
@@ -18,7 +21,7 @@ dashboard:
 build-fetcher:
 	cd services/go-fetcher && go build -o ../../bin/fetcher main.go
 
-# ─── Veri Keşif Komutları ────────────────────────────────────────────────────
+# ─── Veri Keşif ve Analitik Komutları ──────────────────────────────────────────
 data-report:
 	python scripts/data_explorer.py report
 
@@ -38,13 +41,12 @@ data-unread:
 	python scripts/data_explorer.py unread
 
 data-export:
-	python scripts/data_explorer.py export-csv --output exports/opportunities_$(shell date +%Y%m%d).csv
-	python scripts/data_explorer.py export-json --output exports/opportunities_$(shell date +%Y%m%d).json
+	python scripts/data_explorer.py export-csv --output exports/opportunities.csv
+	python scripts/data_explorer.py export-json --output exports/opportunities.json
 	@echo "Dışa aktarım tamamlandı: exports/"
 
 clean:
 	find . -type d -name "__pycache__" -exec rm -rf {} +
 	find . -type d -name ".pytest_cache" -exec rm -rf {} +
 	find . -type d -name ".ruff_cache" -exec rm -rf {} +
-	rm -rf bin/
-
+	rm -rf bin/ exports/

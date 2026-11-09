@@ -1,6 +1,6 @@
 # 📊 JobHunt-Auto Kariyer & İstihbarat Panosu
 
-> **Son Güncelleme:** `20.10.2026 09:15`  
+> **Son Güncelleme:** `09.11.2026 14:34`  
 > **Sistem Durumu:** ⚡ Aktif & Otonom Çalışıyor
 
 ---
@@ -9,8 +9,8 @@
 
 | Metrik | Değer |
 |---|---|
-| **Son Taramada Analiz Edilen Pozisyon** | `197` |
-| **Profil Uyumlu Seçilen Fırsat** | `3` |
+| **Son Taramada Analiz Edilen Pozisyon** | `342` |
+| **Profil Uyumlu Seçilen Fırsat** | `2` |
 | **Takip Edilen Teknokent Sayısı** | `6 (Sivas, Erzurum, Kayseri, Malatya, Konya, Ankara)` |
 | **Açık Kaynak Radarı** | `Aktif (GitHub Good First Issue API)` |
 
@@ -20,9 +20,9 @@
 
 Piyasadaki iş ilanlarında en çok aranan ve CV'ye eklenmesi tavsiye edilen teknolojiler:
 
-- **GO**: 13 ilanda talep edildi
-- **RUST**: 7 ilanda talep edildi
-- **GIT**: 5 ilanda talep edildi
+- **GO**: 50 ilanda talep edildi
+- **RUST**: 26 ilanda talep edildi
+- **DOCKER**: 23 ilanda talep edildi
 
 ---
 

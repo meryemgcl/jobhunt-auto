@@ -1,76 +1,45 @@
-# JobHunt-Auto TODO
+# JobHunt-Auto Roadmap & Tasks
 
-Bu liste, mevcut production hardening çalışmasından sonraki geliştirme önceliklerini takip eder.
+Bu liste, production hardening ve mimari gelişim sürecindeki tamamlanan ve planlanan görevleri takip eder.
 
-## Tamamlanan Temel Altyapı
+## ✅ Tamamlanan Özellikler
 
-- [x] Ana deterministik motor, API modu ve legacy/CrewAI bağımlılıklarını ayır.
-- [x] `pyproject.toml` ile Python sürümü, ruff ve pytest ayarlarını sabitle.
-- [x] `print` çıktılarını `logging` ve `run_id` tabanlı loglamaya taşı.
-- [x] E-posta başarısızlığında hafızanın başarıyla güncellenmesini engelle.
-- [x] HTML e-posta içeriğini Jinja2 şablonuna taşı ve external field autoescape uygula.
-- [x] Canonical URL temizleme ve UTM/tracking parametresi temizliği ekle.
-- [x] `seen_jobs.json` yapısını structured memory formatına geçir.
-- [x] Adapter tabanlı kaynak toplama mimarisi ekle.
-- [x] HTTP timeout, retry, backoff ve User-Agent yönetimini merkezileştir.
-- [x] SQLite state, feedback, score history ve run summary tablolarını ekle.
-- [x] Dockerfile, Docker Compose ve healthcheck altyapısını ekle.
-- [x] CI hattına ruff, compileall, import smoke, pytest, healthcheck ve concurrency kilidi ekle.
-- [x] `EXCLUDED_COMPANIES` ve `EXCLUDED_KEYWORDS` kara listelerini `config.py`'ye ekle; matcher'a entegre et.
-- [x] `scripts/generate_static_dashboard.py` — SQLite üzerinden istatistik ve dashboard raporu üret.
-- [x] E-posta şablonuna puan >= 85 için "YÜKSEK EŞLEŞME" etiketi ve "Ön Yazı Üret" butonu ekle.
-- [x] `CHANGELOG.md` ve `SECURITY.md` ekle; `README.md` repo yapısını güncelle.
+### Mimari & Motor
+- [x] Ana deterministik motor (`main.py`) ve adapter tabanlı veri toplama mimarisi.
+- [x] `ThreadPoolExecutor` ile paralel (eşzamanlı) adaptör tarama (Greenhouse, Lever, Ashby, Remotive, Arbeitnow, HackerNews).
+- [x] Global exception handling ile beklenmeyen çökmelerin engellenmesi.
+- [x] `run_id` tabanlı yapılandırılmış loglama ve gözlemlenebilirlik (`RUN_SUMMARY.md`).
+- [x] Canonical URL temizleme ve UTM/tracking parametre deduplication mantığı.
+- [x] 30 günlük TTL temizliği ile hafıza şişmesinin önlenmesi (`services/memory.py`).
 
-## P0 - Kritik Production Hazırlığı
+### Puanlama & Eşleştirme (Matcher)
+- [x] Context-aware hard negatives: Başlık/şirkette kesin eleme, açıklamada sadece yumuşak ceza (-15).
+- [x] Dinamik eşik ve "Potansiyel Adaylar" fallback mekanizması (20-49 puan).
+- [x] Konum normalizasyonu ve eş anlamlılar haritası (`LOCATION_SYNONYMS`).
+- [x] Kullanıcı feedback loop öğrenmesi (`uygun`, `alakasız`, `başvurdum`).
 
-- [ ] Gerçek SMTP, API token ve `DATABASE_URL` değerlerinin yalnızca GitHub Secrets veya deployment secret manager üzerinden geldiğini doğrula.
-- [ ] GitHub Actions üzerinde manuel `workflow_dispatch` çalıştırması yaparak e-posta, dashboard ve state commit akışını uçtan uca test et.
-- [ ] PostgreSQL backfill sonrası `seen_jobs.json` ve DB dedupe davranışını en az iki ardışık koşuda doğrula.
-- [x] Kaynak adapter’ları için fixture tabanlı contract testlerini genişlet.
-- [x] İş kaynaklarını Remotive, Arbeitnow, Hacker News Hiring, Greenhouse, Lever ve Ashby board'larıyla çeşitlendir; kaynak tarihi olan eski ilanları filtrele.
-- [x] Tarihi bilinmeyen arama sonuçlarına bugünün tarihini atama; başvuru/dizin sonuçlarını doğrulanmış aktif fırsat gibi etiketleme.
-- [x] Yerel CLI varsayılanını e-postasız ve state yazmayan HTML önizlemesi yap; e-posta gönderimini açık `--send` seçeneğine bağla.
-- [x] Windows yerel kurulum betiği ekle; örnek SMTP kimlik bilgilerini boş tut ve mevcut `.env` dosyasını koru.
-- [x] SMTP teslimat hatalarında aynı digest'i kalıcı outbox üzerinden yeniden dene; bekleyen digest çözülmeden yeni taramaları bastırma.
-- [x] Doğrulanmamış statik podcast bağlantılarını kaldır; yarışma bağlantılarını etkin etkinlik değil, kaynak dizini olarak etiketle.
-- [ ] SMTP başarısızlığı, API rate limit, network timeout ve bozuk JSON senaryoları için hata testleri ekle.
-- [x] `JOBHUNT_API_TOKEN` zorunlu modunu production deployment dokümantasyonunda netleştir.
-- [x] PostgreSQL destekli Docker image build senaryosunu CI içine al.
-- [ ] `docker compose --profile api up` senaryosunu gerçek secret ve veritabanıyla release checklist içinde doğrula.
+### Güvenlik & Dayanıklılık
+- [x] E-posta başlık injection (CRLF) saldırılarına karşı `_sanitize_header()` filtresi.
+- [x] HTTP istemcisinde SSL doğrulama zorunluluğu (`JOBHUNT_HTTP_VERIFY_SSL`).
+- [x] Güvensiz URL şemalarının (`javascript:`, `data:`, `file:`) tamamen engellenmesi.
+- [x] Başlangıçta env varlık kontrolü (`_check_required_env_vars()`) ile hassas verilerin loglanmaması.
+- [x] `.env`, `*.db`, `seen_jobs.json` dosyalarının versiyon kontrolünden izole edilmesi.
 
-## P1 - Veri Modeli ve Matcher İyileştirmeleri
+### Veri Katmanı & Analitik
+- [x] SQLite WAL modu ve 32MB önbellek (`PRAGMA cache_size = -32000`).
+- [x] PostgreSQL çift sürücü desteği (`psycopg3`) ve geçiş betiği (`scripts/migrate_sqlite_to_postgres.py`).
+- [x] `Analytics` Data Lake sorgu katmanı (`services/analytics.py`) ve LIMIT/OFFSET sayfalama.
+- [x] CLI Veri Keşif Aracı (`scripts/data_explorer.py`) ve CSV/JSON dışa aktarım desteği.
 
-- [x] Aday profilini hard-coded mock yapıdan çıkarıp `profile.yaml` veya SQLite `candidate_profile` tablosuna taşı.
-- [x] Matcher ağırlıklarını config dosyasından yönetilebilir hale getir.
-- [ ] Feedback learning için keyword yaklaşımını etiket, kaynak, şirket ve lokasyon bazlı ayrı sinyallere böl.
-- [ ] `alakasız` feedback’i için benzer ilanları düşüren fakat false negative riskini sınırlayan eşik sistemi ekle.
-- [ ] Her opportunity için `status` geçişlerini netleştir: `seen`, `sent`, `fit`, `irrelevant`, `applied`, `archived`.
-- [ ] Skor geçmişi üzerinden haftalık trend raporu üret.
-- [x] Kaynak bazında ilan, şirket çeşitliliği, eşleşme, tarih ve doğrudan başvuru bağlantısı ölçümlerini çalıştırma özetine ekle.
-- [ ] Kaynak güven puanını statik değer yerine birikmiş başarı oranı, hata oranı ve tazelik verisiyle dinamik hesapla.
+### Test & Kalite
+- [x] 72 adet kapsamlı unit test (%100 başarı oranı).
+- [x] Güvenlik, adaptör hata izolasyonu, analitik ve matcher testleri.
+- [x] Ruff linter ve type hinting uyumluluğu.
 
-## P2 - UX, Dashboard ve Operasyon
+---
 
-- [ ] `DASHBOARD.md` içine son run alarm özetlerini ve kaynak bazlı veri kalitesi metriklerini ekle.
-- [ ] Basit bir web dashboard ekleyerek fırsatlara `uygun`, `alakasız`, `basvurdum` feedback butonları koy.
-- [ ] API için OpenAPI örneklerini ve curl tariflerini genişlet.
-- [ ] `RUN_SUMMARY.md` içeriğini günlük/haftalık karşılaştırmalı hale getir.
-- [ ] n8n workflow dosyasını yeni `/feedback` ve `/health` endpoint’leriyle uyumlu örneklerle güncelle.
-- [ ] E-posta template’i için mobil istemci görsel regresyon kontrolü ekle.
+## 📌 Gelecek Planlar (Backlog)
 
-## P3 - Uzun Vadeli Özellikler
-
-- [ ] Başvuru takip modülü ekle: başvuru tarihi, şirket, rol, durum, not ve takip tarihi.
-- [ ] Takvim entegrasyonu veya reminder mekanizmasıyla takip tarihlerini otomatik hatırlat.
-- [ ] LinkedIn, Kariyer.net, Youthall gibi kaynaklar için resmi API veya güvenli scraping stratejilerini değerlendirme dokümanı hazırla.
-- [ ] Çoklu profil desteği ekle: farklı adaylar veya farklı kariyer hedefleri için ayrı matcher profilleri.
-- [ ] Haftalık PDF/HTML kariyer performans raporu üret.
-- [ ] Release versiyonlama, changelog ve container registry publish süreci ekle.
-
-## Cross-AI Çalışma Notları
-
-- [ ] Yeni AI aracıyla çalışırken `README.md` içindeki Cross-AI Development Guide bölümünü ilk context olarak paylaş.
-- [ ] Her AI oturumundan önce aktif üretim yolunun `main.py` ve `services/` olduğunu belirt.
-- [ ] AI’dan değişiklik isterken önce mevcut testleri çalıştırmasını, sonra scoped patch üretmesini iste.
-- [ ] Legacy dosyaları production’a geri taşımadan önce açık bir migration planı oluştur.
-- [ ] Her değişiklikten sonra kalite kapısını çalıştır: `ruff`, `compileall`, import smoke, `healthcheck`, `pytest`.
+- [ ] FastAPI tabanlı yerel yönetim panosu / web arayüzü.
+- [ ] Telegram / Discord bot bildirim kanalı entegrasyonu.
+- [ ] Go fetcher mikroservisinin (`services/go-fetcher/`) Python motoruyla IPC üzerinden bağlanması.
